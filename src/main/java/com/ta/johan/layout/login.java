@@ -22,7 +22,7 @@ public class login extends javax.swing.JFrame {
 
     public login() {
         initComponents();
-        
+
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
 //        this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setUndecorated(true); // <-- the title bar is removed here
@@ -61,7 +61,6 @@ public class login extends javax.swing.JFrame {
 //        } catch (Exception ex) {
 //        }
 //    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -291,6 +290,7 @@ public class login extends javax.swing.JFrame {
 
     private void buttonImageReflection3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection3ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         op.setVisible(true);
     }//GEN-LAST:event_buttonImageReflection3ActionPerformed
 
@@ -303,10 +303,11 @@ public class login extends javax.swing.JFrame {
         close();
     }//GEN-LAST:event_buttonImageReflection2ActionPerformed
 
-    public void close(){
+    public void close() {
         WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
     }
+
     /**
      * @param args the command line arguments
      */

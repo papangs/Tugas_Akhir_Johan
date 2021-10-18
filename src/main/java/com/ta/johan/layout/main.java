@@ -4,9 +4,12 @@
  */
 package com.ta.johan.layout;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import sun.applet.Main;
 
 /**
@@ -18,19 +21,18 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
-    
     kriteria k;
     home h;
-    
+
     public main() {
         initComponents();
 //        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
 //        this.setUndecorated(true); // <-- the title bar is removed here
         this.setExtendedState(MAXIMIZED_BOTH);
-        
+
         k = new kriteria();
         h = new home();
-        
+
         if (!h.isVisible()) {
             try {
                 jDesktopPanetransparan1.add(h);
@@ -85,7 +87,6 @@ public class main extends javax.swing.JFrame {
 //                break;
 //        }
 //    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,7 +117,7 @@ public class main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN MARKETPLACE BERDASARKAN KEBUTUHAN PENGGUNA MENGGUNAKAN METODE ANALYTICAL HIERARCHY PROCESS (AHP)");
 
-        buttonImageReflection2.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection2.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconfinder_118770_home_icon_512px.png"))); // NOI18N
         buttonImageReflection2.setText("HOME");
         buttonImageReflection2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +126,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        buttonImageReflection4.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection4.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clipboard.png"))); // NOI18N
         buttonImageReflection4.setText("KRITERIA");
         buttonImageReflection4.addActionListener(new java.awt.event.ActionListener() {
@@ -134,27 +135,27 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        buttonImageReflection5.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection5.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/list.png"))); // NOI18N
         buttonImageReflection5.setText("SUBKRITERIA");
 
-        buttonImageReflection3.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection3.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1461876790_stock_task-assigned-to copy.png"))); // NOI18N
         buttonImageReflection3.setText("ALTERNATIF");
 
-        buttonImageReflection1.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection1.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/question.png"))); // NOI18N
         buttonImageReflection1.setText("USER");
 
-        jDesktopPanetransparan1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 255, 255), 1, true));
-        jDesktopPanetransparan1.setForeground(new java.awt.Color(204, 255, 255));
+        jDesktopPanetransparan1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jDesktopPanetransparan1.setForeground(new java.awt.Color(0, 0, 0));
         jDesktopPanetransparan1.setOpaque(false);
         jDesktopPanetransparan1.setLayout(new java.awt.BorderLayout());
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(204, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
-        buttonImageReflection6.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection6.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493393979_Finance_finance_caaslculator.png"))); // NOI18N
         buttonImageReflection6.setText("PERHITUNGAN");
 
@@ -222,6 +223,11 @@ public class main extends javax.swing.JFrame {
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493449455_Log Out.png"))); // NOI18N
         jMenuItem2.setText("Logout");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -292,6 +298,22 @@ public class main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_buttonImageReflection4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+//        close();
+        int yakin = JOptionPane.showConfirmDialog(this, "Are you Sure Log Out Application ?", "Confirm", JOptionPane.YES_NO_OPTION);
+        login o = new login();
+        if (yakin == JOptionPane.YES_OPTION) {
+            this.setVisible(false);
+            o.setVisible(true);
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    public void close() {
+        WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+    }
 
     /**
      * @param args the command line arguments
