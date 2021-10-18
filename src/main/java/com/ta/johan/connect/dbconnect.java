@@ -17,7 +17,7 @@ public class dbconnect {
         if (koneksi == null) {
             try {
                 String url;
-                url = "jdbc:mysql://Localhost/tugas_akhir_johan";
+                url = "jdbc:mysql://localhost/tugas_akhir_johan";
                 String user = "root";
                 String password = "";
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
