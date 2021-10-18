@@ -23,7 +23,7 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
         
-//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
 //        this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setUndecorated(true); // <-- the title bar is removed here
         op = new main();
@@ -98,7 +98,7 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jDesktopPaneGambar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jDesktopPaneGambar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 255, 255));
