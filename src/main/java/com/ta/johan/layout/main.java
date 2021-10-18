@@ -4,6 +4,11 @@
  */
 package com.ta.johan.layout;
 
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sun.applet.Main;
+
 /**
  *
  * @author Irawan Papang S
@@ -13,13 +18,74 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
+    
+    kriteria k;
+    home h;
+    
     public main() {
         initComponents();
 //        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
 //        this.setUndecorated(true); // <-- the title bar is removed here
         this.setExtendedState(MAXIMIZED_BOTH);
+        
+        k = new kriteria();
+        h = new home();
+        
+        if (!h.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(h);
+                h.show();
+//                h.setClosable(false);
+//                h.setMaximum(true);
+                h.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                h.show();
+//                h.setClosable(false);
+//                h.setMaximum(true);
+                h.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
+//    public void panggil(String userlogin) {
+//        switch (userlogin) {
+//            case "Head of Institution":
+//                enable(true);
+//                
+//                if (!h.isVisible()) {
+//                    try {
+//                        jDesktopPanetransparan1.add(h);
+//                        h.show();
+//                        h.setClosable(false);
+//                        h.setMaximum(true);
+//                        h.setSelected(true);
+//                    } catch (PropertyVetoException ex) {
+//                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                } else {
+//                    try {
+//                        h.show();
+//                        h.setClosable(false);
+//                        h.setMaximum(true);
+//                        h.setSelected(true);
+//                    } catch (PropertyVetoException ex) {
+//                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                }
+//                
+//                break;
+//            case "Admin":
+//                enable(false);
+//                break;
+//        }
+//    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,14 +95,15 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPaneGambar1 = new com.ta.johan.background.JDesktopPaneGambar();
-        buttonImageReflection1 = new usu.widget.glass.ButtonImageReflection();
+        jDesktopPaneGambarHome1 = new com.ta.johan.background.JDesktopPaneGambarHome();
         buttonImageReflection2 = new usu.widget.glass.ButtonImageReflection();
-        buttonImageReflection3 = new usu.widget.glass.ButtonImageReflection();
-        jSeparator1 = new javax.swing.JSeparator();
-        jDesktopPanetransparan1 = new com.ta.johan.background.JDesktopPanetransparan();
         buttonImageReflection4 = new usu.widget.glass.ButtonImageReflection();
         buttonImageReflection5 = new usu.widget.glass.ButtonImageReflection();
+        buttonImageReflection3 = new usu.widget.glass.ButtonImageReflection();
+        buttonImageReflection1 = new usu.widget.glass.ButtonImageReflection();
+        jDesktopPanetransparan1 = new com.ta.johan.background.JDesktopPanetransparan();
+        jSeparator1 = new javax.swing.JSeparator();
+        buttonImageReflection6 = new usu.widget.glass.ButtonImageReflection();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -49,72 +116,99 @@ public class main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN MARKETPLACE BERDASARKAN KEBUTUHAN PENGGUNA MENGGUNAKAN METODE ANALYTICAL HIERARCHY PROCESS (AHP)");
 
-        buttonImageReflection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493405495_29.png"))); // NOI18N
-        buttonImageReflection1.setText("PERHITUNGAN");
+        buttonImageReflection2.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconfinder_118770_home_icon_512px.png"))); // NOI18N
+        buttonImageReflection2.setText("HOME");
+        buttonImageReflection2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection2ActionPerformed(evt);
+            }
+        });
 
-        buttonImageReflection2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493405495_29.png"))); // NOI18N
-        buttonImageReflection2.setText("KRITERIA");
+        buttonImageReflection4.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clipboard.png"))); // NOI18N
+        buttonImageReflection4.setText("KRITERIA");
+        buttonImageReflection4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection4ActionPerformed(evt);
+            }
+        });
 
-        buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493405495_29.png"))); // NOI18N
-        buttonImageReflection3.setText("USER");
+        buttonImageReflection5.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/list.png"))); // NOI18N
+        buttonImageReflection5.setText("SUBKRITERIA");
 
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonImageReflection3.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1461876790_stock_task-assigned-to copy.png"))); // NOI18N
+        buttonImageReflection3.setText("ALTERNATIF");
 
+        buttonImageReflection1.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/question.png"))); // NOI18N
+        buttonImageReflection1.setText("USER");
+
+        jDesktopPanetransparan1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 255, 255), 1, true));
+        jDesktopPanetransparan1.setForeground(new java.awt.Color(204, 255, 255));
         jDesktopPanetransparan1.setOpaque(false);
+        jDesktopPanetransparan1.setLayout(new java.awt.BorderLayout());
 
-        buttonImageReflection4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493405495_29.png"))); // NOI18N
-        buttonImageReflection4.setText("SUBKRITERIA");
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(204, 255, 255));
 
-        buttonImageReflection5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493405495_29.png"))); // NOI18N
-        buttonImageReflection5.setText("ALTERNATIF");
+        buttonImageReflection6.setForeground(new java.awt.Color(204, 255, 255));
+        buttonImageReflection6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493393979_Finance_finance_caaslculator.png"))); // NOI18N
+        buttonImageReflection6.setText("PERHITUNGAN");
 
-        jDesktopPaneGambar1.setLayer(buttonImageReflection1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(buttonImageReflection2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(buttonImageReflection3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(jDesktopPanetransparan1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(buttonImageReflection4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneGambar1.setLayer(buttonImageReflection5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(jDesktopPanetransparan1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(buttonImageReflection6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPaneGambar1Layout = new javax.swing.GroupLayout(jDesktopPaneGambar1);
-        jDesktopPaneGambar1.setLayout(jDesktopPaneGambar1Layout);
-        jDesktopPaneGambar1Layout.setHorizontalGroup(
-            jDesktopPaneGambar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambar1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDesktopPaneGambarHome1Layout = new javax.swing.GroupLayout(jDesktopPaneGambarHome1);
+        jDesktopPaneGambarHome1.setLayout(jDesktopPaneGambarHome1Layout);
+        jDesktopPaneGambarHome1Layout.setHorizontalGroup(
+            jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPaneGambar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPaneGambar1Layout.createSequentialGroup()
-                        .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
+                        .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)
+                        .addComponent(buttonImageReflection4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)
+                        .addComponent(buttonImageReflection5, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection4, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                        .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)
+                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection5, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
+                        .addComponent(buttonImageReflection6, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jDesktopPaneGambar1Layout.setVerticalGroup(
-            jDesktopPaneGambar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneGambar1Layout.createSequentialGroup()
+        jDesktopPaneGambarHome1Layout.setVerticalGroup(
+            jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneGambarHome1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPaneGambar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonImageReflection2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonImageReflection3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonImageReflection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonImageReflection4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonImageReflection5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonImageReflection5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonImageReflection6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonImageReflection4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jDesktopPaneGambar1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jDesktopPaneGambarHome1, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("File");
 
@@ -150,6 +244,52 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonImageReflection2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection2ActionPerformed
+        // TODO add your handling code here:
+        if (!h.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(h);
+                h.show();
+//                h.setClosable(false);
+//                h.setMaximum(true);
+                h.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                h.show();
+//                h.setClosable(false);
+//                h.setMaximum(true);
+                h.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_buttonImageReflection2ActionPerformed
+
+    private void buttonImageReflection4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection4ActionPerformed
+        // TODO add your handling code here:
+        if (!k.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(k);
+                k.show();
+//                controlg.getData(j);
+                k.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                k.show();
+//                controlg.getData(j);
+                k.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_buttonImageReflection4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +332,8 @@ public class main extends javax.swing.JFrame {
     private usu.widget.glass.ButtonImageReflection buttonImageReflection3;
     private usu.widget.glass.ButtonImageReflection buttonImageReflection4;
     private usu.widget.glass.ButtonImageReflection buttonImageReflection5;
-    private com.ta.johan.background.JDesktopPaneGambar jDesktopPaneGambar1;
+    private usu.widget.glass.ButtonImageReflection buttonImageReflection6;
+    private com.ta.johan.background.JDesktopPaneGambarHome jDesktopPaneGambarHome1;
     private com.ta.johan.background.JDesktopPanetransparan jDesktopPanetransparan1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
