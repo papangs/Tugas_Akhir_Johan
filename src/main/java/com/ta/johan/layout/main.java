@@ -210,6 +210,8 @@ public class main extends javax.swing.JFrame {
 
         getContentPane().add(jDesktopPaneGambarHome1, java.awt.BorderLayout.CENTER);
 
+        jMenuBar1.setOpaque(false);
+
         jMenu1.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
