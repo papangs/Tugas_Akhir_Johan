@@ -131,7 +131,7 @@
         <Component class="usu.widget.glass.ButtonImageReflection" name="buttonImageReflection3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/1496415864_gnome-session-logout.png"/>
+              <Image iconType="3" name="/image/1496415864_gnome-session-logout.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Enter"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -166,8 +166,8 @@
                           <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel7" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel11" min="-2" pref="54" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel1" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="buttonImageReflection2" min="-2" max="-2" attributes="0"/>

@@ -113,7 +113,7 @@ public class login extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Password : ");
 
-        buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496415864_gnome-session-logout.png"))); // NOI18N
+        buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1496415864_gnome-session-logout.png"))); // NOI18N
         buttonImageReflection3.setText("Enter");
         buttonImageReflection3.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         buttonImageReflection3.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +189,7 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
