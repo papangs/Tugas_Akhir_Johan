@@ -4,6 +4,7 @@
  */
 package com.ta.johan.layout;
 
+import com.ta.johan.control.control_kriteria;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
@@ -21,6 +22,7 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
+    control_kriteria controlkriteria;
     kriteria k;
     home h;
 
@@ -30,6 +32,8 @@ public class main extends javax.swing.JFrame {
 //        this.setUndecorated(true); // <-- the title bar is removed here
         this.setExtendedState(MAXIMIZED_BOTH);
 
+        controlkriteria = new control_kriteria();
+        
         k = new kriteria();
         h = new home();
 
@@ -283,7 +287,7 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(k);
                 k.show();
-//                controlg.getData(j);
+                controlkriteria.getData(k);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -291,7 +295,7 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 k.show();
-//                controlg.getData(j);
+                controlkriteria.getData(k);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
