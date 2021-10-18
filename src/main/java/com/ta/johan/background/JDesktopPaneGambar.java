@@ -17,7 +17,7 @@ public class JDesktopPaneGambar extends JDesktopPane {
         Graphics2D graphics = (Graphics2D) g.create();
 
 //        Image img = new ImageIcon(getClass().getResource("/Image/388012.jpg")).getImage();
-        Image img = new ImageIcon(getClass().getResource("/image/background-blue-patterns.jpg")).getImage();
+        Image img = new ImageIcon(getClass().getResource("/image/388012.jpg")).getImage();
 
         graphics.drawImage(img, 0, 0, getWidth(), getHeight(), null);
 

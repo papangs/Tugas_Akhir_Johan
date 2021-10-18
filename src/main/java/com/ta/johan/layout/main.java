@@ -15,6 +15,8 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
+//        this.setUndecorated(true); // <-- the title bar is removed here
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 

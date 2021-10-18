@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mainClass>com.ta.johan.layout.main</mainClass>
+        <mainClass>com.ta.johan.layout.login</mainClass>
     </properties>
     
     <dependencies>
