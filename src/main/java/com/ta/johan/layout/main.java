@@ -118,8 +118,13 @@ public class main extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN MARKETPLACE BERDASARKAN KEBUTUHAN PENGGUNA MENGGUNAKAN METODE ANALYTICAL HIERARCHY PROCESS (AHP)");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                close(evt);
+            }
+        });
 
         buttonImageReflection2.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconfinder_118770_home_icon_512px.png"))); // NOI18N
@@ -313,6 +318,14 @@ public class main extends javax.swing.JFrame {
             o.setVisible(true);
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
+        // TODO add your handling code here:
+        int yakin = JOptionPane.showConfirmDialog(this, "Are you Sure Exit Application ?", "Confirm", JOptionPane.YES_NO_OPTION);
+        if (yakin == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_close
 
     public void close() {
         WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
