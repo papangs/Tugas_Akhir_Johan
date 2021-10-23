@@ -193,6 +193,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="SUBKRITERIA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection5ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="usu.widget.glass.ButtonImageReflection" name="buttonImageReflection3">
           <Properties>
@@ -204,6 +207,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ALTERNATIF"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="usu.widget.glass.ButtonImageReflection" name="buttonImageReflection1">
           <Properties>

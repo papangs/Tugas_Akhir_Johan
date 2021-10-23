@@ -23,7 +23,10 @@ public class main extends javax.swing.JFrame {
      * Creates new form main
      */
     control_kriteria controlkriteria;
+    
     kriteria k;
+    subkriteria s;
+    alternatif a;
     home h;
 
     public main() {
@@ -34,6 +37,8 @@ public class main extends javax.swing.JFrame {
 
         controlkriteria = new control_kriteria();
         
+        a = new alternatif();
+        s = new subkriteria();
         k = new kriteria();
         h = new home();
 
@@ -147,10 +152,20 @@ public class main extends javax.swing.JFrame {
         buttonImageReflection5.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/list.png"))); // NOI18N
         buttonImageReflection5.setText("SUBKRITERIA");
+        buttonImageReflection5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection5ActionPerformed(evt);
+            }
+        });
 
         buttonImageReflection3.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1461876790_stock_task-assigned-to copy.png"))); // NOI18N
         buttonImageReflection3.setText("ALTERNATIF");
+        buttonImageReflection3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection3ActionPerformed(evt);
+            }
+        });
 
         buttonImageReflection1.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/question.png"))); // NOI18N
@@ -326,6 +341,50 @@ public class main extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_close
+
+    private void buttonImageReflection5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection5ActionPerformed
+        // TODO add your handling code here:
+        if (!s.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(s);
+                s.show();
+//                controlkriteria.getData(k);
+                s.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                s.show();
+//                controlkriteria.getData(k);
+                s.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_buttonImageReflection5ActionPerformed
+
+    private void buttonImageReflection3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection3ActionPerformed
+        // TODO add your handling code here:
+        if (!a.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(a);
+                a.show();
+//                controlkriteria.getData(k);
+                a.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                a.show();
+//                controlkriteria.getData(k);
+                a.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_buttonImageReflection3ActionPerformed
 
     public void close() {
         WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);

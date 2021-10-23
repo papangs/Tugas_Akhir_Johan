@@ -11,14 +11,14 @@ import javax.swing.DefaultCellEditor;
  *
  * @author Irawan Papang S
  */
-public class kriteria extends javax.swing.JInternalFrame {
+public class subkriteria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form kriteria
      */
     control_kriteria controlkriteria;
 
-    public kriteria() {
+    public subkriteria() {
         initComponents();
         controlkriteria = new control_kriteria();
     }
@@ -49,7 +49,7 @@ public class kriteria extends javax.swing.JInternalFrame {
         setClosable(true);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("Nama Kriteria : ");
+        jLabel9.setText("Nama Subkriteria : ");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class kriteria extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Data Kriteria"));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Data Subkriteria"));
         jScrollPane1.setOpaque(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -183,8 +183,8 @@ public class kriteria extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("List Kriteria", jDesktopPaneGambarChild1);
-        jTabbedPane1.addTab("Perhitungan Matrix Kriteria", jDesktopPaneGambarChild2);
+        jTabbedPane1.addTab("List Subkriteria", jDesktopPaneGambarChild1);
+        jTabbedPane1.addTab("Perhitungan Matrix Subkriteria", jDesktopPaneGambarChild2);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -196,21 +196,21 @@ public class kriteria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controlkriteria.getData(this);
+//        controlkriteria.getData(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        controlkriteria.saveData(this);
+//        controlkriteria.saveData(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controlkriteria.deleteData(this);
+//        controlkriteria.deleteData(this);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
-        controlkriteria.searchData(this);
+//        controlkriteria.searchData(this);
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
@@ -220,12 +220,12 @@ public class kriteria extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        controlkriteria.readData(this);
-
-        for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
-            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
-            defaultEditor.setClickCountToStart(1000000000);
-        }
+//        controlkriteria.readData(this);
+//
+//        for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
+//            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
+//            defaultEditor.setClickCountToStart(1000000000);
+//        }
     }//GEN-LAST:event_jTable1MouseClicked
 
 
