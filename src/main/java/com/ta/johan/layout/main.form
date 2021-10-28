@@ -205,7 +205,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/image/1461876790_stock_task-assigned-to copy.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ALTERNATIF"/>
+            <Property name="text" type="java.lang.String" value="MARKETPLACE"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection3ActionPerformed"/>

@@ -5,6 +5,7 @@
 package com.ta.johan.layout;
 
 import com.ta.johan.control.control_kriteria;
+import com.ta.johan.control.control_subkriteria;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
@@ -23,6 +24,7 @@ public class main extends javax.swing.JFrame {
      * Creates new form main
      */
     control_kriteria controlkriteria;
+    control_subkriteria controlsubkriteria;
     
     kriteria k;
     subkriteria s;
@@ -36,6 +38,7 @@ public class main extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
 
         controlkriteria = new control_kriteria();
+        controlsubkriteria = new control_subkriteria();
         
         a = new alternatif();
         s = new subkriteria();
@@ -160,7 +163,7 @@ public class main extends javax.swing.JFrame {
 
         buttonImageReflection3.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1461876790_stock_task-assigned-to copy.png"))); // NOI18N
-        buttonImageReflection3.setText("ALTERNATIF");
+        buttonImageReflection3.setText("MARKETPLACE");
         buttonImageReflection3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonImageReflection3ActionPerformed(evt);
@@ -348,7 +351,7 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(s);
                 s.show();
-//                controlkriteria.getData(k);
+                controlsubkriteria.getData(s);
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -356,7 +359,7 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 s.show();
-//                controlkriteria.getData(k);
+                controlsubkriteria.getData(s);
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
