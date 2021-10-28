@@ -36,6 +36,8 @@ public class control_list {
     public void resetData(config_list view) {
         view.jLabel10.setVisible(false);
         view.jLabel11.setVisible(false);
+        view.jLabel11.setText("---");
+        view.jLabel12.setText("---");
         buatKolomSesuai(view.jTable1);
     }
 
@@ -83,7 +85,7 @@ public class control_list {
             resetData(view);
         }
     }
-    
+
     public void readDataKriteria(config_list view) {
         int a = view.jTable1.getSelectedRow();
         String query = "SELECT\n"
@@ -120,8 +122,8 @@ public class control_list {
                     + "kriteria.kriteria_name\n"
                     + "FROM\n"
                     + "kriteria\n"
-                    + "where kriteria.seq like '%"+search+"%' "
-                    + "OR kriteria.kriteria_name like '%"+search+"%'";
+                    + "where kriteria.seq like '%" + search + "%' "
+                    + "OR kriteria.kriteria_name like '%" + search + "%'";
 
             Statement statement = (Statement) c.createStatement();
             ResultSet rs = statement.executeQuery(query);
@@ -145,6 +147,45 @@ public class control_list {
                 }
             }
         } catch (SQLException e) {
+        }
+    }
+
+    public void getDataSubkriteria(config_list view) {
+        DefaultTableModel tabelKej = new DefaultTableModel();
+        tabelKej.addColumn("No");
+        tabelKej.addColumn("Seq");
+        tabelKej.addColumn("Nama Subkriteria");
+        tabelKej.addColumn("Seq Kriteria");
+        tabelKej.addColumn("Nama Kriteria");
+        try {
+            String sql = "SELECT\n"
+                    + "	subkriteria.seq, \n"
+                    + "	subkriteria.subkriteria_name, \n"
+                    + "	kriteria.kriteria_name, \n"
+                    + "	kriteria.seq\n"
+                    + "FROM\n"
+                    + "	subkriteria\n"
+                    + "	INNER JOIN\n"
+                    + "	kriteria\n"
+                    + "	ON subkriteria.kriteria_seq = kriteria.seq";
+
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(sql);
+
+            int n = 1;
+            while (r.next()) {
+                tabelKej.addRow(new Object[]{n++,
+                    r.getInt("subkriteria.seq"),
+                    r.getString("subkriteria.subkriteria_name"), r.getInt("kriteria.seq"),
+                    r.getString("kriteria.kriteria_name")});
+            }
+            view.jTable1.setModel(tabelKej);
+        } catch (Exception e) {
+        } finally {
+            view.jTable1.getColumnModel().getColumn(1).setMinWidth(0);
+            view.jTable1.getColumnModel().getColumn(1).setMaxWidth(0);
+            view.jTable1.getColumnModel().getColumn(3).setMinWidth(0);
+            view.jTable1.getColumnModel().getColumn(3).setMaxWidth(0);
         }
     }
 }

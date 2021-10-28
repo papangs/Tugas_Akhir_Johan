@@ -7,6 +7,7 @@ package com.ta.johan.layout;
 import com.ta.johan.control.control_list;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -24,7 +25,7 @@ public class config_list extends javax.swing.JInternalFrame {
 
     public config_list(JTextField jTextField, JLabel label) {
         initComponents();
-        
+
         controllist = new control_list();
         this.jTextField = jTextField;
         this.label = label;
@@ -174,9 +175,14 @@ public class config_list extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTextField.setText(jLabel12.getText());
-        label.setText(jLabel11.getText());
-        this.dispose();
+        if (jLabel12.getText().equals("---")) {
+            JOptionPane.showMessageDialog(this, "Pilih data terlebih dahulu", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            jTextField.setText(jLabel12.getText());
+            label.setText(jLabel11.getText());
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed

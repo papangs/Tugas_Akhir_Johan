@@ -6,8 +6,6 @@
 package com.ta.johan.control;
 
 import com.ta.johan.connect.dbconnect;
-import com.ta.johan.layout.config_list;
-import com.ta.johan.layout.kriteria;
 import com.ta.johan.layout.subkriteria;
 import java.awt.Component;
 import java.sql.Connection;
@@ -40,6 +38,9 @@ public class control_subkriteria {
         view.jLabel11.setVisible(false);
         view.jLabel13.setVisible(false);
         view.jButton3.setVisible(false);
+        view.jLabel13.setText("-");
+        view.jLabel11.setText("-");
+        view.jTextField4.setText("");
         buatKolomSesuai(view.jTable1);
     }
 
@@ -83,10 +84,10 @@ public class control_subkriteria {
 
             int n = 1;
             while (r.next()) {
-                tabelKej.addRow(new Object[]{n++, 
+                tabelKej.addRow(new Object[]{n++,
                     r.getInt("subkriteria.seq"),
-                    r.getString("subkriteria.subkriteria_name"),r.getInt("kriteria.seq"),
-                    r.getString("kriteria.kriteria_name"),});
+                    r.getString("subkriteria.subkriteria_name"), r.getInt("kriteria.seq"),
+                    r.getString("kriteria.kriteria_name")});
             }
             view.jTable1.setModel(tabelKej);
         } catch (Exception e) {
@@ -106,8 +107,9 @@ public class control_subkriteria {
                 if (view.jTextField2.getText().equals("")) {
                     JOptionPane.showMessageDialog(view, "Data Can Not Be Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    String sql = "insert into kriteria set \n"
-                            + "kriteria_name='" + view.jTextField2.getText() + "'";
+                    String sql = "insert into subkriteria set \n"
+                            + "subkriteria_name='" + view.jTextField2.getText() + "',"
+                            + "kriteria_seq='" + view.jLabel13.getText() + "'";
 
                     PreparedStatement p22 = c.prepareStatement(sql);
                     p22.executeUpdate();
@@ -122,8 +124,9 @@ public class control_subkriteria {
                 if (view.jTextField2.getText().equals("")) {
                     JOptionPane.showMessageDialog(view, "Data Can Not Be Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    String sql = "update kriteria set \n"
-                            + "kriteria_name='" + view.jTextField2.getText() + "'"
+                    String sql = "update subkriteria set \n"
+                            + "subkriteria_name='" + view.jTextField2.getText() + "',"
+                            + "kriteria_seq='" + view.jLabel13.getText() + "'"
                             + "where seq ='" + view.jLabel11.getText() + "'";
 
                     PreparedStatement p22 = c.prepareStatement(sql);
@@ -144,25 +147,36 @@ public class control_subkriteria {
     public void readData(subkriteria view) {
         int a = view.jTable1.getSelectedRow();
         String query = "SELECT\n"
-                + "kriteria.seq,\n"
-                + "kriteria.kriteria_name\n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.kriteria_name, \n"
+                + "kriteria.seq\n"
                 + "FROM\n"
+                + "subkriteria\n"
+                + "INNER JOIN\n"
                 + "kriteria\n"
-                + "WHERE kriteria.seq = '" + view.jTable1.getValueAt(a, 1) + "'";
+                + "ON subkriteria.kriteria_seq = kriteria.seq\n"
+                + "WHERE subkriteria.seq = '" + view.jTable1.getValueAt(a, 1) + "'";
         try {
             Statement st = c.createStatement();
             ResultSet r = st.executeQuery(query);
 
             String seq = "";
+            String subcriteria_name = "";
+            String seq_kriteria = "";
             String criteria_name = "";
 
             while (r.next()) {
-                seq = r.getString("kriteria.seq");
+                seq = r.getString("subkriteria.seq");
+                subcriteria_name = r.getString("subkriteria.subkriteria_name");
+                seq_kriteria = r.getString("kriteria.seq");
                 criteria_name = r.getString("kriteria.kriteria_name");
             }
 
             view.jLabel11.setText(seq);
-            view.jTextField2.setText(criteria_name);
+            view.jTextField2.setText(subcriteria_name);
+            view.jLabel13.setText(seq_kriteria);
+            view.jTextField4.setText(criteria_name);
         } catch (SQLException e) {
         } finally {
             view.jButton2.setText("Update");
@@ -173,7 +187,7 @@ public class control_subkriteria {
     public void deleteData(subkriteria view) {
         int yakin = JOptionPane.showConfirmDialog(view, "Are You Sure Want To Delete This data", "Delete", JOptionPane.YES_NO_OPTION);
         if (yakin == JOptionPane.YES_OPTION) {
-            String sql = "delete from kriteria where seq='" + view.jLabel11.getText() + "'";
+            String sql = "delete from subkriteria where seq='" + view.jLabel11.getText() + "'";
             try {
                 PreparedStatement p22 = c.prepareStatement(sql);
                 p22.executeUpdate();
@@ -196,12 +210,17 @@ public class control_subkriteria {
         try {
             int no = 1;
             String query = "SELECT\n"
-                    + "kriteria.seq,\n"
-                    + "kriteria.kriteria_name\n"
+                    + "subkriteria.seq, \n"
+                    + "subkriteria.subkriteria_name, \n"
+                    + "kriteria.kriteria_name, \n"
+                    + "kriteria.seq\n"
                     + "FROM\n"
+                    + "subkriteria\n"
+                    + "INNER JOIN\n"
                     + "kriteria\n"
-                    + "where kriteria.seq like '%"+search+"%' "
-                    + "OR kriteria.kriteria_name like '%"+search+"%'";
+                    + "ON subkriteria.kriteria_seq = kriteria.seq\n"
+                    + "where subkriteria.subkriteria_name like '%" + search + "%' "
+                    + "OR kriteria.kriteria_name like '%" + search + "%'";
 
             Statement statement = (Statement) c.createStatement();
             ResultSet rs = statement.executeQuery(query);
@@ -218,6 +237,8 @@ public class control_subkriteria {
                 while (rs.next()) {
                     Vector vector = new Vector();
                     vector.addElement(j++);
+                    vector.addElement(rs.getString("subkriteria.seq"));
+                    vector.addElement(rs.getString("subkriteria.subkriteria_name"));
                     vector.addElement(rs.getString("kriteria.seq"));
                     vector.addElement(rs.getString("kriteria.kriteria_name"));
 
@@ -227,6 +248,5 @@ public class control_subkriteria {
         } catch (SQLException e) {
         }
     }
-    
-    
+
 }

@@ -4,12 +4,13 @@
  */
 package com.ta.johan.layout;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud.DataModel;
 import com.ta.johan.control.control_list;
+import com.ta.johan.control.control_subkriteria;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultCellEditor;
 import sun.applet.Main;
 
 /**
@@ -23,10 +24,12 @@ public class subkriteria extends javax.swing.JInternalFrame {
      */
     
     control_list controllist;
+    control_subkriteria controlsub;
     
     public subkriteria() {
         initComponents();
         controllist = new control_list();
+        controlsub = new control_subkriteria();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -206,11 +209,12 @@ public class subkriteria extends javax.swing.JInternalFrame {
             jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneGambarChild1Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addGroup(jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,21 +245,21 @@ public class subkriteria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        controlkriteria.getData(this);
+        controlsub.getData(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        controlkriteria.saveData(this);
+        controlsub.saveData(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//        controlkriteria.deleteData(this);
+        controlsub.deleteData(this);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
-//        controlkriteria.searchData(this);
+        controlsub.searchData(this);
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
@@ -265,12 +269,12 @@ public class subkriteria extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-//        controlkriteria.readData(this);
-//
-//        for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
-//            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
-//            defaultEditor.setClickCountToStart(1000000000);
-//        }
+        controlsub.readData(this);
+
+        for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
+            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
+            defaultEditor.setClickCountToStart(1000000000);
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -281,6 +285,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
                 jDesktopPaneGambarChild1.add(b);
                 b.show();
                 b.jScrollPane1.setBorder(BorderFactory.createTitledBorder("List Kriteria"));
+                b.setTitle("Kriteria");
                 controllist.getDataKriteria(b);
                 b.setSelected(true);
             } catch (PropertyVetoException ex) {
@@ -290,6 +295,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
             try {
                 b.show();
                 b.jScrollPane1.setBorder(BorderFactory.createTitledBorder("List Kriteria"));
+                b.setTitle("Kriteria");
                 controllist.getDataKriteria(b);
                 b.setSelected(true);
             } catch (PropertyVetoException ex) {
