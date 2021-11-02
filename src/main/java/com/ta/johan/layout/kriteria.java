@@ -45,6 +45,22 @@ public class kriteria extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jDesktopPaneGambarChild2 = new com.ta.johan.background.JDesktopPaneGambarChild();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        panelGlass2 = new usu.widget.glass.PanelGlass();
+        panelGlass3 = new usu.widget.glass.PanelGlass();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        panelGlass4 = new usu.widget.glass.PanelGlass();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
 
         setClosable(true);
@@ -154,7 +170,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 718, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel10)
@@ -180,11 +196,251 @@ public class kriteria extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("List Kriteria", jDesktopPaneGambarChild1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Klik baris pada table untuk mengubah atau menambahkan nilai dan juga memilih kriteria mana yang lebih penting.");
+
+        jScrollPane4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jScrollPane4.setOpaque(false);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jTable4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable4KeyReleased(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTable4);
+
+        panelGlass3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Pilih Kriteria Yang Paling Sesuai", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jRadioButton1.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jRadioButton1.setText("-");
+        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton1.setOpaque(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jRadioButton2.setText("-");
+        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton2.setOpaque(false);
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass3Layout = new javax.swing.GroupLayout(panelGlass3);
+        panelGlass3.setLayout(panelGlass3Layout);
+        panelGlass3Layout.setHorizontalGroup(
+            panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelGlass3Layout.setVerticalGroup(
+            panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelGlass4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nilai", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jTextField4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass4Layout = new javax.swing.GroupLayout(panelGlass4);
+        panelGlass4.setLayout(panelGlass4Layout);
+        panelGlass4Layout.setHorizontalGroup(
+            panelGlass4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField4)
+                .addContainerGap())
+        );
+        panelGlass4Layout.setVerticalGroup(
+            panelGlass4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel7.setText("jLabel6");
+        jLabel7.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel7PropertyChange(evt);
+            }
+        });
+
+        jLabel8.setText("jLabel6");
+        jLabel8.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel8PropertyChange(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1492945503_floppy_disk_save.png"))); // NOI18N
+        jButton4.setText("Save");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("jLabel6");
+        jLabel12.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel12PropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass2Layout = new javax.swing.GroupLayout(panelGlass2);
+        panelGlass2.setLayout(panelGlass2Layout);
+        panelGlass2Layout.setHorizontalGroup(
+            panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelGlass3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelGlass4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelGlass2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addGap(0, 218, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelGlass2Layout.setVerticalGroup(
+            panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelGlass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelGlass4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel7))
+                .addContainerGap())
+        );
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
+        jButton7.setText("Refresh");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
+        jButton5.setText("Random");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493087423_running_process.png"))); // NOI18N
+        jButton6.setText("Proses");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPaneGambarChild2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(panelGlass2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPaneGambarChild2Layout = new javax.swing.GroupLayout(jDesktopPaneGambarChild2);
+        jDesktopPaneGambarChild2.setLayout(jDesktopPaneGambarChild2Layout);
+        jDesktopPaneGambarChild2Layout.setHorizontalGroup(
+            jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE))
+                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addComponent(panelGlass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4)))
+                .addContainerGap())
+        );
+        jDesktopPaneGambarChild2Layout.setVerticalGroup(
+            jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton5)
+                    .addComponent(jButton7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addContainerGap())
+        );
+
         jTabbedPane1.addTab("Pembobotan", jDesktopPaneGambarChild2);
         jTabbedPane1.addTab("Perhitungan Matrix", jDesktopPaneGambarChild3);
 
@@ -230,21 +486,143 @@ public class kriteria extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+//        control.openForm(this);
+//        for (int i = 0; i < jTable4.getColumnModel().getColumnCount(); i++) {
+//            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
+//            defaultEditor.setClickCountToStart(1000000000);
+//        }
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void jTable4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable4KeyReleased
+        // TODO add your handling code here:
+        jTable4MouseClicked(null);
+    }//GEN-LAST:event_jTable4KeyReleased
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        // TODO add your handling code here:
+//        char karakter = evt.getKeyChar();
+//        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))) {
+//            getToolkit().beep();
+//            evt.consume();
+//        }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void jLabel7PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel7PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7PropertyChange
+
+    private void jLabel8PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel8PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8PropertyChange
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+//        control.saveProccessMatrix(this);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jLabel12PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel12PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12PropertyChange
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+//        control.getData(this);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+//        int rCon = jTable4.getRowCount();
+//        for (int i = 0; i < rCon; i++) {
+//            String[] saaty = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+//            int random = (int) (Math.random() * 9);
+//            String setran = saaty[random];
+//            jTable4.setValueAt(setran, i, 7);
+//        }
+//
+//        int rColum = jTable4.getColumnCount();
+//        for (int j = 0; j < rCon; j++) {
+//            for (int i = 0; i < rColum; i++) {
+//                try {
+//                    String[] saaty = {String.valueOf(jTable4.getValueAt(j, 1)), String.valueOf(jTable4.getValueAt(j, 3))};
+//                    int random = (int) (Math.random() * 2);
+//                    String setran = saaty[random];
+//                    jTable4.setValueAt(setran, j, 5);
+//
+//                    String sql = "SELECT\n"
+//                    + "kriteria.seq, \n"
+//                    + "kriteria.kriteria_name\n"
+//                    + "FROM\n"
+//                    + "kriteria\n"
+//                    + "WHERE seq = '" + setran + "'";
+//
+//                    Statement st = c.createStatement();
+//                    ResultSet r = st.executeQuery(sql);
+//
+//                    String namaPilihan = "";
+//
+//                    while (r.next()) {
+//
+//                        namaPilihan = r.getString("kriteria.kriteria_name");
+//
+//                    }
+//                    jTable4.setValueAt(namaPilihan, j, 6);
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Matrix_Kriteria.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+//        control.saveProccessMatrixAll(this);
+//        jTabbedPane1.setEnabledAt(1, true);
+//        jTabbedPane1.setSelectedIndex(1);
+//        jTabbedPane1.setEnabledAt(0, false);
+//        jButton3.doClick();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton7;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild2;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable4;
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField4;
+    public usu.widget.glass.PanelGlass panelGlass2;
+    private usu.widget.glass.PanelGlass panelGlass3;
+    private usu.widget.glass.PanelGlass panelGlass4;
     // End of variables declaration//GEN-END:variables
 }

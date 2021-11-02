@@ -37,6 +37,7 @@ public class control_kriteria {
         view.jButton2.setText("Save");
         view.jLabel11.setVisible(false);
         view.jButton3.setVisible(false);
+        view.panelGlass2.setVisible(false);
         buatKolomSesuai(view.jTable1);
     }
 

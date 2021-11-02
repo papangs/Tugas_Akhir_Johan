@@ -57,6 +57,27 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jDesktopPaneGambarChild2 = new com.ta.johan.background.JDesktopPaneGambarChild();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        panelGlass2 = new usu.widget.glass.PanelGlass();
+        panelGlass3 = new usu.widget.glass.PanelGlass();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        panelGlass4 = new usu.widget.glass.PanelGlass();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
 
         setClosable(true);
@@ -186,7 +207,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -229,11 +250,303 @@ public class subkriteria extends javax.swing.JInternalFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("List Subkriteria", jDesktopPaneGambarChild1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel1.setText("Klik baris pada table untuk mengubah atau menambahkan nilai dan juga memilih kriteria mana yang lebih penting.");
+
+        jLabel3.setText("Kriteria : ");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-PILIH-" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Kategori Alternatif : ");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-PILIH-" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jScrollPane4.setOpaque(false);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jTable4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable4KeyReleased(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTable4);
+
+        panelGlass3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Pilih Kriteria Yang Paling Sesuai", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jRadioButton1.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jRadioButton1.setText("-");
+        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton1.setOpaque(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jRadioButton2.setText("-");
+        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton2.setOpaque(false);
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass3Layout = new javax.swing.GroupLayout(panelGlass3);
+        panelGlass3.setLayout(panelGlass3Layout);
+        panelGlass3Layout.setHorizontalGroup(
+            panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelGlass3Layout.setVerticalGroup(
+            panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelGlass4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nilai", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jTextField5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass4Layout = new javax.swing.GroupLayout(panelGlass4);
+        panelGlass4.setLayout(panelGlass4Layout);
+        panelGlass4Layout.setHorizontalGroup(
+            panelGlass4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField5)
+                .addContainerGap())
+        );
+        panelGlass4Layout.setVerticalGroup(
+            panelGlass4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel7.setText("jLabel6");
+        jLabel7.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel7PropertyChange(evt);
+            }
+        });
+
+        jLabel8.setText("jLabel6");
+        jLabel8.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel8PropertyChange(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1492945503_floppy_disk_save.png"))); // NOI18N
+        jButton5.setText("Save");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("jLabel6");
+        jLabel14.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel14PropertyChange(evt);
+            }
+        });
+
+        jLabel15.setText("jLabel6");
+        jLabel15.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel15PropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGlass2Layout = new javax.swing.GroupLayout(panelGlass2);
+        panelGlass2.setLayout(panelGlass2Layout);
+        panelGlass2Layout.setHorizontalGroup(
+            panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelGlass4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelGlass2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelGlass3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelGlass2Layout.setVerticalGroup(
+            panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGlass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelGlass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelGlass4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel15))
+                .addContainerGap())
+        );
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
+        jButton7.setText("Refresh");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
+        jButton6.setText("Random");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
+        jButton8.setText("Proses");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPaneGambarChild2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(panelGlass2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPaneGambarChild2Layout = new javax.swing.GroupLayout(jDesktopPaneGambarChild2);
+        jDesktopPaneGambarChild2.setLayout(jDesktopPaneGambarChild2Layout);
+        jDesktopPaneGambarChild2Layout.setHorizontalGroup(
+            jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelGlass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+                                .addGap(100, 100, 100))
+                            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)))
+                .addContainerGap())
+        );
+        jDesktopPaneGambarChild2Layout.setVerticalGroup(
+            jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton6)
+                                .addComponent(jButton7)
+                                .addComponent(jButton8)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                    .addComponent(panelGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         jTabbedPane1.addTab("Pembobotan", jDesktopPaneGambarChild2);
         jTabbedPane1.addTab("Perhitungan Matrix", jDesktopPaneGambarChild3);
 
@@ -310,25 +623,172 @@ public class subkriteria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+//        control.KriteriaCode(this);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+//        control.KategoriCode(this);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+//        control.openForm(this);
+//        for (int i = 0; i < jTable4.getColumnModel().getColumnCount(); i++) {
+//            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
+//            defaultEditor.setClickCountToStart(1000000000);
+//        }
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void jTable4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable4KeyReleased
+        // TODO add your handling code here:
+        jTable4MouseClicked(null);
+    }//GEN-LAST:event_jTable4KeyReleased
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        // TODO add your handling code here:
+//        char karakter = evt.getKeyChar();
+//        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))) {
+//            getToolkit().beep();
+//            evt.consume();
+//        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jLabel7PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel7PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7PropertyChange
+
+    private void jLabel8PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel8PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8PropertyChange
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+//        control.saveProccessMatrix(this);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jLabel14PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel14PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14PropertyChange
+
+    private void jLabel15PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel15PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel15PropertyChange
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+//        control.getData(this);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+//        int rCon = jTable4.getRowCount();
+//        for (int i = 0; i < rCon; i++) {
+//            String[] saaty = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+//            int random = (int) (Math.random() * 9);
+//            String setran = saaty[random];
+//            jTable4.setValueAt(setran, i, 7);
+//        }
+//
+//        int rColum = jTable4.getColumnCount();
+//        for (int j = 0; j < rCon; j++) {
+//            for (int i = 0; i < rColum; i++) {
+//                try {
+//                    String[] saaty = {String.valueOf(jTable4.getValueAt(j, 1)), String.valueOf(jTable4.getValueAt(j, 3))};
+//                    int random = (int) (Math.random() * 2);
+//                    String setran = saaty[random];
+//                    jTable4.setValueAt(setran, j, 5);
+//
+//                    String sql = "SELECT\n"
+//                    + "alternatif.seq, \n"
+//                    + "alternatif.alternatif_name, \n"
+//                    + "alternatif.kategori_seq, \n"
+//                    + "kategori_alternatif.kategori_name\n"
+//                    + "FROM\n"
+//                    + "alternatif\n"
+//                    + "INNER JOIN\n"
+//                    + "kategori_alternatif\n"
+//                    + "ON \n"
+//                    + "alternatif.kategori_seq = kategori_alternatif.seq\n"
+//                    + "WHERE alternatif.seq = '"+setran+"'";
+//
+//                    Statement st = c.createStatement();
+//                    ResultSet r = st.executeQuery(sql);
+//
+//                    String namaPilihan = "";
+//
+//                    while (r.next()) {
+//
+//                        namaPilihan = r.getString("alternatif.alternatif_name");
+//
+//                    }
+//                    jTable4.setValueAt(namaPilihan, j, 6);
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Matrix_Alternatif.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+//        control.saveProccessMatrixAll(this);
+//        jTabbedPane1.setEnabledAt(1, true);
+//        jTabbedPane1.setSelectedIndex(1);
+//        jTabbedPane1.setEnabledAt(0, false);
+//        jButton3.doClick();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton7;
+    public javax.swing.JButton jButton8;
+    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox2;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild2;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable4;
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField5;
+    public usu.widget.glass.PanelGlass panelGlass2;
+    private usu.widget.glass.PanelGlass panelGlass3;
+    private usu.widget.glass.PanelGlass panelGlass4;
     // End of variables declaration//GEN-END:variables
 }

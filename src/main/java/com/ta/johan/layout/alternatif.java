@@ -24,7 +24,7 @@ public class alternatif extends javax.swing.JInternalFrame {
      */
     control_list controllist;
     control_alternatif controlalternatif;
-    
+
     public alternatif() {
         initComponents();
         controllist = new control_list();
@@ -311,6 +311,7 @@ public class alternatif extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        controlalternatif.getData(this);
         controlalternatif.getDataSubkriteria(this);
+        controlalternatif.getDataAlternatifSubkriteria(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -337,7 +338,7 @@ public class alternatif extends javax.swing.JInternalFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         controlalternatif.readData(this);
-        
+
         for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
             final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
             defaultEditor.setClickCountToStart(1000000000);

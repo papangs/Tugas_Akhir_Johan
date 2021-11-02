@@ -166,42 +166,25 @@ public class control_alternatif {
         int a = view.jTable1.getSelectedRow();
         String query = "SELECT\n"
                 + "alternatif.seq, \n"
-                + "alternatif.alternatif_name, \n"
-                + "subkriteria.seq, \n"
-                + "subkriteria.subkriteria_name, \n"
-                + "kriteria.seq, \n"
-                + "kriteria.kriteria_name\n"
+                + "alternatif.alternatif_name\n"
                 + "FROM\n"
                 + "alternatif\n"
-                + "INNER JOIN\n"
-                + "subkriteria\n"
-                + "ON \n"
-                + "alternatif.subkriteria_seq = subkriteria.seq\n"
-                + "INNER JOIN\n"
-                + "kriteria\n"
-                + "ON \n"
-                + "subkriteria.kriteria_seq = kriteria.seq\n"
-                + "WHERE alternatif.seq = '" + view.jTable1.getValueAt(a, 1) + "'";
+                + "WHERE\n"
+                + "alternatif.seq = '" + view.jTable1.getValueAt(a, 1) + "'";
         try {
             Statement st = c.createStatement();
             ResultSet r = st.executeQuery(query);
 
             String seq = "";
             String subcriteria_name = "";
-            String seq_kriteria = "";
-            String criteria_name = "";
 
             while (r.next()) {
                 seq = r.getString("alternatif.seq");
                 subcriteria_name = r.getString("alternatif.alternatif_name");
-                seq_kriteria = r.getString("subkriteria.seq");
-                criteria_name = r.getString("subkriteria.subkriteria_name");
             }
 
             view.jLabel11.setText(seq);
             view.jTextField2.setText(subcriteria_name);
-            view.jLabel13.setText(seq_kriteria);
-            view.jTextField4.setText(criteria_name);
         } catch (SQLException e) {
         } finally {
             view.jButton2.setText("Update");
@@ -219,6 +202,8 @@ public class control_alternatif {
                 p22.close();
 
                 getData(view);
+                getDataSubkriteria(view);
+                getDataAlternatifSubkriteria(view);
 
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(view, "Data Not Succeed in Delete", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -227,6 +212,7 @@ public class control_alternatif {
             }
         } else {
             getData(view);
+            getDataSubkriteria(view);
             getDataAlternatifSubkriteria(view);
         }
     }
@@ -332,8 +318,7 @@ public class control_alternatif {
 
             String query = "SELECT\n"
                     + "	alternatif.seq, \n"
-                    + "	alternatif.alternatif_name, \n"
-                    + "	alternatif.subkriteria_seq\n"
+                    + "	alternatif.alternatif_name \n"
                     + "FROM\n"
                     + "	alternatif\n"
                     + "GROUP BY\n"
@@ -342,7 +327,7 @@ public class control_alternatif {
                     + "	alternatif.seq DESC\n"
                     + "LIMIT 1";
 
-            int id = 1;
+            int id = 0;
 
             Statement stat = c.createStatement();
             ResultSet rs = stat.executeQuery(query);
@@ -359,10 +344,17 @@ public class control_alternatif {
                     JOptionPane.showMessageDialog(view, "Data Can Not Be Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 } else {
 
+                    String sql1 = "insert into alternatif set \n"
+                            + "seq='" + id + "',"
+                            + "alternatif_name='" + view.jTextField2.getText() + "'";
+
+                    PreparedStatement p221 = c.prepareStatement(sql1);
+                    p221.executeUpdate();
+                    p221.close();
+
                     for (int i = 0; i < view.jTable2.getRowCount(); i++) {
-                        String sql = "insert into alternatif set \n"
-                                + "seq='" + id + "',"
-                                + "alternatif_name='" + view.jTextField2.getText() + "',"
+                        String sql = "insert into alternatif_subkriteria set \n"
+                                + "alternatif_seq='" + id + "',"
                                 + "subkriteria_seq='" + view.jTable2.getValueAt(i, 1) + "'";
 
                         PreparedStatement p22 = c.prepareStatement(sql);
@@ -387,10 +379,17 @@ public class control_alternatif {
                     p221.executeUpdate();
                     p221.close();
 
+                    String sql2 = "insert into alternatif set \n"
+                            + "seq='" + id + "',"
+                            + "alternatif_name='" + view.jTextField2.getText() + "'";
+
+                    PreparedStatement p2212 = c.prepareStatement(sql2);
+                    p2212.executeUpdate();
+                    p2212.close();
+
                     for (int i = 0; i < view.jTable2.getRowCount(); i++) {
-                        String sql = "insert into alternatif set \n"
-                                + "seq='" + id + "',"
-                                + "alternatif_name='" + view.jTextField2.getText() + "',"
+                        String sql = "insert into alternatif_subkriteria set \n"
+                                + "alternatif_seq='" + id + "',"
                                 + "subkriteria_seq='" + view.jTable2.getValueAt(i, 1) + "'";
 
                         PreparedStatement p22 = c.prepareStatement(sql);
@@ -430,8 +429,7 @@ public class control_alternatif {
 
         String query = "SELECT\n"
                 + "alternatif.seq, \n"
-                + "alternatif.alternatif_name, \n"
-                + "alternatif.subkriteria_seq\n"
+                + "alternatif.alternatif_name \n"
                 + "FROM\n"
                 + "alternatif\n"
                 + "GROUP BY\n"
@@ -501,16 +499,21 @@ public class control_alternatif {
                 String taun = "";
 
                 String sql3 = "SELECT\n"
-                        + "alternatif.seq, \n"
+                        + "alternatif_subkriteria.seq, \n"
                         + "alternatif.alternatif_name, \n"
+                        + "alternatif.seq, \n"
                         + "subkriteria.subkriteria_name, \n"
                         + "subkriteria.seq\n"
                         + "FROM\n"
+                        + "alternatif_subkriteria\n"
+                        + "INNER JOIN\n"
                         + "alternatif\n"
+                        + "ON \n"
+                        + "alternatif_subkriteria.alternatif_seq = alternatif.seq\n"
                         + "INNER JOIN\n"
                         + "subkriteria\n"
                         + "ON \n"
-                        + "alternatif.subkriteria_seq = subkriteria.seq\n"
+                        + "alternatif_subkriteria.subkriteria_seq = subkriteria.seq\n"
                         + "WHERE\n"
                         + "subkriteria.seq = '" + view.jTable2.getValueAt(i2, 1) + "'\n"
                         + "GROUP BY\n"
