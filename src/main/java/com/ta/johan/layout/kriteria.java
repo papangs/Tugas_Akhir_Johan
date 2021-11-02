@@ -45,6 +45,7 @@ public class kriteria extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jDesktopPaneGambarChild2 = new com.ta.johan.background.JDesktopPaneGambarChild();
+        jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
 
         setClosable(true);
 
@@ -184,7 +185,8 @@ public class kriteria extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("List Kriteria", jDesktopPaneGambarChild1);
-        jTabbedPane1.addTab("Perhitungan Matrix Kriteria", jDesktopPaneGambarChild2);
+        jTabbedPane1.addTab("Pembobotan", jDesktopPaneGambarChild2);
+        jTabbedPane1.addTab("Perhitungan Matrix", jDesktopPaneGambarChild3);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -235,6 +237,7 @@ public class kriteria extends javax.swing.JInternalFrame {
     public javax.swing.JButton jButton3;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild2;
+    private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel9;

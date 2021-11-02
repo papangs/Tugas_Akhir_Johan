@@ -186,6 +186,83 @@ public class control_list {
             view.jTable1.getColumnModel().getColumn(1).setMaxWidth(0);
             view.jTable1.getColumnModel().getColumn(3).setMinWidth(0);
             view.jTable1.getColumnModel().getColumn(3).setMaxWidth(0);
+            resetData(view);
+        }
+    }
+
+    public void readDataSubkriteria(config_list view) {
+        int a = view.jTable1.getSelectedRow();
+        String query = "SELECT\n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.kriteria_name, \n"
+                + "kriteria.seq\n"
+                + "FROM\n"
+                + "subkriteria\n"
+                + "INNER JOIN\n"
+                + "kriteria\n"
+                + "ON subkriteria.kriteria_seq = kriteria.seq\n"
+                + "WHERE subkriteria.seq = '" + view.jTable1.getValueAt(a, 1) + "'";
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(query);
+
+            String subkriteria_seq = "";
+            String subcriteria_name = "";
+
+            while (r.next()) {
+                subkriteria_seq = r.getString("subkriteria.seq");
+                subcriteria_name = r.getString("subkriteria.subkriteria_name");
+            }
+
+            view.jLabel11.setText(subkriteria_seq);
+            view.jLabel12.setText(subcriteria_name);
+        } catch (SQLException e) {
+        } finally {
+        }
+    }
+
+    public void searchSubkriteria(config_list view) {
+        String search = String.valueOf(view.jTextField2.getText());
+        try {
+            int no = 1;
+            String query = "SELECT\n"
+                    + "subkriteria.seq, \n"
+                    + "subkriteria.subkriteria_name, \n"
+                    + "kriteria.kriteria_name, \n"
+                    + "kriteria.seq\n"
+                    + "FROM\n"
+                    + "subkriteria\n"
+                    + "INNER JOIN\n"
+                    + "kriteria\n"
+                    + "ON subkriteria.kriteria_seq = kriteria.seq\n"
+                    + "where subkriteria.seq like '%" + search + "%' "
+                    + "OR subkriteria.subkriteria_name like '%" + search + "%'";
+
+            Statement statement = (Statement) c.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            if (rs.next()) {
+                DefaultTableModel tableModel = (DefaultTableModel) view.jTable1.getModel();
+                int i = 0;
+                while (i < view.jTable1.getRowCount()) {
+                    tableModel.removeRow(i);
+                }
+                rs.beforeFirst();
+
+                int j = 1;
+                while (rs.next()) {
+                    Vector vector = new Vector();
+                    vector.addElement(j++);
+                    vector.addElement(rs.getString("subkriteria.seq"));
+                    vector.addElement(rs.getString("subkriteria.subkriteria_name"));
+                    vector.addElement(rs.getString("kriteria.seq"));
+                    vector.addElement(rs.getString("kriteria.kriteria_name"));
+
+                    tableModel.addRow(vector);
+                }
+            }
+        } catch (SQLException e) {
         }
     }
 }

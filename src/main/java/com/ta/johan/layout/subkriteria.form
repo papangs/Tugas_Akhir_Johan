@@ -301,8 +301,21 @@
         <Container class="com.ta.johan.background.JDesktopPaneGambarChild" name="jDesktopPaneGambarChild2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Perhitungan Matrix Subkriteria">
-                <Property name="tabTitle" type="java.lang.String" value="Perhitungan Matrix Subkriteria"/>
+              <JTabbedPaneConstraints tabName="Pembobotan">
+                <Property name="tabTitle" type="java.lang.String" value="Pembobotan"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
+          </Layout>
+        </Container>
+        <Container class="com.ta.johan.background.JDesktopPaneGambarChild" name="jDesktopPaneGambarChild3">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Perhitungan Matrix">
+                <Property name="tabTitle" type="java.lang.String" value="Perhitungan Matrix"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

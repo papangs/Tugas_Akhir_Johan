@@ -4,6 +4,7 @@
  */
 package com.ta.johan.layout;
 
+import com.ta.johan.control.control_alternatif;
 import com.ta.johan.control.control_kriteria;
 import com.ta.johan.control.control_subkriteria;
 import java.awt.Toolkit;
@@ -25,6 +26,7 @@ public class main extends javax.swing.JFrame {
      */
     control_kriteria controlkriteria;
     control_subkriteria controlsubkriteria;
+    control_alternatif controlalternatif;
     
     kriteria k;
     subkriteria s;
@@ -39,6 +41,7 @@ public class main extends javax.swing.JFrame {
 
         controlkriteria = new control_kriteria();
         controlsubkriteria = new control_subkriteria();
+        controlalternatif = new control_alternatif();
         
         a = new alternatif();
         s = new subkriteria();
@@ -373,7 +376,9 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(a);
                 a.show();
-//                controlkriteria.getData(k);
+//                controlalternatif.getData(a);
+                controlalternatif.getDataSubkriteria(a);
+                controlalternatif.getDataAlternatifSubkriteria(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -381,7 +386,9 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 a.show();
-//                controlkriteria.getData(k);
+//                controlalternatif.getData(a);
+                controlalternatif.getDataSubkriteria(a);
+                controlalternatif.getDataAlternatifSubkriteria(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

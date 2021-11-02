@@ -186,8 +186,7 @@ public class control_kriteria {
                     + "kriteria.kriteria_name\n"
                     + "FROM\n"
                     + "kriteria\n"
-                    + "where kriteria.seq like '%"+search+"%' "
-                    + "OR kriteria.kriteria_name like '%"+search+"%'";
+                    + "where kriteria.kriteria_name like '%"+search+"%'";
 
             Statement statement = (Statement) c.createStatement();
             ResultSet rs = statement.executeQuery(query);

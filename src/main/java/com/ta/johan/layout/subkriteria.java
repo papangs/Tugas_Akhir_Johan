@@ -57,6 +57,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jDesktopPaneGambarChild2 = new com.ta.johan.background.JDesktopPaneGambarChild();
+        jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
 
         setClosable(true);
 
@@ -233,7 +234,8 @@ public class subkriteria extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("List Subkriteria", jDesktopPaneGambarChild1);
-        jTabbedPane1.addTab("Perhitungan Matrix Subkriteria", jDesktopPaneGambarChild2);
+        jTabbedPane1.addTab("Pembobotan", jDesktopPaneGambarChild2);
+        jTabbedPane1.addTab("Perhitungan Matrix", jDesktopPaneGambarChild3);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -316,6 +318,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild2;
+    private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;

@@ -191,7 +191,11 @@ public class config_list extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        controllist.readDataKriteria(this);
+        if (getTitle().equals("Subkriteria")) {
+            controllist.readDataSubkriteria(this);
+        } else {
+            controllist.readDataKriteria(this);
+        }
 
         for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
             final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
@@ -206,7 +210,12 @@ public class config_list extends javax.swing.JInternalFrame {
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         // TODO add your handling code here:
-        controllist.searchKriteria(this);
+        
+        if (getTitle().equals("Subkriteria")) {
+            controllist.searchSubkriteria(this);
+        } else {
+            controllist.searchKriteria(this);
+        }
     }//GEN-LAST:event_jTextField2KeyReleased
 
 
