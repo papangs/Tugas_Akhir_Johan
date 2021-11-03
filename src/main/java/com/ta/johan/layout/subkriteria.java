@@ -390,7 +390,6 @@ public class subkriteria extends javax.swing.JInternalFrame {
         });
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1492945503_floppy_disk_save.png"))); // NOI18N
         jButton5.setText("Save");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +451,6 @@ public class subkriteria extends javax.swing.JInternalFrame {
         );
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
         jButton7.setText("Refresh");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -461,7 +459,6 @@ public class subkriteria extends javax.swing.JInternalFrame {
         });
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
         jButton6.setText("Random");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,7 +467,6 @@ public class subkriteria extends javax.swing.JInternalFrame {
         });
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1496566829_32_icons.png"))); // NOI18N
         jButton8.setText("Proses");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -503,7 +499,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                         .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
                                 .addGap(100, 100, 100))
                             .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)

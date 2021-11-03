@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 02/11/2021 07:53:23
+ Date: 03/11/2021 07:26:37
 */
 
 SET NAMES utf8mb4;
@@ -24,64 +24,86 @@ DROP TABLE IF EXISTS `alternatif`;
 CREATE TABLE `alternatif`  (
   `seq` int NOT NULL,
   `alternatif_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `subkriteria_seq` int NULL DEFAULT NULL,
-  INDEX `fk_sub_seq`(`subkriteria_seq`) USING BTREE,
-  CONSTRAINT `fk_sub_seq` FOREIGN KEY (`subkriteria_seq`) REFERENCES `subkriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  PRIMARY KEY (`seq`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of alternatif
 -- ----------------------------
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 1);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 2);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 3);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 4);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 5);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 6);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 7);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 8);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 9);
-INSERT INTO `alternatif` VALUES (1, 'Tokopedia', 10);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 1);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 2);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 3);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 4);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 5);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 6);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 7);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 8);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 9);
-INSERT INTO `alternatif` VALUES (2, 'Bukalapak', 10);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 1);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 2);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 3);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 4);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 5);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 6);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 7);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 8);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 9);
-INSERT INTO `alternatif` VALUES (4, 'Lazada', 10);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 1);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 2);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 3);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 4);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 5);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 6);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 7);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 8);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 9);
-INSERT INTO `alternatif` VALUES (5, 'Blibli', 10);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 1);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 2);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 3);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 4);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 5);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 6);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 7);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 8);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 9);
-INSERT INTO `alternatif` VALUES (6, 'Shopees', 10);
+INSERT INTO `alternatif` VALUES (3, 'Lazada');
+INSERT INTO `alternatif` VALUES (6, 'Blibli');
+INSERT INTO `alternatif` VALUES (7, 'Bukalapak');
+INSERT INTO `alternatif` VALUES (8, 'Shopee');
+INSERT INTO `alternatif` VALUES (9, 'Tokopedia');
+
+-- ----------------------------
+-- Table structure for alternatif_subkriteria
+-- ----------------------------
+DROP TABLE IF EXISTS `alternatif_subkriteria`;
+CREATE TABLE `alternatif_subkriteria`  (
+  `seq` int NOT NULL AUTO_INCREMENT,
+  `subkriteria_seq` int NULL DEFAULT NULL,
+  `alternatif_seq` int NULL DEFAULT NULL,
+  PRIMARY KEY (`seq`) USING BTREE,
+  INDEX `fkalternatif`(`alternatif_seq`) USING BTREE,
+  INDEX `fk_subkriteria`(`subkriteria_seq`) USING BTREE,
+  CONSTRAINT `alternatif_subkriteria_ibfk_1` FOREIGN KEY (`alternatif_seq`) REFERENCES `alternatif` (`seq`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_subkriteria` FOREIGN KEY (`subkriteria_seq`) REFERENCES `subkriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of alternatif_subkriteria
+-- ----------------------------
+INSERT INTO `alternatif_subkriteria` VALUES (53, 1, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (54, 2, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (55, 3, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (56, 4, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (57, 5, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (58, 6, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (59, 7, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (60, 8, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (61, 9, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (62, 10, 3);
+INSERT INTO `alternatif_subkriteria` VALUES (83, 1, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (84, 2, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (85, 3, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (86, 4, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (87, 5, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (88, 6, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (89, 7, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (90, 8, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (91, 9, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (92, 10, 6);
+INSERT INTO `alternatif_subkriteria` VALUES (93, 1, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (94, 2, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (95, 3, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (96, 4, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (97, 5, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (98, 6, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (99, 7, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (100, 8, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (101, 9, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (102, 10, 7);
+INSERT INTO `alternatif_subkriteria` VALUES (113, 1, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (114, 2, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (115, 3, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (116, 4, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (117, 5, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (118, 6, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (119, 7, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (120, 8, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (121, 9, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (122, 10, 8);
+INSERT INTO `alternatif_subkriteria` VALUES (123, 1, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (124, 2, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (125, 3, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (126, 4, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (127, 5, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (128, 6, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (129, 7, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (130, 8, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (131, 9, 9);
+INSERT INTO `alternatif_subkriteria` VALUES (132, 10, 9);
 
 -- ----------------------------
 -- Table structure for eigen_alternatif
@@ -92,7 +114,9 @@ CREATE TABLE `eigen_alternatif`  (
   `nilai_eigen_alternatif` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `create_date` date NULL DEFAULT NULL,
   `alternatif_seq` int NULL DEFAULT NULL,
-  PRIMARY KEY (`seq`) USING BTREE
+  PRIMARY KEY (`seq`) USING BTREE,
+  INDEX `fk_seq_alternatif`(`alternatif_seq`) USING BTREE,
+  CONSTRAINT `fk_seq_alternatif` FOREIGN KEY (`alternatif_seq`) REFERENCES `alternatif` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
