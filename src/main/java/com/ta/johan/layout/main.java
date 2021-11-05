@@ -314,6 +314,7 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(k);
                 k.show();
                 controlkriteria.getData(k);
+                controlkriteria.getDataGlobal(k);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -322,6 +323,7 @@ public class main extends javax.swing.JFrame {
             try {
                 k.show();
                 controlkriteria.getData(k);
+                controlkriteria.getDataGlobal(k);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

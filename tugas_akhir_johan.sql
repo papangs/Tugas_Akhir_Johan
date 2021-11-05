@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 03/11/2021 07:26:37
+ Date: 05/11/2021 08:01:08
 */
 
 SET NAMES utf8mb4;
@@ -135,11 +135,15 @@ CREATE TABLE `eigen_kriteria`  (
   PRIMARY KEY (`seq`) USING BTREE,
   INDEX `kriteria_seq_fk`(`kriteria_seq`) USING BTREE,
   CONSTRAINT `kriteria_seq_fk` FOREIGN KEY (`kriteria_seq`) REFERENCES `kriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of eigen_kriteria
 -- ----------------------------
+INSERT INTO `eigen_kriteria` VALUES (1, '0.054', '2021-11-05', 1);
+INSERT INTO `eigen_kriteria` VALUES (2, '0.163', '2021-11-05', 2);
+INSERT INTO `eigen_kriteria` VALUES (3, '0.259', '2021-11-05', 3);
+INSERT INTO `eigen_kriteria` VALUES (4, '0.524', '2021-11-05', 4);
 
 -- ----------------------------
 -- Table structure for eigen_subkriteria
@@ -206,11 +210,17 @@ CREATE TABLE `perbandingan_kriteria`  (
   `pilihan_kriteria_seq` int NULL DEFAULT NULL,
   `nilai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of perbandingan_kriteria
 -- ----------------------------
+INSERT INTO `perbandingan_kriteria` VALUES (1, 1, 2, 2, '3');
+INSERT INTO `perbandingan_kriteria` VALUES (2, 1, 3, 3, '7');
+INSERT INTO `perbandingan_kriteria` VALUES (3, 1, 4, 4, '7');
+INSERT INTO `perbandingan_kriteria` VALUES (4, 2, 3, 2, '1');
+INSERT INTO `perbandingan_kriteria` VALUES (5, 2, 4, 4, '5');
+INSERT INTO `perbandingan_kriteria` VALUES (6, 3, 4, 4, '2');
 
 -- ----------------------------
 -- Table structure for perbandingan_subkriteria
