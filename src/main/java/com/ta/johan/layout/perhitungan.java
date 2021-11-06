@@ -34,6 +34,21 @@ public class perhitungan extends javax.swing.JInternalFrame {
         initComponents();
         controlperhitungan = new control_perhitungan();
 
+        final boolean showTabsHeader = false;
+        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
+            @Override
+            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+                if (showTabsHeader) {
+                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
+                } else {
+                    return 0;
+                }
+            }
+
+            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
+            }
+        });
+        
     }
 
     /**
