@@ -8,6 +8,7 @@ import com.ta.johan.control.control_alternatif;
 import com.ta.johan.control.control_kriteria;
 import com.ta.johan.control.control_perhitungan;
 import com.ta.johan.control.control_subkriteria;
+import com.ta.johan.control.control_user;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
@@ -29,63 +30,60 @@ public class main extends javax.swing.JFrame {
     control_subkriteria controlsubkriteria;
     control_alternatif controlalternatif;
     control_perhitungan controlperhitungan;
+    control_user controluser;
 
     kriteria k;
     subkriteria s;
     alternatif a;
     perhitungan p;
+    user u;
     home h;
 
     public main() {
         initComponents();
-//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
-//        this.setUndecorated(true); // <-- the title bar is removed here
         this.setExtendedState(MAXIMIZED_BOTH);
 
         controlkriteria = new control_kriteria();
         controlsubkriteria = new control_subkriteria();
         controlalternatif = new control_alternatif();
         controlperhitungan = new control_perhitungan();
+        controluser = new control_user();
 
         a = new alternatif();
         s = new subkriteria();
         k = new kriteria();
         p = new perhitungan();
+        u = new user();
         h = new home();
     }
 
-//    public void panggil(String userlogin) {
-//        switch (userlogin) {
-//            case "Head of Institution":
-//                enable(true);
-//                
-//                if (!h.isVisible()) {
-//                    try {
-//                        jDesktopPanetransparan1.add(h);
-//                        h.show();
-//                        h.setClosable(false);
-//                        h.setMaximum(true);
-//                        h.setSelected(true);
-//                    } catch (PropertyVetoException ex) {
-//                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                } else {
-//                    try {
-//                        h.show();
-//                        h.setClosable(false);
-//                        h.setMaximum(true);
-//                        h.setSelected(true);
-//                    } catch (PropertyVetoException ex) {
-//                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                }
-//                
-//                break;
-//            case "Admin":
-//                enable(false);
-//                break;
-//        }
-//    }
+    public void panggil(String userlogin) {
+        switch (userlogin) {
+            case "User":
+                enable(true);
+
+                buttonImageReflection2.doClick();
+                jLabel1.setText("User");
+
+                break;
+            case "Admin":
+                enable(false);
+
+                buttonImageReflection2.doClick();
+                jLabel1.setText("Admin");
+
+                break;
+        }
+    }
+
+    public void enable(boolean status) {
+
+        buttonImageReflection1.setVisible(!status);
+        buttonImageReflection6.setVisible(!status);
+        jMenuItem8.setVisible(!status);
+        jMenu4.setVisible(!status);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,14 +102,21 @@ public class main extends javax.swing.JFrame {
         jDesktopPanetransparan1 = new com.ta.johan.background.JDesktopPanetransparan();
         jSeparator1 = new javax.swing.JSeparator();
         buttonImageReflection6 = new usu.widget.glass.ButtonImageReflection();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN MARKETPLACE BERDASARKAN KEBUTUHAN PENGGUNA MENGGUNAKAN METODE ANALYTICAL HIERARCHY PROCESS (AHP)");
@@ -123,7 +128,7 @@ public class main extends javax.swing.JFrame {
 
         buttonImageReflection2.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconfinder_118770_home_icon_512px.png"))); // NOI18N
-        buttonImageReflection2.setText("HOME");
+        buttonImageReflection2.setText("BERANDA");
         buttonImageReflection2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonImageReflection2ActionPerformed(evt);
@@ -183,6 +188,13 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("jLabel1");
+
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection5, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -191,17 +203,19 @@ public class main extends javax.swing.JFrame {
         jDesktopPaneGambarHome1.setLayer(jDesktopPanetransparan1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarHome1.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarHome1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPaneGambarHome1Layout = new javax.swing.GroupLayout(jDesktopPaneGambarHome1);
         jDesktopPaneGambarHome1.setLayout(jDesktopPaneGambarHome1Layout);
         jDesktopPaneGambarHome1Layout.setHorizontalGroup(
             jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
+            .addGroup(jDesktopPaneGambarHome1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
+                .addGroup(jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addGroup(jDesktopPaneGambarHome1Layout.createSequentialGroup()
                         .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonImageReflection4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -212,7 +226,11 @@ public class main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonImageReflection6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
+                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jDesktopPaneGambarHome1Layout.setVerticalGroup(
@@ -227,9 +245,13 @@ public class main extends javax.swing.JFrame {
                     .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                .addGroup(jDesktopPaneGambarHome1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -256,6 +278,14 @@ public class main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Home");
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
+        jMenuItem6.setText("Beranda");
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu2);
+
         jMenu3.setText("Data");
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
@@ -270,7 +300,19 @@ public class main extends javax.swing.JFrame {
         jMenuItem5.setText("Alternatif");
         jMenu3.add(jMenuItem5);
 
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
+        jMenuItem8.setText("User");
+        jMenu3.add(jMenuItem8);
+
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Perhitungan");
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
+        jMenuItem7.setText("Hasil Akhir");
+        jMenu4.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -438,6 +480,26 @@ public class main extends javax.swing.JFrame {
 
     private void buttonImageReflection1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection1ActionPerformed
         // TODO add your handling code here:
+        if (!u.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(u);
+                u.show();
+                u.setTitle("User");
+                controluser.getData(u);
+                u.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                u.show();
+                u.setTitle("User");
+                controluser.getData(u);
+                u.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_buttonImageReflection1ActionPerformed
 
     public void close() {
@@ -489,14 +551,21 @@ public class main extends javax.swing.JFrame {
     private usu.widget.glass.ButtonImageReflection buttonImageReflection6;
     private com.ta.johan.background.JDesktopPaneGambarHome jDesktopPaneGambarHome1;
     private com.ta.johan.background.JDesktopPanetransparan jDesktopPanetransparan1;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

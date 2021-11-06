@@ -395,41 +395,186 @@ public class control_perhitungan {
 
     }
 
-//    public void processHasil(perhitungan view) {
-//
-//        DecimalFormat batas = new DecimalFormat("#.###");
-//
-//        int eigen = getJumlahSubdankrit(view);
-//        int assessment = view.jTable2.getRowCount();
-//
-//        for (int h = 0; h < assessment; h++) {
-//            double plus = 0.0;
-//            double kali = 0.0;
-//            double geteigen = 0.0;
-//            double getassessment = 0.0;
-//
-//            for (int i = 0; i < eigen; i++) {
-//                geteigen = Double.parseDouble(view.jTable1.getValueAt(i, 7).toString());
-//                getassessment = Double.parseDouble(view.jTable2.getValueAt(h, i + 3).toString());
-//                kali = geteigen * getassessment;
-//                plus += kali;
-//            }
-//            view.jTable2.setValueAt(batas.format(plus), h, eigen + 3);
-//
-//        }
-//
-//        double[] Array = new double[assessment];
-//        int asc = 0;
-//        for (int i = 0; i < assessment; i++) {
-//            Array[i] = Double.parseDouble(view.jTable2.getValueAt(i, eigen + 3).toString());
-//        }
-//
-//        int rank[] = getRanksArray(Array);
-//        for (int i = 0; i < view.jTable2.getRowCount(); i++) {
-//            view.jTable2.setValueAt(rank[i], i, eigen + 4);
-//        }
-//
-////        saveData(view);
-//    }
+    public void getDataHasil(perhitungan view) {
 
+        DecimalFormat batas = new DecimalFormat("#.###");
+
+        String query = "SELECT\n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name\n"
+                + "FROM\n"
+                + "alternatif";
+
+        jum11 = 0;
+
+        try {
+
+            Statement stat = c.createStatement();
+            ResultSet rs = stat.executeQuery(query);
+            while (rs.next()) {
+                jum11 = jum11 + 1;
+            }
+
+            int aa = Integer.parseInt(jum11 + "");
+            System.out.println("aa : " + aa);
+            int aaa = getJumlahSubdankrit(view);
+
+            List<HashMap<String, Object>> df = getDataSubdankrit(view);
+
+            String[] c1 = new String[aaa + 1 + 1 + 1 + 1 + 1];
+
+            for (int i1 = 0; i1 < aaa; i1++) {
+                for (int i = 0; i < 1; i++) {
+                    c1[i] = "NO";
+                    c1[i + 1] = "Alternatif Seq";
+                    c1[i + 1 + 1] = "Alternatif";
+                    c1[i1 + 1 + 1 + 1] = (String) df.get(i1).get("nama").toString();
+                    c1[i1 + 1 + 1 + 1 + 1] = "Total";
+                    c1[i1 + 1 + 1 + 1 + 1 + 1] = "Rangking";
+                }
+            }
+
+            setttablematrix(view.jTable5, aa, c1);
+
+            //No
+            for (int i3 = 0; i3 < aa; i3++) {
+                view.jTable5.setValueAt(i3 + 1, i3, 0);
+            }
+
+            //set seq
+            String seq = "";
+            int e1 = 0;
+            try {
+                Statement stat11 = c.createStatement();
+                ResultSet res11 = stat11.executeQuery(query);
+                while (res11.next()) {
+                    seq = res11.getString("alternatif.seq");
+                    view.jTable5.setValueAt(seq, e1++, 1);
+                }
+            } catch (SQLException f) {
+            }
+
+            //set nama
+            String nama = "";
+            int e = 0;
+            try {
+                Statement stat11 = c.createStatement();
+                ResultSet res11 = stat11.executeQuery(query);
+                while (res11.next()) {
+                    nama = res11.getString("alternatif.alternatif_name");
+                    view.jTable5.setValueAt(nama, e++, 2);
+                }
+            } catch (SQLException f) {
+            }
+
+            int eigen = view.jTable1.getRowCount();
+            int assessment = view.jTable2.getRowCount();
+
+            for (int h = 0; h < assessment; h++) {
+                double plus = 0.0;
+                double kali = 0.0;
+                double geteigen = 0.0;
+                double getassessment = 0.0;
+
+                for (int i = 0; i < eigen; i++) {
+                    geteigen = Double.parseDouble(view.jTable1.getValueAt(i, 7).toString());
+                    getassessment = Double.parseDouble(view.jTable2.getValueAt(h, i + 3).toString());
+                    kali = geteigen * getassessment;
+                    plus += kali;
+
+                    view.jTable5.setValueAt(batas.format(kali), h, i + 3);
+                }
+                view.jTable5.setValueAt(batas.format(plus), h, eigen + 3);
+            }
+
+            double[] Array = new double[assessment];
+            int asc = 0;
+            for (int i = 0; i < assessment; i++) {
+                Array[i] = Double.parseDouble(view.jTable5.getValueAt(i, eigen + 3).toString());
+            }
+
+            int rank[] = getRanksArray(Array);
+            for (int i = 0; i < view.jTable5.getRowCount(); i++) {
+                view.jTable5.setValueAt(rank[i], i, eigen + 4);
+            }
+
+        } catch (SQLException e) {
+        } finally {
+            buatKolomSesuai(view.jTable5);
+            view.jTable5.getColumnModel().getColumn(1).setMinWidth(0);
+            view.jTable5.getColumnModel().getColumn(1).setMaxWidth(0);
+            saveDataHasil(view);
+            getRangking(view);
+        }
+
+    }
+
+    public void saveDataHasil(perhitungan view) {
+
+        try {
+            int eigen = view.jTable1.getRowCount();
+
+            String sqlq = "TRUNCATE hasil_rangking";
+            PreparedStatement t = c.prepareStatement(sqlq);
+            t.executeUpdate();
+            t.close();
+
+            for (int i = 0; i < view.jTable5.getRowCount(); i++) {
+
+                String sql = "insert into hasil_rangking set alternatif_seq ='" + view.jTable5.getValueAt(i, 1) + "',"
+                        + "value = '" + view.jTable5.getValueAt(i, eigen + 3) + "',"
+                        + "rangking = '" + view.jTable5.getValueAt(i, eigen + 4) + "'";
+
+                PreparedStatement p22 = c.prepareStatement(sql);
+                p22.executeUpdate();
+                p22.close();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(view, "Data Unsuccessful Entry", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static int[] getRanksArray(double[] array) {
+        int[] result = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            int count = 0;
+            for (int j = 0; j < array.length; j++) {
+                if (array[j] > array[i]) {
+                    count++;
+                }
+            }
+            result[i] = count + 1;
+        }
+        return result;
+    }
+
+    public void getRangking(perhitungan view) {
+        
+        String query = "SELECT\n"
+                + "hasil_rangking.value, \n"
+                + "hasil_rangking.rangking, \n"
+                + "hasil_rangking.seq, \n"
+                + "alternatif.alternatif_name\n"
+                + "FROM\n"
+                + "hasil_rangking\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "hasil_rangking.alternatif_seq = alternatif.seq\n"
+                + "WHERE\n"
+                + "hasil_rangking.rangking = 1";
+        
+        String id = "";
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(query);
+            while (r.next()) {
+                id = r.getString("alternatif.alternatif_name") +" : "+ r.getString("hasil_rangking.value");
+            }
+            view.buttonGlass2.setText(id + "");
+        } catch (Exception e) {
+        }
+    }
 }

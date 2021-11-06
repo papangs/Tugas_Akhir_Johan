@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 06/11/2021 12:32:13
+ Date: 06/11/2021 16:22:39
 */
 
 SET NAMES utf8mb4;
@@ -231,6 +231,29 @@ INSERT INTO `eigen_subkriteria` VALUES (38, '0.368', '2021-11-06', 4, 2);
 INSERT INTO `eigen_subkriteria` VALUES (39, '0.493', '2021-11-06', 5, 2);
 INSERT INTO `eigen_subkriteria` VALUES (40, '0.125', '2021-11-06', 1, 1);
 INSERT INTO `eigen_subkriteria` VALUES (41, '0.875', '2021-11-06', 2, 1);
+
+-- ----------------------------
+-- Table structure for hasil_rangking
+-- ----------------------------
+DROP TABLE IF EXISTS `hasil_rangking`;
+CREATE TABLE `hasil_rangking`  (
+  `seq` int NOT NULL AUTO_INCREMENT,
+  `alternatif_seq` int NULL DEFAULT NULL,
+  `value` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `rangking` int NULL DEFAULT NULL,
+  PRIMARY KEY (`seq`) USING BTREE,
+  INDEX `fk_alter`(`alternatif_seq`) USING BTREE,
+  CONSTRAINT `hasil_rangking_ibfk_1` FOREIGN KEY (`alternatif_seq`) REFERENCES `alternatif` (`seq`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of hasil_rangking
+-- ----------------------------
+INSERT INTO `hasil_rangking` VALUES (1, 3, '0.224', 1);
+INSERT INTO `hasil_rangking` VALUES (2, 6, '0.19', 4);
+INSERT INTO `hasil_rangking` VALUES (3, 7, '0.198', 3);
+INSERT INTO `hasil_rangking` VALUES (4, 8, '0.208', 2);
+INSERT INTO `hasil_rangking` VALUES (5, 9, '0.18', 5);
 
 -- ----------------------------
 -- Table structure for kriteria
@@ -476,5 +499,24 @@ INSERT INTO `subkriteria` VALUES (7, 'Reguler', 3);
 INSERT INTO `subkriteria` VALUES (8, 'Ekspress', 3);
 INSERT INTO `subkriteria` VALUES (9, 'Live Chat', 4);
 INSERT INTO `subkriteria` VALUES (10, 'BOT Chat', 4);
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `user_seq` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `akses` enum('Admin','User') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`user_seq`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (1, 'admin', 'YWRtaW4=', 'Admin');
+INSERT INTO `user` VALUES (2, 'johan', 'am9oYW4=', 'User');
+INSERT INTO `user` VALUES (3, 'khavid', 'a2hhdmlk', 'User');
 
 SET FOREIGN_KEY_CHECKS = 1;

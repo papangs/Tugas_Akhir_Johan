@@ -5,9 +5,15 @@
  */
 package com.ta.johan.layout;
 
+import com.ta.johan.connect.dbconnect;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Base64;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,56 +21,57 @@ import java.awt.geom.RoundRectangle2D;
  */
 public class login extends javax.swing.JFrame {
 
-//    Connection c = DBConnect.getKoneksi();
-//    ResultSet r;
-//    Statement s;
-//
+    Connection c = dbconnect.getKoneksi();
+    ResultSet r;
+    Statement s;
+
     main op;
 
     public login() {
         initComponents();
 
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE); // Already there
-//        this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setUndecorated(true); // <-- the title bar is removed here[1186, 553]
-//        setShape(new RoundRectangle2D.Double(30, 30, 2000, 1000, 30, 30));
         op = new main();
-        
+
         op.buttonImageReflection2.doClick();
     }
 
-//    public void aksi_login() {
-//        try {
-//            
-//            String password = Base64.getEncoder().encodeToString(jPasswordField1.getText().getBytes());
-//            String akses = "";
-//            String userakses = "";
-//            String sql = "SELECT user.user_seq, user.username, user.password, user.akses FROM user "
-//                    + "WHERE username='" + jTextField1.getText().replaceAll("'", "") + "' "
-//                    + "AND password = '" + password + "'";
-//
-//            s = c.createStatement();
-//            r = s.executeQuery(sql);
-//            String level = "";
-//
-//            while (r.next()) {
-//                userakses = r.getString("akses");
-//                akses = "-";
-//
-//                this.setVisible(false);
-//                op.setVisible(true);
-//                op.panggil(userakses);
-//            }
-//
-//            if (akses.equals("")) {
-//                JOptionPane.showMessageDialog(this, "Please Check Back", "ERROR", JOptionPane.ERROR_MESSAGE);
-//                jTextField1.requestFocus();
-//                jTextField1.setText("");
-//                jPasswordField1.setText("");
-//            }
-//        } catch (Exception ex) {
-//        }
-//    }
+    public void aksi_login() {
+        try {
+
+            String password = Base64.getEncoder().encodeToString(jPasswordField2.getText().getBytes());
+            String akses = "";
+            String userakses = "";
+            String sql = "SELECT user.user_seq, user.username, user.password, user.akses FROM user "
+                    + "WHERE username='" + jTextField2.getText().replaceAll("'", "") + "' "
+                    + "AND password = '" + password + "'";
+
+            s = c.createStatement();
+            r = s.executeQuery(sql);
+            String nama = "";
+
+            while (r.next()) {
+                userakses = r.getString("user.akses");
+                nama = r.getString("user.username");
+                akses = "-";
+
+                this.setVisible(false);
+                op.setVisible(true);
+                op.panggil(userakses);
+                op.jLabel2.setText(": "+nama);
+            }
+
+            if (akses.equals("")) {
+                JOptionPane.showMessageDialog(this, "Please Check Again", "ERROR", JOptionPane.ERROR_MESSAGE);
+                jTextField2.requestFocus();
+                jTextField2.setText("");
+                jPasswordField2.setText("");
+            }
+        } catch (Exception ex) {
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -296,17 +303,17 @@ public class login extends javax.swing.JFrame {
 
     private void open(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_open
         // TODO add your handling code here:
-//        jTextField1.requestFocus();
+        jTextField2.requestFocus();
     }//GEN-LAST:event_open
 
     private void buttonImageReflection3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection3ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        op.setVisible(true);
+        aksi_login();
     }//GEN-LAST:event_buttonImageReflection3ActionPerformed
 
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
+        buttonImageReflection3ActionPerformed(evt);
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void buttonImageReflection2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection2ActionPerformed

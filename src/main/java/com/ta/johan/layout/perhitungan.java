@@ -67,7 +67,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
         jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -141,15 +140,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("Perkalian Eigen Kriteria dan Subkriteria", jDesktopPaneGambarChild1);
-
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/49604_accept_process_icon.png"))); // NOI18N
-        jButton8.setText("Proses");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/if_back_49408.png"))); // NOI18N
@@ -233,7 +223,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jDesktopPaneGambarChild3.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild3.setLayer(jButton9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild3.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild3.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -250,8 +239,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
                         .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane5))
                 .addContainerGap())
@@ -260,9 +247,7 @@ public class perhitungan extends javax.swing.JInternalFrame {
             jDesktopPaneGambarChild3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPaneGambarChild3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
+                .addComponent(jButton9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -293,11 +278,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
             defaultEditor.setClickCountToStart(1000000000);
         }
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-//        controlkriteria.processData(this);
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -331,6 +311,7 @@ public class perhitungan extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
         controlperhitungan.getDataHasilMatrix(this);
+        controlperhitungan.getDataHasil(this);
     }//GEN-LAST:event_jButton12ActionPerformed
 
 
@@ -338,7 +319,6 @@ public class perhitungan extends javax.swing.JInternalFrame {
     public usu.widget.ButtonGlass buttonGlass2;
     public javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JButton jButton12;
-    public javax.swing.JButton jButton8;
     public javax.swing.JButton jButton9;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
