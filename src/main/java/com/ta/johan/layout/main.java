@@ -202,17 +202,17 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jDesktopPanetransparan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPaneGambarHome1Layout.createSequentialGroup()
-                        .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addGap(2, 2, 2)
-                        .addComponent(buttonImageReflection4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)
-                        .addComponent(buttonImageReflection5, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addComponent(buttonImageReflection2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)
-                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                        .addComponent(buttonImageReflection4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonImageReflection6, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
+                        .addComponent(buttonImageReflection5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonImageReflection3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonImageReflection6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonImageReflection1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jDesktopPaneGambarHome1Layout.setVerticalGroup(
@@ -417,11 +417,8 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(p);
                 p.show();
                 p.setTitle("Perhitungan Akhir");
-//                controlalternatif.getData(a);
-//                controlalternatif.getDataSubkriteria(p);
-//                controlalternatif.getDataAlternatifSubkriteria(p);
-//                a.jTabbedPane1.setSelectedIndex(0);
-//                controlalternatif.getDataGlobal(p);
+                controlperhitungan.getData(p);
+                p.jTabbedPane1.setSelectedIndex(0);
                 p.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -430,11 +427,8 @@ public class main extends javax.swing.JFrame {
             try {
                 p.show();
                 p.setTitle("Perhitungan Akhir");
-//                controlalternatif.getData(a);
-//                controlalternatif.getDataSubkriteria(p);
-//                controlalternatif.getDataAlternatifSubkriteria(p);
-//                p.jTabbedPane1.setSelectedIndex(0);
-//                controlalternatif.getDataGlobal(p);
+                controlperhitungan.getData(p);
+                p.jTabbedPane1.setSelectedIndex(0);
                 p.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

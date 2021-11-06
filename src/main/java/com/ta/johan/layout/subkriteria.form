@@ -228,10 +228,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Data Subkriteria">
+                    <TitledBorder justification="2" title="Data Subkriteria">
                       <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder roundedCorners="true"/>
                       </Border>
+                      <Font PropertyName="font" name="Tahoma" size="12" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -355,18 +356,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="panelGlass2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jScrollPane4" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -380,9 +377,9 @@
                               <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel1" pref="837" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -524,7 +521,7 @@
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder roundedCorners="true"/>
                           </Border>
-                          <Font PropertyName="font" name="Tahoma" size="12" style="0"/>
+                          <Font PropertyName="font" name="Tahoma" size="12" style="1"/>
                         </TitledBorder>
                       </Border>
                     </Property>
@@ -610,7 +607,7 @@
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder roundedCorners="true"/>
                           </Border>
-                          <Font PropertyName="font" name="Tahoma" size="12" style="0"/>
+                          <Font PropertyName="font" name="Tahoma" size="12" style="1"/>
                         </TitledBorder>
                       </Border>
                     </Property>
@@ -711,7 +708,7 @@
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder roundedCorners="true"/>
                           </Border>
-                          <Font PropertyName="font" name="Tahoma" size="12" style="0"/>
+                          <Font PropertyName="font" name="Tahoma" size="12" style="1"/>
                         </TitledBorder>
                       </Border>
                     </Property>
