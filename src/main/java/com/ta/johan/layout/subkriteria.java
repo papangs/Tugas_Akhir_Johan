@@ -121,6 +121,8 @@ public class subkriteria extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Nama Subkriteria : ");
 

@@ -128,6 +128,8 @@ public class alternatif extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Search : ");
 

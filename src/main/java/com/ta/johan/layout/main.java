@@ -79,9 +79,7 @@ public class main extends javax.swing.JFrame {
     public void enable(boolean status) {
 
         buttonImageReflection1.setVisible(!status);
-        buttonImageReflection6.setVisible(!status);
         jMenuItem8.setVisible(!status);
-        jMenu4.setVisible(!status);
     }
 
     /**
@@ -362,8 +360,6 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(h);
                 h.show();
                 h.setTitle("Home");
-//                h.setClosable(false);
-//                h.setMaximum(true);
                 h.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -372,8 +368,6 @@ public class main extends javax.swing.JFrame {
             try {
                 h.show();
                 h.setTitle("Home");
-//                h.setClosable(false);
-//                h.setMaximum(true);
                 h.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -390,7 +384,13 @@ public class main extends javax.swing.JFrame {
                 k.setTitle("Kriteria");
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
-                k.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    k.jTabbedPane1.setSelectedIndex(0);
+                    k.jButton10.setVisible(true);
+                } else {
+                    k.jTabbedPane1.setSelectedIndex(1);
+                    k.jButton10.setVisible(false);
+                }
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -401,7 +401,13 @@ public class main extends javax.swing.JFrame {
                 k.setTitle("Kriteria");
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
-                k.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    k.jTabbedPane1.setSelectedIndex(0);
+                    k.jButton10.setVisible(true);
+                } else {
+                    k.jTabbedPane1.setSelectedIndex(1);
+                    k.jButton10.setVisible(false);
+                }
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -437,7 +443,13 @@ public class main extends javax.swing.JFrame {
                 s.setTitle("Subkriteria");
                 controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
-                s.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    s.jTabbedPane1.setSelectedIndex(0);
+                    s.jButton13.setVisible(true);
+                } else {
+                    s.jTabbedPane1.setSelectedIndex(1);
+                    s.jButton13.setVisible(false);
+                }
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -448,7 +460,13 @@ public class main extends javax.swing.JFrame {
                 s.setTitle("Subkriteria");
                 controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
-                s.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    s.jTabbedPane1.setSelectedIndex(0);
+                    s.jButton13.setVisible(true);
+                } else {
+                    s.jTabbedPane1.setSelectedIndex(1);
+                    s.jButton13.setVisible(false);
+                }
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -463,10 +481,15 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(a);
                 a.show();
                 a.setTitle("Alternatif");
-//                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
-                a.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    a.jTabbedPane1.setSelectedIndex(0);
+                    a.jButton13.setVisible(true);
+                } else {
+                    a.jTabbedPane1.setSelectedIndex(1);
+                    a.jButton13.setVisible(false);
+                }
                 controlalternatif.getDataGlobal(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
@@ -476,10 +499,15 @@ public class main extends javax.swing.JFrame {
             try {
                 a.show();
                 a.setTitle("Alternatif");
-//                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
-                a.jTabbedPane1.setSelectedIndex(0);
+                if (jLabel1.getText().equals("Admin")) {
+                    a.jTabbedPane1.setSelectedIndex(0);
+                    a.jButton13.setVisible(true);
+                } else {
+                    a.jTabbedPane1.setSelectedIndex(1);
+                    a.jButton13.setVisible(false);
+                }
                 controlalternatif.getDataGlobal(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {

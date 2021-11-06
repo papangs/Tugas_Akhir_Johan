@@ -237,7 +237,6 @@ public class control_kriteria {
         Matrix(view);
         getPerbandinganKriteria(view);
         view.jButton8.setVisible(false);
-        view.jButton6.setVisible(true);
         view.jScrollPane3.setVisible(false);
     }
 

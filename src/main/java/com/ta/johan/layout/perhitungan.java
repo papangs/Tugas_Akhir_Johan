@@ -77,6 +77,8 @@ public class perhitungan extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Hasil Bobot Perkalian Antara Kriteria dan Subkriteria", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane1.setOpaque(false);
 
@@ -104,8 +106,8 @@ public class perhitungan extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/22931_next_play_player_right_icon.png"))); // NOI18N
-        jButton12.setText("Next");
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/49604_accept_process_icon.png"))); // NOI18N
+        jButton12.setText("Proses");
         jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
