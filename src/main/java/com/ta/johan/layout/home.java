@@ -143,7 +143,7 @@ public class home extends javax.swing.JInternalFrame {
             renderer.setDrawBarOutline(false);
 
             final GradientPaint gp0 = new GradientPaint(
-                    0.0f, 0.0f, Color.PINK,
+                    0.0f, 0.0f, Color.CYAN,
                     0.0f, 0.0f, Color.DARK_GRAY
             );
 
