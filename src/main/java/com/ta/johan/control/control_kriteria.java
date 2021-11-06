@@ -42,8 +42,6 @@ import javax.swing.table.TableColumnModel;
 public class control_kriteria {
 
     Connection c = dbconnect.getKoneksi();
-//    ResultSet r;
-//    Statement s;
 
     public void resetData(kriteria view) {
         view.jTextField2.setText("");

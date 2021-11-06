@@ -315,6 +315,7 @@ public class perhitungan extends javax.swing.JInternalFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
+        controlperhitungan.getDataHasilMatrix(this);
     }//GEN-LAST:event_jButton12ActionPerformed
 
 
