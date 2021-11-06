@@ -26,8 +26,6 @@ public class kriteria extends javax.swing.JInternalFrame {
      * Creates new form kriteria
      */
     Connection c = dbconnect.getKoneksi();
-//    ResultSet r;
-//    Statement s;
 
     control_kriteria controlkriteria;
 
@@ -234,7 +232,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)))
-                        .addGap(0, 524, Short.MAX_VALUE)))
+                        .addGap(0, 742, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jDesktopPaneGambarChild1Layout.setVerticalGroup(
@@ -262,9 +260,9 @@ public class kriteria extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("List Kriteria", jDesktopPaneGambarChild1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Klik baris pada table untuk mengubah atau menambahkan nilai dan juga memilih kriteria mana yang lebih penting.");
+        jLabel1.setText("NB : Klik baris pada table untuk mengubah atau menambahkan nilai dan juga memilih kriteria mana yang lebih penting.");
 
         jScrollPane4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jScrollPane4.setOpaque(false);
@@ -298,7 +296,7 @@ public class kriteria extends javax.swing.JInternalFrame {
         jRadioButton1.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
         jRadioButton1.setText("-");
         jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton1.setOpaque(false);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +308,7 @@ public class kriteria extends javax.swing.JInternalFrame {
         jRadioButton2.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
         jRadioButton2.setText("-");
         jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jRadioButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jRadioButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton2.setOpaque(false);
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,7 +490,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE))
                     .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                         .addComponent(panelGlass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -601,19 +599,16 @@ public class kriteria extends javax.swing.JInternalFrame {
         buttonGlass1.setBackground(new java.awt.Color(0, 0, 153));
         buttonGlass1.setText("---");
         buttonGlass1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        buttonGlass1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonGlass1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         buttonGlass2.setBackground(new java.awt.Color(0, 0, 153));
         buttonGlass2.setText("---");
         buttonGlass2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        buttonGlass2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonGlass2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         buttonGlass3.setBackground(new java.awt.Color(0, 0, 153));
         buttonGlass3.setText("---");
         buttonGlass3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        buttonGlass3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonGlass3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout panelGlass1Layout = new javax.swing.GroupLayout(panelGlass1);
@@ -623,7 +618,7 @@ public class kriteria extends javax.swing.JInternalFrame {
             .addGroup(panelGlass1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGlass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonGlass1, javax.swing.GroupLayout.DEFAULT_SIZE, 1004, Short.MAX_VALUE)
+                    .addComponent(buttonGlass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonGlass3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -654,12 +649,12 @@ public class kriteria extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPaneGambarChild3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(panelGlass1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelGlass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
+                    .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPaneGambarChild3Layout.createSequentialGroup()
                         .addComponent(jButton9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -861,13 +856,6 @@ public class kriteria extends javax.swing.JInternalFrame {
 
     private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
         // TODO add your handling code here:
-//                Pembobotan_Kriteria pk = new Pembobotan_Kriteria(null, rootPaneCheckingEnabled);
-//                pk.set(this);
-//        
-//                for (int i = 0; i < jTable3.getColumnModel().getColumnCount(); i++) {
-//                    final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
-//                    defaultEditor.setClickCountToStart(1000000000);
-//                }
     }//GEN-LAST:event_jTable5MouseClicked
 
     private void jTable5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable5KeyReleased

@@ -27,7 +27,7 @@ public class main extends javax.swing.JFrame {
     control_kriteria controlkriteria;
     control_subkriteria controlsubkriteria;
     control_alternatif controlalternatif;
-    
+
     kriteria k;
     subkriteria s;
     alternatif a;
@@ -42,7 +42,7 @@ public class main extends javax.swing.JFrame {
         controlkriteria = new control_kriteria();
         controlsubkriteria = new control_subkriteria();
         controlalternatif = new control_alternatif();
-        
+
         a = new alternatif();
         s = new subkriteria();
         k = new kriteria();
@@ -315,6 +315,7 @@ public class main extends javax.swing.JFrame {
                 k.show();
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
+                k.jTabbedPane1.setSelectedIndex(0);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -324,6 +325,7 @@ public class main extends javax.swing.JFrame {
                 k.show();
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
+                k.jTabbedPane1.setSelectedIndex(0);
                 k.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -356,7 +358,9 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(s);
                 s.show();
+                controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
+                s.jTabbedPane1.setSelectedIndex(0);
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -364,7 +368,9 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 s.show();
+                controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
+                s.jTabbedPane1.setSelectedIndex(0);
                 s.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -381,6 +387,7 @@ public class main extends javax.swing.JFrame {
 //                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
+                a.jTabbedPane1.setSelectedIndex(0);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -391,6 +398,7 @@ public class main extends javax.swing.JFrame {
 //                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
+                a.jTabbedPane1.setSelectedIndex(0);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

@@ -230,10 +230,6 @@ public class control_kriteria {
 
     //========================================================== PEMBOBOTAN ==============================================================
     public void getDataGlobal(kriteria view) {
-//        view.jTabbedPane1.setEnabledAt(2, false);
-//        view.jTabbedPane1.setSelectedIndex(0);
-//        view.jTabbedPane1.setEnabledAt(0, true);
-//        view.jTabbedPane1.setEnabledAt(1, true);
         view.buttonGroup1.clearSelection();
         view.jLabel7.setVisible(false);
         view.jLabel8.setVisible(false);
