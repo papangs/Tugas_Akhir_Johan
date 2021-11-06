@@ -29,6 +29,8 @@ public class login extends javax.swing.JFrame {
         this.setUndecorated(true); // <-- the title bar is removed here[1186, 553]
 //        setShape(new RoundRectangle2D.Double(30, 30, 2000, 1000, 30, 30));
         op = new main();
+        
+        op.buttonImageReflection2.doClick();
     }
 
 //    public void aksi_login() {

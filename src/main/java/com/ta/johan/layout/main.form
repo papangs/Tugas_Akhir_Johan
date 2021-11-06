@@ -168,6 +168,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection2ActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="usu.widget.glass.ButtonImageReflection" name="buttonImageReflection4">
           <Properties>
@@ -221,6 +224,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="USER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection1ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="com.ta.johan.background.JDesktopPanetransparan" name="jDesktopPanetransparan1">
           <Properties>
@@ -257,6 +263,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PERHITUNGAN"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonImageReflection6ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

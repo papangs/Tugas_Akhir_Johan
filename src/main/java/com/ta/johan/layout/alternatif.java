@@ -4,9 +4,16 @@
  */
 package com.ta.johan.layout;
 
+import com.ta.johan.connect.dbconnect;
 import com.ta.johan.control.control_alternatif;
 import com.ta.johan.control.control_list;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -22,6 +29,8 @@ public class alternatif extends javax.swing.JInternalFrame {
     /**
      * Creates new form kriteria
      */
+    Connection c = dbconnect.getKoneksi();
+
     control_list controllist;
     control_alternatif controlalternatif;
 
@@ -29,6 +38,21 @@ public class alternatif extends javax.swing.JInternalFrame {
         initComponents();
         controllist = new control_list();
         controlalternatif = new control_alternatif();
+        
+        final boolean showTabsHeader = false;
+        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
+            @Override
+            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+                if (showTabsHeader) {
+                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
+                } else {
+                    return 0;
+                }
+            }
+
+            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
+            }
+        });
     }
 
     /**
@@ -81,7 +105,6 @@ public class alternatif extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable7 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -513,13 +536,6 @@ public class alternatif extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel18.setText("jLabel6");
-        jLabel18.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel18PropertyChange(evt);
-            }
-        });
-
         jScrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Klik Table List Subkriteria", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
         jScrollPane7.setOpaque(false);
 
@@ -534,6 +550,16 @@ public class alternatif extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable7MouseClicked(evt);
+            }
+        });
+        jTable7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable7KeyReleased(evt);
+            }
+        });
         jScrollPane7.setViewportView(jTable7);
 
         javax.swing.GroupLayout panelGlass2Layout = new javax.swing.GroupLayout(panelGlass2);
@@ -552,8 +578,6 @@ public class alternatif extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
                 .addContainerGap())
@@ -562,7 +586,7 @@ public class alternatif extends javax.swing.JInternalFrame {
             panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGlass2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGlass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -573,8 +597,7 @@ public class alternatif extends javax.swing.JInternalFrame {
                 .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel17)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel18))
+                    .addComponent(jLabel7))
                 .addContainerGap())
         );
 
@@ -916,75 +939,71 @@ public class alternatif extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        //        control.getData(this);
+        controlalternatif.getDataGlobal(this);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        //        int rCon = jTable4.getRowCount();
-        //        for (int i = 0; i < rCon; i++) {
-            //            String[] saaty = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-            //            int random = (int) (Math.random() * 9);
-            //            String setran = saaty[random];
-            //            jTable4.setValueAt(setran, i, 7);
-            //        }
-        //
-        //        int rColum = jTable4.getColumnCount();
-        //        for (int j = 0; j < rCon; j++) {
-            //            for (int i = 0; i < rColum; i++) {
-                //                try {
-                    //                    String[] saaty = {String.valueOf(jTable4.getValueAt(j, 1)), String.valueOf(jTable4.getValueAt(j, 3))};
-                    //                    int random = (int) (Math.random() * 2);
-                    //                    String setran = saaty[random];
-                    //                    jTable4.setValueAt(setran, j, 5);
-                    //
-                    //                    String sql = "SELECT\n"
-                    //                    + "alternatif.seq, \n"
-                    //                    + "alternatif.alternatif_name, \n"
-                    //                    + "alternatif.kategori_seq, \n"
-                    //                    + "kategori_alternatif.kategori_name\n"
-                    //                    + "FROM\n"
-                    //                    + "alternatif\n"
-                    //                    + "INNER JOIN\n"
-                    //                    + "kategori_alternatif\n"
-                    //                    + "ON \n"
-                    //                    + "alternatif.kategori_seq = kategori_alternatif.seq\n"
-                    //                    + "WHERE alternatif.seq = '"+setran+"'";
-                    //
-                    //                    Statement st = c.createStatement();
-                    //                    ResultSet r = st.executeQuery(sql);
-                    //
-                    //                    String namaPilihan = "";
-                    //
-                    //                    while (r.next()) {
-                        //
-                        //                        namaPilihan = r.getString("alternatif.alternatif_name");
-                        //
-                        //                    }
-                    //                    jTable4.setValueAt(namaPilihan, j, 6);
-                    //                } catch (SQLException ex) {
-                    //                    Logger.getLogger(Matrix_Alternatif.class.getName()).log(Level.SEVERE, null, ex);
-                    //                }
-                //            }
-            //        }
+        int rCon = jTable4.getRowCount();
+        for (int i = 0; i < rCon; i++) {
+            String[] saaty = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+            int random = (int) (Math.random() * 9);
+            String setran = saaty[random];
+            jTable4.setValueAt(setran, i, 7);
+        }
+
+        int rColum = jTable4.getColumnCount();
+        for (int j = 0; j < rCon; j++) {
+            for (int i = 0; i < rColum; i++) {
+                try {
+                    String[] saaty = {String.valueOf(jTable4.getValueAt(j, 1)), String.valueOf(jTable4.getValueAt(j, 3))};
+                    int random = (int) (Math.random() * 2);
+                    String setran = saaty[random];
+                    jTable4.setValueAt(setran, j, 5);
+//
+                    String sql = "SELECT\n"
+                            + "	alternatif.seq, \n"
+                            + "	alternatif.alternatif_name\n"
+                            + "FROM\n"
+                            + "	alternatif\n"
+                            + "WHERE\n"
+                            + "	alternatif.seq = '" + setran + "'";
+
+                    Statement st = c.createStatement();
+                    ResultSet r = st.executeQuery(sql);
+
+                    String namaPilihan = "";
+
+                    while (r.next()) {
+
+                        namaPilihan = r.getString("alternatif.alternatif_name");
+
+                    }
+                    jTable4.setValueAt(namaPilihan, j, 6);
+                } catch (SQLException ex) {
+                    Logger.getLogger(alternatif.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        //        control.saveProccessMatrixAll(this);
-        //        jTabbedPane1.setEnabledAt(1, true);
-        //        jTabbedPane1.setSelectedIndex(1);
-        //        jTabbedPane1.setEnabledAt(0, false);
-        //        jButton3.doClick();
+        controlalternatif.saveProccessMatrixAll(this);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setSelectedIndex(2);
+        jTabbedPane1.setEnabledAt(0, true);
+        jTabbedPane1.setEnabledAt(1, true);
+        jButton9.doClick();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
         // TODO add your handling code here:
-        //        control.openForm(this);
-        //        for (int i = 0; i < jTable4.getColumnModel().getColumnCount(); i++) {
-            //            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
-            //            defaultEditor.setClickCountToStart(1000000000);
-            //        }
+        controlalternatif.openForm(this);
+        for (int i = 0; i < jTable4.getColumnModel().getColumnCount(); i++) {
+            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
+            defaultEditor.setClickCountToStart(1000000000);
+        }
     }//GEN-LAST:event_jTable4MouseClicked
 
     private void jTable4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable4KeyReleased
@@ -1002,11 +1021,11 @@ public class alternatif extends javax.swing.JInternalFrame {
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
-        //        char karakter = evt.getKeyChar();
-        //        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))) {
-            //            getToolkit().beep();
-            //            evt.consume();
-            //        }
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE)))) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jLabel7PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel7PropertyChange
@@ -1019,16 +1038,12 @@ public class alternatif extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        //        control.saveProccessMatrix(this);
+        controlalternatif.saveProccessMatrix(this);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jLabel17PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel17PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel17PropertyChange
-
-    private void jLabel18PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel18PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel18PropertyChange
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         // TODO add your handling code here:
@@ -1041,26 +1056,19 @@ public class alternatif extends javax.swing.JInternalFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-//        control.processData(this);
+        controlalternatif.processData(this);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(1, false);
-        jTabbedPane1.setSelectedIndex(0);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setSelectedIndex(1);
         jTabbedPane1.setEnabledAt(0, true);
-        //        control.getData(this);
+        jTabbedPane1.setEnabledAt(1, true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTable6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable6MouseClicked
         // TODO add your handling code here:
-        //        Pembobotan_Kriteria pk = new Pembobotan_Kriteria(null, rootPaneCheckingEnabled);
-        //        pk.set(this);
-        //
-        //        for (int i = 0; i < jTable3.getColumnModel().getColumnCount(); i++) {
-            //            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
-            //            defaultEditor.setClickCountToStart(1000000000);
-            //        }
     }//GEN-LAST:event_jTable6MouseClicked
 
     private void jTable6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable6KeyReleased
@@ -1070,11 +1078,11 @@ public class alternatif extends javax.swing.JInternalFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-//        jTabbedPane1.setEnabledAt(2, false);
-//        jTabbedPane1.setSelectedIndex(1);
-//        jTabbedPane1.setEnabledAt(0, true);
-//        jTabbedPane1.setEnabledAt(1, true);
-//        controlkriteria.getDataGlobal(this);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setEnabledAt(0, true);
+        jTabbedPane1.setEnabledAt(1, true);
+        controlalternatif.getDataGlobal(this);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1085,12 +1093,26 @@ public class alternatif extends javax.swing.JInternalFrame {
         jTabbedPane1.setEnabledAt(1, true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jTable7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable7MouseClicked
+        // TODO add your handling code here:
+        controlalternatif.openSubkriteria(this);
+        for (int i = 0; i < jTable7.getColumnModel().getColumnCount(); i++) {
+            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable7.getDefaultEditor(jTable7.getColumnClass(i));
+            defaultEditor.setClickCountToStart(1000000000);
+        }
+    }//GEN-LAST:event_jTable7MouseClicked
+
+    private void jTable7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable7KeyReleased
+        // TODO add your handling code here:
+        jTable7MouseClicked(null);
+    }//GEN-LAST:event_jTable7KeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public usu.widget.ButtonGlass buttonGlass1;
     public usu.widget.ButtonGlass buttonGlass2;
     public usu.widget.ButtonGlass buttonGlass3;
-    private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton12;
@@ -1115,7 +1137,6 @@ public class alternatif extends javax.swing.JInternalFrame {
     public javax.swing.JLabel jLabel15;
     public javax.swing.JLabel jLabel16;
     public javax.swing.JLabel jLabel17;
-    public javax.swing.JLabel jLabel18;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;

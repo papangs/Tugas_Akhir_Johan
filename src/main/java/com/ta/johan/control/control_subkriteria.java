@@ -268,6 +268,8 @@ public class control_subkriteria {
     public void getDataGlobal(subkriteria view) {
         view.jScrollPane3.setVisible(false);
         view.buttonGroup1.clearSelection();
+        view.jRadioButton1.setText("-");
+        view.jRadioButton2.setText("-");
         view.jLabel7.setVisible(false);
         view.jLabel8.setVisible(false);
         view.jLabel14.setVisible(false);
@@ -286,6 +288,8 @@ public class control_subkriteria {
 
     public void getDataRefresh(subkriteria view) {
         view.buttonGroup1.clearSelection();
+        view.jRadioButton1.setText("-");
+        view.jRadioButton2.setText("-");
         view.jLabel7.setText("");
         view.jLabel8.setText("");
         view.jLabel14.setText("");
@@ -434,6 +438,7 @@ public class control_subkriteria {
         view.jButton7.setVisible(true);
         view.jButton8.setVisible(true);
         
+        getDataRefresh(view);
         getDataSubkriteria(view);
         Matrix(view);
         getPerbandinganSubkriteria(view);
@@ -464,7 +469,6 @@ public class control_subkriteria {
         } finally {
             view.jTable5.getColumnModel().getColumn(1).setMinWidth(0);
             view.jTable5.getColumnModel().getColumn(1).setMaxWidth(0);
-            resetData(view);
         }
     }
 

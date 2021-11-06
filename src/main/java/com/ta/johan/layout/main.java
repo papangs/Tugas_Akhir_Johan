@@ -6,6 +6,7 @@ package com.ta.johan.layout;
 
 import com.ta.johan.control.control_alternatif;
 import com.ta.johan.control.control_kriteria;
+import com.ta.johan.control.control_perhitungan;
 import com.ta.johan.control.control_subkriteria;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -27,10 +28,12 @@ public class main extends javax.swing.JFrame {
     control_kriteria controlkriteria;
     control_subkriteria controlsubkriteria;
     control_alternatif controlalternatif;
+    control_perhitungan controlperhitungan;
 
     kriteria k;
     subkriteria s;
     alternatif a;
+    perhitungan p;
     home h;
 
     public main() {
@@ -42,32 +45,13 @@ public class main extends javax.swing.JFrame {
         controlkriteria = new control_kriteria();
         controlsubkriteria = new control_subkriteria();
         controlalternatif = new control_alternatif();
+        controlperhitungan = new control_perhitungan();
 
         a = new alternatif();
         s = new subkriteria();
         k = new kriteria();
+        p = new perhitungan();
         h = new home();
-
-        if (!h.isVisible()) {
-            try {
-                jDesktopPanetransparan1.add(h);
-                h.show();
-//                h.setClosable(false);
-//                h.setMaximum(true);
-                h.setSelected(true);
-            } catch (PropertyVetoException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            try {
-                h.show();
-//                h.setClosable(false);
-//                h.setMaximum(true);
-                h.setSelected(true);
-            } catch (PropertyVetoException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
 //    public void panggil(String userlogin) {
@@ -176,6 +160,11 @@ public class main extends javax.swing.JFrame {
         buttonImageReflection1.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/question.png"))); // NOI18N
         buttonImageReflection1.setText("USER");
+        buttonImageReflection1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection1ActionPerformed(evt);
+            }
+        });
 
         jDesktopPanetransparan1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jDesktopPanetransparan1.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,6 +177,11 @@ public class main extends javax.swing.JFrame {
         buttonImageReflection6.setForeground(new java.awt.Color(0, 0, 0));
         buttonImageReflection6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1493393979_Finance_finance_caaslculator.png"))); // NOI18N
         buttonImageReflection6.setText("PERHITUNGAN");
+        buttonImageReflection6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonImageReflection6ActionPerformed(evt);
+            }
+        });
 
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarHome1.setLayer(buttonImageReflection4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -289,6 +283,7 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(h);
                 h.show();
+                h.setTitle("Home");
 //                h.setClosable(false);
 //                h.setMaximum(true);
                 h.setSelected(true);
@@ -298,6 +293,7 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 h.show();
+                h.setTitle("Home");
 //                h.setClosable(false);
 //                h.setMaximum(true);
                 h.setSelected(true);
@@ -313,6 +309,7 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(k);
                 k.show();
+                k.setTitle("Kriteria");
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
                 k.jTabbedPane1.setSelectedIndex(0);
@@ -323,6 +320,7 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 k.show();
+                k.setTitle("Kriteria");
                 controlkriteria.getData(k);
                 controlkriteria.getDataGlobal(k);
                 k.jTabbedPane1.setSelectedIndex(0);
@@ -358,6 +356,7 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(s);
                 s.show();
+                s.setTitle("Subkriteria");
                 controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
                 s.jTabbedPane1.setSelectedIndex(0);
@@ -368,6 +367,7 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 s.show();
+                s.setTitle("Subkriteria");
                 controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
                 s.jTabbedPane1.setSelectedIndex(0);
@@ -384,10 +384,12 @@ public class main extends javax.swing.JFrame {
             try {
                 jDesktopPanetransparan1.add(a);
                 a.show();
+                a.setTitle("Alternatif");
 //                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
                 a.jTabbedPane1.setSelectedIndex(0);
+                controlalternatif.getDataGlobal(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -395,16 +397,54 @@ public class main extends javax.swing.JFrame {
         } else {
             try {
                 a.show();
+                a.setTitle("Alternatif");
 //                controlalternatif.getData(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
                 a.jTabbedPane1.setSelectedIndex(0);
+                controlalternatif.getDataGlobal(a);
                 a.setSelected(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_buttonImageReflection3ActionPerformed
+
+    private void buttonImageReflection6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection6ActionPerformed
+        // TODO add your handling code here:
+        if (!p.isVisible()) {
+            try {
+                jDesktopPanetransparan1.add(p);
+                p.show();
+                p.setTitle("Perhitungan Akhir");
+//                controlalternatif.getData(a);
+//                controlalternatif.getDataSubkriteria(p);
+//                controlalternatif.getDataAlternatifSubkriteria(p);
+//                a.jTabbedPane1.setSelectedIndex(0);
+//                controlalternatif.getDataGlobal(p);
+                p.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                p.show();
+                p.setTitle("Perhitungan Akhir");
+//                controlalternatif.getData(a);
+//                controlalternatif.getDataSubkriteria(p);
+//                controlalternatif.getDataAlternatifSubkriteria(p);
+//                p.jTabbedPane1.setSelectedIndex(0);
+//                controlalternatif.getDataGlobal(p);
+                p.setSelected(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_buttonImageReflection6ActionPerformed
+
+    private void buttonImageReflection1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonImageReflection1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonImageReflection1ActionPerformed
 
     public void close() {
         WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
@@ -448,7 +488,7 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private usu.widget.glass.ButtonImageReflection buttonImageReflection1;
-    private usu.widget.glass.ButtonImageReflection buttonImageReflection2;
+    public usu.widget.glass.ButtonImageReflection buttonImageReflection2;
     private usu.widget.glass.ButtonImageReflection buttonImageReflection3;
     private usu.widget.glass.ButtonImageReflection buttonImageReflection4;
     private usu.widget.glass.ButtonImageReflection buttonImageReflection5;
