@@ -4,6 +4,36 @@
  */
 package com.ta.johan.layout;
 
+import com.ta.johan.connect.dbconnect;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GradientPaint;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.general.Dataset;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 /**
  *
  * @author Irawan Papang S
@@ -13,8 +43,182 @@ public class home extends javax.swing.JInternalFrame {
     /**
      * Creates new form kriteria
      */
+    Connection c = dbconnect.getKoneksi();
+//    Dataset dataset;
+//    JFreeChart chart;
+
     public home() {
         initComponents();
+        grafikbar();
+        getDataRangking();
+    }
+
+//    public void createDataset() {
+//
+//        String[] alternatif = {"Lazada", "Shopee", "Tokopedia", "Blibli", "Bukalapak"};
+//
+//        XYSeries ramalan = new XYSeries("Alternatif");
+//        double[] tinggiMawar = {335, 1809, 320, 362, 531};
+//        for (int i = 0; i < alternatif.length; i++) {
+//            ramalan.setDescription(alternatif[i]);
+//        }
+//
+//        XYSeriesCollection datasetcolection = new XYSeriesCollection();
+////        datasetcolection.addSeries(tahun);
+//        datasetcolection.addSeries(ramalan);
+//
+//        this.dataset = datasetcolection;
+//
+//    }
+//    public void grafikbar() {
+//        try {
+////            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+////            String query = "SELECT\n"
+////                    + "alternatif.alternatif_name,\n"
+////                    + "hasil_rangking.value as Nilai\n"
+////                    + "FROM\n"
+////                    + "hasil_rangking\n"
+////                    + "INNER JOIN alternatif ON hasil_rangking.alternatif_seq = alternatif.seq";
+////
+////            JDBCCategoryDataset data = new JDBCCategoryDataset("jdbc:mysql://localhost/tugas_akhir_johan", "com.mysql.jdbc.Driver", "root", "");
+////            data.executeQuery(query);
+//            createDataset();
+//            this.chart = ChartFactory.createXYLineChart(
+//                    "Grafik Marketplace Terbaik",
+//                    "Marketplace",
+//                    "Nilai",
+//                    (XYDataset) this.dataset,
+//                    PlotOrientation.VERTICAL,
+//                    true,
+//                    true,
+//                    false);
+//            XYPlot xyplot = (XYPlot) chart.getPlot();
+//            XYLineAndShapeRenderer xYLineAndShapeRenderer = (XYLineAndShapeRenderer) xyplot.getRenderer();
+//            xYLineAndShapeRenderer.setBaseShapesVisible(true);
+//            xYLineAndShapeRenderer.setBaseShapesFilled(true);
+//
+////            
+////            JFreeChart chart = ChartFactory.createBarChart("Grafik", "Alternatif", "Jumlah", data, PlotOrientation.VERTICAL, true, true, false);
+////            CategoryPlot bar = chart.getCategoryPlot();
+////            bar.setBackgroundPaint(Color.WHITE);
+////            bar.setRangeGridlinePaint(Color.BLACK);
+////
+////            final NumberAxis rangeAxis = (NumberAxis) bar.getRangeAxis();
+////            rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+////
+////            BarRenderer renderer = (BarRenderer) bar.getRenderer();
+////            renderer.setDrawBarOutline(false);
+////
+////            final GradientPaint gp0 = new GradientPaint(
+////                    0.0f, 0.0f, Color.CYAN,
+////                    0.0f, 0.0f, Color.DARK_GRAY
+////            );
+////
+////            renderer.setSeriesPaint(0, gp0);
+//            ChartPanel barpanel = new ChartPanel(this.chart);
+////            jPanel1.setVisible(true);
+////            jPanel1.removeAll();
+//            jPanel1.add(barpanel, BorderLayout.CENTER);
+////            jPanel1.validate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//        }
+//    }
+    public void grafikbar() {
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            String query = "SELECT\n"
+                    + "alternatif.alternatif_name,\n"
+                    + "hasil_rangking.value AS Nilai\n"
+                    + "FROM\n"
+                    + "hasil_rangking\n"
+                    + "INNER JOIN alternatif ON hasil_rangking.alternatif_seq = alternatif.seq";
+
+            JDBCCategoryDataset data = new JDBCCategoryDataset("jdbc:mysql://localhost/tugas_akhir_johan", "com.mysql.jdbc.Driver", "root", "");
+            data.executeQuery(query);
+
+            JFreeChart chart = ChartFactory.createBarChart("Grafik Marketplace Terbaik", "Marketplace", "Jumlah", data, PlotOrientation.VERTICAL, true, true, false);
+            CategoryPlot bar = chart.getCategoryPlot();
+            bar.setBackgroundPaint(Color.WHITE);
+            bar.setRangeGridlinePaint(Color.BLACK);
+
+            final NumberAxis rangeAxis = (NumberAxis) bar.getRangeAxis();
+            rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+
+            BarRenderer renderer = (BarRenderer) bar.getRenderer();
+            renderer.setDrawBarOutline(false);
+
+            final GradientPaint gp0 = new GradientPaint(
+                    0.0f, 0.0f, Color.CYAN,
+                    0.0f, 0.0f, Color.DARK_GRAY
+            );
+
+            renderer.setSeriesPaint(0, gp0);
+
+            ChartPanel barpanel = new ChartPanel(chart);
+            jPanel1.setVisible(true);
+            jPanel1.removeAll();
+            jPanel1.add(barpanel, BorderLayout.CENTER);
+            jPanel1.validate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+    }
+
+    public void getDataRangking() {
+
+        DefaultTableModel tabelKej = new DefaultTableModel();
+        tabelKej.addColumn("No");
+        tabelKej.addColumn("Marketplace");
+        tabelKej.addColumn("Nilai");
+        tabelKej.addColumn("Rangking");
+        try {
+            String sql = "SELECT\n"
+                    + "	hasil_rangking.`value`, \n"
+                    + "	hasil_rangking.rangking, \n"
+                    + "	alternatif.seq, \n"
+                    + "	alternatif.alternatif_name\n"
+                    + "FROM\n"
+                    + "	hasil_rangking\n"
+                    + "	INNER JOIN\n"
+                    + "	alternatif\n"
+                    + "	ON \n"
+                    + "	hasil_rangking.alternatif_seq = alternatif.seq\n"
+                    + "ORDER BY\n"
+                    + "	hasil_rangking.rangking ASC";
+
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(sql);
+
+            int n = 1;
+            while (r.next()) {
+                tabelKej.addRow(new Object[]{n++, r.getString("alternatif.alternatif_name"),
+                    r.getString("hasil_rangking.value"),
+                    r.getString("hasil_rangking.rangking")});
+            }
+            jTable1.setModel(tabelKej);
+        } catch (Exception e) {
+        } finally {
+            buatKolomSesuai(jTable1);
+        }
+    }
+
+    public void buatKolomSesuai(JTable t) {
+        TableColumnModel modelKolom = t.getColumnModel();
+
+        for (int kol = 0; kol < modelKolom.getColumnCount(); kol++) {
+            int lebarKolomMax = 0;
+            for (int baris = 0; baris < t.getRowCount(); baris++) {
+                TableCellRenderer rend = t.getCellRenderer(baris, kol);
+                Object nilaiTablel = t.getValueAt(baris, kol);
+                Component comp = rend.getTableCellRendererComponent(t, nilaiTablel, false, false, baris, kol);
+                lebarKolomMax = Math.max(comp.getPreferredSize().width, lebarKolomMax);
+            }
+            TableColumn kolom = modelKolom.getColumn(kol);
+            kolom.setPreferredWidth(lebarKolomMax);
+        }
     }
 
     /**
@@ -59,17 +263,7 @@ public class home extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         jDesktopPaneGambarChild1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -80,9 +274,9 @@ public class home extends javax.swing.JInternalFrame {
             jDesktopPaneGambarChild1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jDesktopPaneGambarChild1Layout.setVerticalGroup(
@@ -110,9 +304,9 @@ public class home extends javax.swing.JInternalFrame {
         //        control.readData(this);
         //
         //        for (int i = 0; i < jTable1.getColumnModel().getColumnCount(); i++) {
-            //            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
-            //            defaultEditor.setClickCountToStart(1000000000);
-            //        }
+        //            final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable1.getDefaultEditor(jTable1.getColumnClass(i));
+        //            defaultEditor.setClickCountToStart(1000000000);
+        //        }
     }//GEN-LAST:event_jTable1MouseClicked
 
 

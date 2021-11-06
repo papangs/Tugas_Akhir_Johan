@@ -11,7 +11,7 @@
  Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 06/11/2021 16:22:39
+ Date: 06/11/2021 18:29:44
 */
 
 SET NAMES utf8mb4;
@@ -120,10 +120,10 @@ CREATE TABLE `eigen_alternatif`  (
   INDEX `fk_seq_alternatif`(`alternatif_seq`) USING BTREE,
   INDEX `fk_sub_seq`(`subkriteria_seq`) USING BTREE,
   INDEX `fk_krit_seq`(`kriteria_seq`) USING BTREE,
-  CONSTRAINT `fk_seq_alternatif` FOREIGN KEY (`alternatif_seq`) REFERENCES `alternatif` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_krit_seq` FOREIGN KEY (`kriteria_seq`) REFERENCES `kriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `fk_seq_alternatif` FOREIGN KEY (`alternatif_seq`) REFERENCES `alternatif` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_sub_seq` FOREIGN KEY (`subkriteria_seq`) REFERENCES `subkriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of eigen_alternatif
@@ -158,11 +158,6 @@ INSERT INTO `eigen_alternatif` VALUES (62, '0.2', '2021-11-06', 6, 7, 3);
 INSERT INTO `eigen_alternatif` VALUES (63, '0.2', '2021-11-06', 7, 7, 3);
 INSERT INTO `eigen_alternatif` VALUES (64, '0.2', '2021-11-06', 8, 7, 3);
 INSERT INTO `eigen_alternatif` VALUES (65, '0.2', '2021-11-06', 9, 7, 3);
-INSERT INTO `eigen_alternatif` VALUES (66, '0.2', '2021-11-06', 3, 8, 3);
-INSERT INTO `eigen_alternatif` VALUES (67, '0.2', '2021-11-06', 6, 8, 3);
-INSERT INTO `eigen_alternatif` VALUES (68, '0.2', '2021-11-06', 7, 8, 3);
-INSERT INTO `eigen_alternatif` VALUES (69, '0.2', '2021-11-06', 8, 8, 3);
-INSERT INTO `eigen_alternatif` VALUES (70, '0.2', '2021-11-06', 9, 8, 3);
 INSERT INTO `eigen_alternatif` VALUES (71, '0.2', '2021-11-06', 3, 9, 4);
 INSERT INTO `eigen_alternatif` VALUES (72, '0.2', '2021-11-06', 6, 9, 4);
 INSERT INTO `eigen_alternatif` VALUES (73, '0.2', '2021-11-06', 7, 9, 4);
@@ -178,6 +173,11 @@ INSERT INTO `eigen_alternatif` VALUES (82, '0.172', '2021-11-06', 6, 1, 1);
 INSERT INTO `eigen_alternatif` VALUES (83, '0.199', '2021-11-06', 7, 1, 1);
 INSERT INTO `eigen_alternatif` VALUES (84, '0.243', '2021-11-06', 8, 1, 1);
 INSERT INTO `eigen_alternatif` VALUES (85, '0.172', '2021-11-06', 9, 1, 1);
+INSERT INTO `eigen_alternatif` VALUES (86, '0.176', '2021-11-06', 3, 8, 3);
+INSERT INTO `eigen_alternatif` VALUES (87, '0.198', '2021-11-06', 6, 8, 3);
+INSERT INTO `eigen_alternatif` VALUES (88, '0.198', '2021-11-06', 7, 8, 3);
+INSERT INTO `eigen_alternatif` VALUES (89, '0.231', '2021-11-06', 8, 8, 3);
+INSERT INTO `eigen_alternatif` VALUES (90, '0.198', '2021-11-06', 9, 8, 3);
 
 -- ----------------------------
 -- Table structure for eigen_kriteria
@@ -196,10 +196,10 @@ CREATE TABLE `eigen_kriteria`  (
 -- ----------------------------
 -- Records of eigen_kriteria
 -- ----------------------------
-INSERT INTO `eigen_kriteria` VALUES (1, '0.338', '2021-11-06', 1);
-INSERT INTO `eigen_kriteria` VALUES (2, '0.288', '2021-11-06', 2);
-INSERT INTO `eigen_kriteria` VALUES (3, '0.169', '2021-11-06', 3);
-INSERT INTO `eigen_kriteria` VALUES (4, '0.205', '2021-11-06', 4);
+INSERT INTO `eigen_kriteria` VALUES (1, '0.288', '2021-11-06', 1);
+INSERT INTO `eigen_kriteria` VALUES (2, '0.203', '2021-11-06', 2);
+INSERT INTO `eigen_kriteria` VALUES (3, '0.188', '2021-11-06', 3);
+INSERT INTO `eigen_kriteria` VALUES (4, '0.322', '2021-11-06', 4);
 
 -- ----------------------------
 -- Table structure for eigen_subkriteria
@@ -214,8 +214,8 @@ CREATE TABLE `eigen_subkriteria`  (
   PRIMARY KEY (`seq_eigen_subkriteria`) USING BTREE,
   INDEX `subkriteria_seq_fk`(`subkriteria_seq`) USING BTREE,
   INDEX `kriteriaseqfk`(`kriteria_seq`) USING BTREE,
-  CONSTRAINT `subkriteria_seq_fk` FOREIGN KEY (`subkriteria_seq`) REFERENCES `subkriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `kriteriaseqfk` FOREIGN KEY (`kriteria_seq`) REFERENCES `kriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `kriteriaseqfk` FOREIGN KEY (`kriteria_seq`) REFERENCES `kriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `subkriteria_seq_fk` FOREIGN KEY (`subkriteria_seq`) REFERENCES `subkriteria` (`seq`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -249,11 +249,11 @@ CREATE TABLE `hasil_rangking`  (
 -- ----------------------------
 -- Records of hasil_rangking
 -- ----------------------------
-INSERT INTO `hasil_rangking` VALUES (1, 3, '0.224', 1);
-INSERT INTO `hasil_rangking` VALUES (2, 6, '0.19', 4);
-INSERT INTO `hasil_rangking` VALUES (3, 7, '0.198', 3);
-INSERT INTO `hasil_rangking` VALUES (4, 8, '0.208', 2);
-INSERT INTO `hasil_rangking` VALUES (5, 9, '0.18', 5);
+INSERT INTO `hasil_rangking` VALUES (1, 3, '0.218', 1);
+INSERT INTO `hasil_rangking` VALUES (2, 6, '0.191', 4);
+INSERT INTO `hasil_rangking` VALUES (3, 7, '0.199', 3);
+INSERT INTO `hasil_rangking` VALUES (4, 8, '0.21', 2);
+INSERT INTO `hasil_rangking` VALUES (5, 9, '0.183', 5);
 
 -- ----------------------------
 -- Table structure for kriteria
@@ -286,7 +286,7 @@ CREATE TABLE `perbandingan_alternatif`  (
   `kriteria_seq` int NULL DEFAULT NULL,
   `nilai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 421 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 432 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of perbandingan_alternatif
@@ -351,16 +351,6 @@ INSERT INTO `perbandingan_alternatif` VALUES (377, 6, 9, 0, 7, 3, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (378, 7, 8, 0, 7, 3, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (379, 7, 9, 0, 7, 3, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (380, 8, 9, 0, 7, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (381, 3, 6, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (382, 3, 7, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (383, 3, 8, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (384, 3, 9, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (385, 6, 7, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (386, 6, 8, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (387, 6, 9, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (388, 7, 8, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (389, 7, 9, 0, 8, 3, '1');
-INSERT INTO `perbandingan_alternatif` VALUES (390, 8, 9, 0, 8, 3, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (391, 3, 6, 0, 9, 4, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (392, 3, 7, 0, 9, 4, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (393, 3, 8, 0, 9, 4, '1');
@@ -391,6 +381,16 @@ INSERT INTO `perbandingan_alternatif` VALUES (417, 6, 9, 6, 1, 1, '1');
 INSERT INTO `perbandingan_alternatif` VALUES (418, 7, 8, 8, 1, 1, '3');
 INSERT INTO `perbandingan_alternatif` VALUES (419, 7, 9, 7, 1, 1, '2');
 INSERT INTO `perbandingan_alternatif` VALUES (420, 8, 9, 8, 1, 1, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (422, 3, 6, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (423, 3, 7, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (424, 3, 8, 8, 8, 3, '2');
+INSERT INTO `perbandingan_alternatif` VALUES (425, 3, 9, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (426, 6, 7, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (427, 6, 8, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (428, 6, 9, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (429, 7, 8, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (430, 7, 9, 0, 8, 3, '1');
+INSERT INTO `perbandingan_alternatif` VALUES (431, 8, 9, 0, 8, 3, '1');
 
 -- ----------------------------
 -- Table structure for perbandingan_kriteria
@@ -408,12 +408,12 @@ CREATE TABLE `perbandingan_kriteria`  (
 -- ----------------------------
 -- Records of perbandingan_kriteria
 -- ----------------------------
-INSERT INTO `perbandingan_kriteria` VALUES (1, 1, 2, 2, '1');
-INSERT INTO `perbandingan_kriteria` VALUES (2, 1, 3, 1, '2');
-INSERT INTO `perbandingan_kriteria` VALUES (3, 1, 4, 1, '2');
-INSERT INTO `perbandingan_kriteria` VALUES (4, 2, 3, 2, '2');
+INSERT INTO `perbandingan_kriteria` VALUES (1, 1, 2, 1, '2');
+INSERT INTO `perbandingan_kriteria` VALUES (2, 1, 3, 3, '1');
+INSERT INTO `perbandingan_kriteria` VALUES (3, 1, 4, 4, '1');
+INSERT INTO `perbandingan_kriteria` VALUES (4, 2, 3, 3, '1');
 INSERT INTO `perbandingan_kriteria` VALUES (5, 2, 4, 4, '1');
-INSERT INTO `perbandingan_kriteria` VALUES (6, 3, 4, 3, '1');
+INSERT INTO `perbandingan_kriteria` VALUES (6, 3, 4, 4, '3');
 
 -- ----------------------------
 -- Table structure for perbandingan_subkriteria
