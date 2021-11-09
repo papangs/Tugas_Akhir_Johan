@@ -498,6 +498,184 @@ public class control_perhitungan {
 
     }
 
+    public void getDataHasilUrut(perhitungan view) {
+
+        DecimalFormat batas = new DecimalFormat("#.###");
+
+        String query = "SELECT\n"
+                + "hasil_rangking.`value`, \n"
+                + "hasil_rangking.rangking, \n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name\n"
+                + "FROM\n"
+                + "hasil_rangking\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "hasil_rangking.alternatif_seq = alternatif.seq\n"
+                + "ORDER BY\n"
+                + "hasil_rangking.rangking ASC";
+
+        jum11 = 0;
+
+        try {
+
+            Statement stat = c.createStatement();
+            ResultSet rs = stat.executeQuery(query);
+            while (rs.next()) {
+                jum11 = jum11 + 1;
+            }
+
+            int aa = Integer.parseInt(jum11 + "");
+            System.out.println("aa : " + aa);
+            int aaa = getJumlahSubdankrit(view);
+
+            List<HashMap<String, Object>> df = getDataSubdankrit(view);
+
+            String[] c1 = new String[aaa + 1 + 1 + 1 + 1 + 1];
+
+            for (int i1 = 0; i1 < aaa; i1++) {
+                for (int i = 0; i < 1; i++) {
+                    c1[i] = "NO";
+                    c1[i + 1] = "Alternatif Seq";
+                    c1[i + 1 + 1] = "Alternatif";
+                    c1[i1 + 1 + 1 + 1] = (String) df.get(i1).get("nama").toString();
+                    c1[i1 + 1 + 1 + 1 + 1] = "Total";
+                    c1[i1 + 1 + 1 + 1 + 1 + 1] = "Rangking";
+                }
+            }
+
+            setttablematrix(view.jTable5, aa, c1);
+
+            //No
+            for (int i3 = 0; i3 < aa; i3++) {
+                view.jTable5.setValueAt(i3 + 1, i3, 0);
+            }
+
+            //set seq
+            String seq = "";
+            int e1 = 0;
+            try {
+                Statement stat11 = c.createStatement();
+                ResultSet res11 = stat11.executeQuery(query);
+                while (res11.next()) {
+                    seq = res11.getString("alternatif.seq");
+                    view.jTable5.setValueAt(seq, e1++, 1);
+                }
+            } catch (SQLException f) {
+            }
+
+            //set nama
+            String nama = "";
+            int e = 0;
+            try {
+                Statement stat11 = c.createStatement();
+                ResultSet res11 = stat11.executeQuery(query);
+                while (res11.next()) {
+                    nama = res11.getString("alternatif.alternatif_name");
+                    view.jTable5.setValueAt(nama, e++, 2);
+                }
+            } catch (SQLException f) {
+            }
+
+//            nilai
+            for (int i2 = 0; i2 < aaa; i2++) {
+
+                String nilai = "";
+                String taun = "";
+
+                String sql = "SELECT\n"
+                        + "eigen_alternatif.nilai_eigen_alternatif, \n"
+                        + "eigen_alternatif.create_date, \n"
+                        + "alternatif.seq, \n"
+                        + "alternatif.alternatif_name, \n"
+                        + "subkriteria.seq, \n"
+                        + "subkriteria.subkriteria_name, \n"
+                        + "kriteria.seq, \n"
+                        + "kriteria.kriteria_name\n"
+                        + "FROM\n"
+                        + "eigen_alternatif\n"
+                        + "INNER JOIN\n"
+                        + "alternatif\n"
+                        + "ON \n"
+                        + "eigen_alternatif.alternatif_seq = alternatif.seq\n"
+                        + "INNER JOIN\n"
+                        + "subkriteria\n"
+                        + "ON \n"
+                        + "eigen_alternatif.subkriteria_seq = subkriteria.seq\n"
+                        + "INNER JOIN\n"
+                        + "kriteria\n"
+                        + "ON \n"
+                        + "eigen_alternatif.kriteria_seq = kriteria.seq AND\n"
+                        + "subkriteria.kriteria_seq = kriteria.seq\n"
+                        + "INNER JOIN\n"
+                        + "hasil_rangking\n"
+                        + "ON \n"
+                        + "alternatif.seq = hasil_rangking.alternatif_seq\n"
+                        + "WHERE\n"
+                        + "eigen_alternatif.subkriteria_seq = '" + df.get(i2).get("id").toString() + "'\n"
+                        + "GROUP BY\n"
+                        + "eigen_alternatif.seq\n"
+                        + "ORDER BY\n"
+                        + "hasil_rangking.rangking ASC";
+
+                try {
+                    Statement stat3 = c.createStatement();
+                    ResultSet res3 = stat3.executeQuery(sql);
+                    int dd = 0;
+                    int baris = 0;
+                    while (res3.next()) {
+
+                        nilai = res3.getString("eigen_alternatif.nilai_eigen_alternatif");
+                        dd = dd + 1;
+
+                        view.jTable5.setValueAt(nilai, dd - 1, i2 + 3);
+                    }
+                } catch (SQLException g) {
+                }
+            }
+
+            int eigen = view.jTable1.getRowCount();
+            int assessment = view.jTable5.getRowCount();
+
+            for (int h = 0; h < assessment; h++) {
+                double plus = 0.0;
+                double kali = 0.0;
+                double geteigen = 0.0;
+                double getassessment = 0.0;
+
+                for (int i = 0; i < eigen; i++) {
+                    geteigen = Double.parseDouble(view.jTable1.getValueAt(i, 7).toString());
+                    getassessment = Double.parseDouble(view.jTable5.getValueAt(h, i + 3).toString());
+                    kali = geteigen * getassessment;
+                    plus += kali;
+
+                    view.jTable5.setValueAt(batas.format(kali), h, i + 3);
+                }
+                view.jTable5.setValueAt(batas.format(plus), h, eigen + 3);
+            }
+
+            double[] Array = new double[assessment];
+            int asc = 0;
+            for (int i = 0; i < assessment; i++) {
+                Array[i] = Double.parseDouble(view.jTable5.getValueAt(i, eigen + 3).toString());
+            }
+
+            int rank[] = getRanksArray(Array);
+            for (int i = 0; i < view.jTable5.getRowCount(); i++) {
+                view.jTable5.setValueAt(rank[i], i, eigen + 4);
+            }
+
+        } catch (SQLException e) {
+        } finally {
+            buatKolomSesuai(view.jTable5);
+            view.jTable5.getColumnModel().getColumn(1).setMinWidth(0);
+            view.jTable5.getColumnModel().getColumn(1).setMaxWidth(0);
+            getRangking(view);
+        }
+
+    }
+
     public void saveDataHasil(perhitungan view) {
 
         try {
@@ -540,7 +718,7 @@ public class control_perhitungan {
     }
 
     public void getRangking(perhitungan view) {
-        
+
         String query = "SELECT\n"
                 + "hasil_rangking.value, \n"
                 + "hasil_rangking.rangking, \n"
@@ -554,13 +732,13 @@ public class control_perhitungan {
                 + "hasil_rangking.alternatif_seq = alternatif.seq\n"
                 + "WHERE\n"
                 + "hasil_rangking.rangking = 1";
-        
+
         String id = "";
         try {
             Statement st = c.createStatement();
             ResultSet r = st.executeQuery(query);
             while (r.next()) {
-                id = r.getString("alternatif.alternatif_name") +" : "+ r.getString("hasil_rangking.value");
+                id = r.getString("alternatif.alternatif_name") + " : " + r.getString("hasil_rangking.value");
             }
             view.buttonGlass2.setText(id + "");
         } catch (Exception e) {

@@ -176,9 +176,9 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="117" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="118" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="126" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" pref="125" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panelGlass1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
