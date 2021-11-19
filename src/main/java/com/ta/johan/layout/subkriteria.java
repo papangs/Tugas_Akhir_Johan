@@ -97,14 +97,20 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jSlider1 = new javax.swing.JSlider();
+        jButton14 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         jDesktopPaneGambarChild3 = new com.ta.johan.background.JDesktopPaneGambarChild();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -308,7 +314,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -318,7 +324,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("NB : Klik baris pada table untuk mengubah atau menambahkan nilai dan juga memilih subkriteria mana yang lebih penting.");
 
-        jScrollPane4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "List Pembobotan Subkriteria", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane4.setOpaque(false);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
@@ -385,10 +391,9 @@ public class subkriteria extends javax.swing.JInternalFrame {
             panelGlass3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGlass3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelGlass4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nilai", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -414,7 +419,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
             panelGlass4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGlass4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addComponent(jTextField5)
                 .addContainerGap())
         );
 
@@ -448,32 +453,6 @@ public class subkriteria extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Klik Table List Kriteria", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-        jScrollPane5.setOpaque(false);
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable5MouseClicked(evt);
-            }
-        });
-        jTable5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTable5KeyReleased(evt);
-            }
-        });
-        jScrollPane5.setViewportView(jTable5);
-
         javax.swing.GroupLayout panelGlass2Layout = new javax.swing.GroupLayout(panelGlass2);
         panelGlass2.setLayout(panelGlass2Layout);
         panelGlass2Layout.setHorizontalGroup(
@@ -490,16 +469,13 @@ public class subkriteria extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelGlass2Layout.setVerticalGroup(
             panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGlass2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelGlass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGlass4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -542,7 +518,9 @@ public class subkriteria extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("---");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
@@ -557,6 +535,70 @@ public class subkriteria extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Subkriteria 1 : ");
+
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-PILIH-" }));
+        jComboBox2.setAutoscrolls(true);
+        jComboBox2.setOpaque(false);
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-PILIH-" }));
+        jComboBox1.setAutoscrolls(true);
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jComboBox1.setOpaque(false);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jSlider1.setOpaque(false);
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/85542_guardar_save_icon.png"))); // NOI18N
+        jButton14.setText("Save");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText(" : Subkriteria 2");
+
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Klik Table List Kriteria", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jScrollPane5.setOpaque(false);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable5MouseClicked(evt);
+            }
+        });
+        jTable5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable5KeyReleased(evt);
+            }
+        });
+        jScrollPane5.setViewportView(jTable5);
+
         jDesktopPaneGambarChild2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild2.setLayer(panelGlass2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -566,25 +608,43 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jDesktopPaneGambarChild2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild2.setLayer(jButton13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jSlider1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jButton14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneGambarChild2.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPaneGambarChild2Layout = new javax.swing.GroupLayout(jDesktopPaneGambarChild2);
         jDesktopPaneGambarChild2.setLayout(jDesktopPaneGambarChild2Layout);
         jDesktopPaneGambarChild2Layout.setHorizontalGroup(
             jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addGap(426, 426, 426)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(424, 424, 424))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                .addGap(577, 577, 577)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(570, 570, 570))
+            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
-                        .addComponent(panelGlass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5)
+                            .addComponent(panelGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane4)))
-                    .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild2Layout.createSequentialGroup()
                         .addComponent(jButton13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7)
@@ -593,30 +653,45 @@ public class subkriteria extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneGambarChild2Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
                 .addContainerGap())
         );
         jDesktopPaneGambarChild2Layout.setVerticalGroup(
             jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton7)
                         .addComponent(jButton13))
-                    .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton8)
-                        .addComponent(jLabel1)))
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                     .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
-                        .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE))
-                    .addComponent(panelGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(panelGlass2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -776,10 +851,10 @@ public class subkriteria extends javax.swing.JInternalFrame {
                     .addComponent(jButton9)
                     .addComponent(jButton10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPaneGambarChild3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGlass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -863,7 +938,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
 
     private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
         // TODO add your handling code here:
-        controlsub.openForm(this);
+        controlsub.openForm1(this);
         for (int i = 0; i < jTable4.getColumnModel().getColumnCount(); i++) {
             final DefaultCellEditor defaultEditor = (DefaultCellEditor) jTable4.getDefaultEditor(jTable4.getColumnClass(i));
             defaultEditor.setClickCountToStart(1000000000);
@@ -1037,6 +1112,21 @@ public class subkriteria extends javax.swing.JInternalFrame {
         jTabbedPane1.setEnabledAt(1, true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        controlsub.SubkriteriaCode(this);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        controlsub.SubkriteriaCode1(this);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        controlsub.saveProccessMatrix1(this);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public usu.widget.ButtonGlass buttonGlass1;
@@ -1047,6 +1137,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton12;
     public javax.swing.JButton jButton13;
+    public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1055,6 +1146,8 @@ public class subkriteria extends javax.swing.JInternalFrame {
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButton8;
     public javax.swing.JButton jButton9;
+    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox2;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild1;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild2;
     private com.ta.johan.background.JDesktopPaneGambarChild jDesktopPaneGambarChild3;
@@ -1066,6 +1159,8 @@ public class subkriteria extends javax.swing.JInternalFrame {
     public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
@@ -1077,6 +1172,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
     public javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JScrollPane jScrollPane5;
     public javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JSlider jSlider1;
     public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
@@ -1090,7 +1186,7 @@ public class subkriteria extends javax.swing.JInternalFrame {
     public javax.swing.JTextField jTextField5;
     private usu.widget.glass.PanelGlass panelGlass1;
     public usu.widget.glass.PanelGlass panelGlass2;
-    private usu.widget.glass.PanelGlass panelGlass3;
-    private usu.widget.glass.PanelGlass panelGlass4;
+    public usu.widget.glass.PanelGlass panelGlass3;
+    public usu.widget.glass.PanelGlass panelGlass4;
     // End of variables declaration//GEN-END:variables
 }

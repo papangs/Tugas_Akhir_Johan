@@ -41,20 +41,20 @@ public class kriteria extends javax.swing.JInternalFrame {
         panelGlass3.setVisible(false);
         panelGlass4.setVisible(false);
         
-        final boolean showTabsHeader = false;
-        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
-            @Override
-            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
-                if (showTabsHeader) {
-                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
-                } else {
-                    return 0;
-                }
-            }
-
-            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
-            }
-        });
+//        final boolean showTabsHeader = false;
+//        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
+//            @Override
+//            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+//                if (showTabsHeader) {
+//                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
+//                } else {
+//                    return 0;
+//                }
+//            }
+//
+//            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
+//            }
+//        });
 
     }
 
@@ -272,7 +272,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -440,7 +440,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                 .addComponent(panelGlass4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(panelGlass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12)
@@ -507,9 +507,7 @@ public class kriteria extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(0, 204, 153));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/85542_guardar_save_icon.png"))); // NOI18N
         jButton12.setText("Save");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -595,7 +593,7 @@ public class kriteria extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPaneGambarChild2Layout.createSequentialGroup()
                         .addGroup(jDesktopPaneGambarChild2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -607,9 +605,9 @@ public class kriteria extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(panelGlass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Pembobotan", jDesktopPaneGambarChild2);
@@ -768,10 +766,10 @@ public class kriteria extends javax.swing.JInternalFrame {
                     .addComponent(jButton8)
                     .addComponent(jButton9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPaneGambarChild3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGlass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -922,7 +920,6 @@ public class kriteria extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         controlkriteria.saveProccessMatrixAll(this);
-        jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setSelectedIndex(2);
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setEnabledAt(1, true);
@@ -936,7 +933,6 @@ public class kriteria extends javax.swing.JInternalFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setSelectedIndex(1);
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setEnabledAt(1, true);
@@ -963,7 +959,6 @@ public class kriteria extends javax.swing.JInternalFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setEnabledAt(1, true);
@@ -971,7 +966,6 @@ public class kriteria extends javax.swing.JInternalFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setSelectedIndex(1);
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setEnabledAt(1, true);
