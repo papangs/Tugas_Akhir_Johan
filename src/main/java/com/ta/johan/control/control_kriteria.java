@@ -234,9 +234,6 @@ public class control_kriteria {
         view.jLabel12.setVisible(false);
         view.panelGlass2.setVisible(false);
         getDataKriteria();
-        getDataKriteriaPilihan();
-        getDataKriteria1();
-        getDataKriteria2();
         Matrix(view);
         getPerbandinganKriteria(view);
         view.jButton8.setVisible(false);
@@ -274,124 +271,6 @@ public class control_kriteria {
         return maps;
     }
 
-    public List<HashMap<String, Object>> getDataKriteriaPilihan() {
-
-        List<HashMap<String, Object>> maps = new ArrayList<HashMap<String, Object>>();
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                HashMap<String, Object> map = new HashMap<String, Object>();
-                map.put("id", r.getString("perbandingan_kriteria.pilihan_kriteria_seq"));
-                map.put("nama", r.getString("kriteria.kriteria_name"));
-
-                maps.add(map);
-            }
-
-        } catch (Exception e) {
-        }
-        return maps;
-    }
-
-    public List<HashMap<String, Object>> getDataKriteria1() {
-
-        List<HashMap<String, Object>> maps = new ArrayList<HashMap<String, Object>>();
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.kriteria1_seq = kriteria.seq";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                HashMap<String, Object> map = new HashMap<String, Object>();
-                map.put("id", r.getString("perbandingan_kriteria.kriteria1_seq"));
-                map.put("nama", r.getString("kriteria.kriteria_name"));
-
-                maps.add(map);
-            }
-
-        } catch (Exception e) {
-        }
-        return maps;
-    }
-
-    public List<HashMap<String, Object>> getDataKriteria2() {
-
-        List<HashMap<String, Object>> maps = new ArrayList<HashMap<String, Object>>();
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.kriteria2_seq = kriteria.seq";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                HashMap<String, Object> map = new HashMap<String, Object>();
-                map.put("id", r.getString("perbandingan_kriteria.kriteria2_seq"));
-                map.put("nama", r.getString("kriteria.kriteria_name"));
-
-                maps.add(map);
-            }
-
-        } catch (Exception e) {
-        }
-        return maps;
-    }
-
-    public List<HashMap<String, Object>> getDataKriteria3() {
-
-        List<HashMap<String, Object>> maps = new ArrayList<HashMap<String, Object>>();
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai\n"
-                    + "FROM perbandingan_kriteria";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                HashMap<String, Object> map = new HashMap<String, Object>();
-                map.put("id1", r.getString("perbandingan_kriteria.kriteria1_seq"));
-                map.put("id2", r.getString("perbandingan_kriteria.kriteria2_seq"));
-
-                maps.add(map);
-            }
-
-        } catch (Exception e) {
-        }
-        return maps;
-    }
-
     public int getJumlah() {
 
         int jumlah = 0;
@@ -402,84 +281,6 @@ public class control_kriteria {
                     + "kriteria.kriteria_name\n"
                     + "FROM\n"
                     + "kriteria";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                jumlah++;
-            }
-
-        } catch (Exception e) {
-        }
-        return jumlah;
-    }
-
-    public int getJumlah1() {
-
-        int jumlah = 0;
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.kriteria1_seq = kriteria.seq";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                jumlah++;
-            }
-
-        } catch (Exception e) {
-        }
-        return jumlah;
-    }
-
-    public int getJumlah2() {
-
-        int jumlah = 0;
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.kriteria2_seq = kriteria.seq";
-
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sql);
-
-            while (r.next()) {
-                jumlah++;
-            }
-
-        } catch (Exception e) {
-        }
-        return jumlah;
-    }
-
-    public int getJumlahPilihan() {
-
-        int jumlah = 0;
-
-        try {
-            String sql = "SELECT perbandingan_kriteria.seq, \n"
-                    + "perbandingan_kriteria.kriteria1_seq, \n"
-                    + "perbandingan_kriteria.kriteria2_seq, \n"
-                    + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                    + "perbandingan_kriteria.nilai, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM perbandingan_kriteria\n"
-                    + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq";
 
             Statement st = c.createStatement();
             ResultSet r = st.executeQuery(sql);
@@ -633,9 +434,6 @@ public class control_kriteria {
         String[] cs = new String[a];
 
         List<HashMap<String, Object>> df = getDataKriteria();
-        List<HashMap<String, Object>> df1 = getDataKriteria1();
-        List<HashMap<String, Object>> df2 = getDataKriteria2();
-        List<HashMap<String, Object>> df3 = getDataKriteria3();
 
         for (int i = 0; i < a; i++) {
             cs[i] = df.get(i).get("nama").toString();
@@ -662,128 +460,72 @@ public class control_kriteria {
         tablematrik2(view);
         setttablematrix(view.jTable3, a, c1);
 
-        int rCons = view.jTable4.getRowCount();
         int rCon = view.jTable2.getRowCount() - 1;
 
-//        for (int k = 0; k < rCons; k++) {
-//            BigDecimal nilai = BigDecimal.ONE;
-//            int kriteria1_seq = 0;
-//            int kriteria2_seq = 0;
-//            int pilihan_kriteria_seq = 0;
-//            String kriterianame = null;
-//            
-//            try {
-////            System.out.println("kriteria1_seq : " + view.jTable4.getValueAt(k, 1));
-////            System.out.println("kriteria2_seq : " + view.jTable4.getValueAt(k, 3));
-////            System.out.println("JEDAS");
-//                String sql = "SELECT\n"
-//                        + "perbandingan_kriteria.seq, \n"
-//                        + "perbandingan_kriteria.kriteria1_seq, \n"
-//                        + "perbandingan_kriteria.kriteria2_seq, \n"
-//                        + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-//                        + "perbandingan_kriteria.nilai, \n"
-//                        + "kriteria.kriteria_name\n"
-//                        + "FROM\n"
-//                        + "perbandingan_kriteria\n"
-//                        + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq\n"
-//                        + "WHERE\n"
-//                        + "kriteria1_seq = '" + view.jTable4.getValueAt(k, 1) + "' AND\n"
-//                        + "kriteria2_seq = '" + view.jTable4.getValueAt(k, 3) + "'";
-//
-//                Statement st = c.createStatement();
-//                ResultSet r = st.executeQuery(sql);
-//
-//                while (r.next()) {
-//
-//                    kriterianame = r.getString("kriteria.kriteria_name");
-//                    nilai = new BigDecimal(r.getString("perbandingan_kriteria.nilai"));
-//                    kriteria1_seq = r.getInt("perbandingan_kriteria.kriteria1_seq");
-//                    kriteria2_seq = r.getInt("perbandingan_kriteria.kriteria2_seq");
-//                    pilihan_kriteria_seq = r.getInt("perbandingan_kriteria.pilihan_kriteria_seq");
-//
-//                }
-//
-////                System.out.println("kriterianame : " + kriterianame);
-////                System.out.println("kriteria1_seq : " + kriteria1_seq);
-////                System.out.println("kriteria2_seq : " + kriteria2_seq);
-////                System.out.println("pilihan_kriteria_seq : " + pilihan_kriteria_seq);
-////                System.out.println("nilai : " + nilai);
-//            } catch (Exception ex) {
-//                Logger.getLogger(control_kriteria.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-        for (int i = 0; i < rCons; i++) {
-
+        for (int i = 0; i < rCon; i++) {
             for (int j = i + 1; j < rCon; j++) {
                 try {
 
-                    System.out.println("kriteria1_seq : " + df3.get(i).get("id1").toString());
-                    System.out.println("kriteria2_seq : " + df3.get(i).get("id2").toString());
-                    System.out.println("JEDA");
+                    String sql = "SELECT\n"
+                            + "perbandingan_kriteria.seq, \n"
+                            + "perbandingan_kriteria.kriteria1_seq, \n"
+                            + "perbandingan_kriteria.kriteria2_seq, \n"
+                            + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
+                            + "perbandingan_kriteria.nilai, \n"
+                            + "kriteria.kriteria_name\n"
+                            + "FROM\n"
+                            + "perbandingan_kriteria\n"
+                            + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq\n"
+                            + "WHERE\n"
+                            + "kriteria1_seq = '" + df.get(i).get("id").toString() + "' AND\n"
+                            + "kriteria2_seq = '" + df.get(j).get("id").toString() + "'";
 
-//                        System.out.println("i : " + i);
-//                        System.out.println("j : " + j);
-//                        System.out.println("kriterianame : " + pilihan_kriteria_seq);
-//                    String sql = "SELECT\n"
-//                            + "perbandingan_kriteria.seq, \n"
-//                            + "perbandingan_kriteria.kriteria1_seq, \n"
-//                            + "perbandingan_kriteria.kriteria2_seq, \n"
-//                            + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-//                            + "perbandingan_kriteria.nilai, \n"
-//                            + "kriteria.kriteria_name\n"
-//                            + "FROM\n"
-//                            + "perbandingan_kriteria\n"
-//                            + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq\n"
-//                            + "WHERE\n"
-//                            + "kriteria1_seq = '" + df1.get(i).get("id").toString() + "' AND\n"
-//                            + "kriteria2_seq = '" + df1.get(j).get("id").toString() + "'";
-//
-//                    Statement st = c.createStatement();
-//                    ResultSet r = st.executeQuery(sql);
-//
-//                    BigDecimal nilai = BigDecimal.ONE;
-//                    int kriteria1_seq = 0;
-//                    int kriteria2_seq = 0;
-//                    int pilihan_kriteria_seq = 0;
-//                    String kriterianame = null;
-//
-//                    while (r.next()) {
-//
-//                        kriterianame = r.getString("kriteria.kriteria_name");
-//                        nilai = new BigDecimal(r.getString("perbandingan_kriteria.nilai"));
-//                        kriteria1_seq = r.getInt("perbandingan_kriteria.kriteria1_seq");
-//                        kriteria2_seq = r.getInt("perbandingan_kriteria.kriteria2_seq");
-//                        pilihan_kriteria_seq = r.getInt("perbandingan_kriteria.pilihan_kriteria_seq");
-//
-//                    }
-//
-////                    System.out.println("kriterianame : " + kriterianame);
-////                    System.out.println("kriteria1_seq : " + kriteria1_seq);
-////                    System.out.println("kriteria2_seq : " + kriteria2_seq);
-////                    System.out.println("pilihan_kriteria_seq : " + pilihan_kriteria_seq);
-////                    System.out.println("nilai : " + nilai);
-//
-//                    DecimalFormat format = new DecimalFormat("#.###");
-//
-//                    BigDecimal hasilnilai = BigDecimal.ZERO;
-//
-//                    if (kriteria1_seq == pilihan_kriteria_seq) {
-//                        hasilnilai = nilai.divide(new BigDecimal(BigInteger.ONE), 15, RoundingMode.HALF_EVEN);
-//                        hasilnilai.setScale(6, RoundingMode.HALF_EVEN);
-//                    } else if (kriteria2_seq == pilihan_kriteria_seq) {
-//                        hasilnilai = new BigDecimal(BigInteger.ONE).divide(nilai, 15, RoundingMode.HALF_EVEN);
-//                        hasilnilai.setScale(6, RoundingMode.HALF_EVEN);
-//                    }
-//
-//                    System.out.println("hasilnilai : " + format.format(hasilnilai));
-//
-                    view.jTable2.setValueAt(j, i, j);
+                    Statement st = c.createStatement();
+                    ResultSet r = st.executeQuery(sql);
+
+                    BigDecimal nilai = BigDecimal.ONE;
+                    int kriteria1_seq = 0;
+                    int kriteria2_seq = 0;
+                    int pilihan_kriteria_seq = 0;
+                    String kriterianame = null;
+
+                    while (r.next()) {
+
+                        kriterianame = r.getString("kriteria.kriteria_name");
+                        nilai = new BigDecimal(r.getString("perbandingan_kriteria.nilai"));
+                        kriteria1_seq = r.getInt("perbandingan_kriteria.kriteria1_seq");
+                        kriteria2_seq = r.getInt("perbandingan_kriteria.kriteria2_seq");
+                        pilihan_kriteria_seq = r.getInt("perbandingan_kriteria.pilihan_kriteria_seq");
+
+                    }
+
+                    System.out.println("kriterianame : " + kriterianame);
+                    System.out.println("kriteria1_seq : " + kriteria1_seq);
+                    System.out.println("kriteria2_seq : " + kriteria2_seq);
+                    System.out.println("pilihan_kriteria_seq : " + pilihan_kriteria_seq);
+                    System.out.println("nilai : " + nilai);
+
+                    DecimalFormat format = new DecimalFormat("#.###");
+
+                    BigDecimal hasilnilai = BigDecimal.ZERO;
+
+                    if (kriteria1_seq == pilihan_kriteria_seq) {
+                        hasilnilai = nilai.divide(new BigDecimal(BigInteger.ONE), 15, RoundingMode.HALF_EVEN);
+                        hasilnilai.setScale(6, RoundingMode.HALF_EVEN);
+                    } else if (kriteria2_seq == pilihan_kriteria_seq) {
+                        hasilnilai = new BigDecimal(BigInteger.ONE).divide(nilai, 15, RoundingMode.HALF_EVEN);
+                        hasilnilai.setScale(6, RoundingMode.HALF_EVEN);
+                    }
+
+                    System.out.println("hasilnilai : " + format.format(hasilnilai));
+
+                    view.jTable2.setValueAt(format.format(hasilnilai), i, j);
                 } catch (Exception ex) {
                     Logger.getLogger(control_kriteria.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
 
-//        }
         view.buttonGlass1.setText("...");
         view.buttonGlass2.setText("...");
         view.buttonGlass3.setText("...");
@@ -796,76 +538,76 @@ public class control_kriteria {
             DefaultTableModel tabelKej = new DefaultTableModel();
             tabelKej.addColumn("No");
             tabelKej.addColumn("Seq 1");
-            tabelKej.addColumn("Nama Kriteria 1");
+            tabelKej.addColumn("Nama Kriteria");
             tabelKej.addColumn("Seq 2");
-            tabelKej.addColumn("Nama Kriteria 2");
+            tabelKej.addColumn("Nama Kriteria");
             tabelKej.addColumn("Seq Pilihan");
             tabelKej.addColumn("Kriteria Pilihan");
             tabelKej.addColumn("Nilai");
 
-            int d = getJumlah1();
+            int d = getJumlah();
 
-            List<HashMap<String, Object>> df1 = getDataKriteria1();
-            List<HashMap<String, Object>> df2 = getDataKriteria2();
+            List<HashMap<String, Object>> df = getDataKriteria();
 
             int no = 0;
 
             for (int j = 0; j < d; j++) {
+                for (int i = j + 1; i < d; i++) {
 
-                Vector vector = new Vector();
+                    Vector vector = new Vector();
 
-                no++;
-                vector.addElement(no);
-                vector.addElement(df1.get(j).get("id").toString());
-                vector.addElement(df1.get(j).get("nama").toString());
-                vector.addElement(df2.get(j).get("id").toString());
-                vector.addElement(df2.get(j).get("nama").toString());
+                    no++;
+                    vector.addElement(no);
+                    vector.addElement(df.get(j).get("id").toString());
+                    vector.addElement(df.get(j).get("nama").toString());
+                    vector.addElement(df.get(i).get("id").toString());
+                    vector.addElement(df.get(i).get("nama").toString());
 
-                String sql = "SELECT\n"
-                        + "perbandingan_kriteria.seq, \n"
-                        + "perbandingan_kriteria.kriteria1_seq, \n"
-                        + "perbandingan_kriteria.kriteria2_seq, \n"
-                        + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
-                        + "perbandingan_kriteria.nilai, \n"
-                        + "kriteria.kriteria_name\n"
-                        + "FROM\n"
-                        + "perbandingan_kriteria\n"
-                        + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq\n"
-                        + "WHERE\n"
-                        + "kriteria1_seq = '" + df1.get(j).get("id").toString() + "' AND\n"
-                        + "kriteria2_seq = '" + df2.get(j).get("id").toString() + "'";
+                    String sql = "SELECT\n"
+                            + "perbandingan_kriteria.seq, \n"
+                            + "perbandingan_kriteria.kriteria1_seq, \n"
+                            + "perbandingan_kriteria.kriteria2_seq, \n"
+                            + "perbandingan_kriteria.pilihan_kriteria_seq, \n"
+                            + "perbandingan_kriteria.nilai, \n"
+                            + "kriteria.kriteria_name\n"
+                            + "FROM\n"
+                            + "perbandingan_kriteria\n"
+                            + "INNER JOIN kriteria ON perbandingan_kriteria.pilihan_kriteria_seq = kriteria.seq\n"
+                            + "WHERE\n"
+                            + "kriteria1_seq = '" + df.get(j).get("id").toString() + "' AND\n"
+                            + "kriteria2_seq = '" + df.get(i).get("id").toString() + "'";
 
-                Statement st = c.createStatement();
-                ResultSet r = st.executeQuery(sql);
+                    Statement st = c.createStatement();
+                    ResultSet r = st.executeQuery(sql);
 
-                int idPilihan = 0;
-                String namaPilihan = "";
-                BigDecimal nilai = BigDecimal.ONE;
+                    int idPilihan = 0;
+                    String namaPilihan = "";
+                    BigDecimal nilai = BigDecimal.ONE;
 
-                while (r.next()) {
+                    while (r.next()) {
 
-                    idPilihan = r.getInt("perbandingan_kriteria.pilihan_kriteria_seq");
-                    namaPilihan = r.getString("kriteria.kriteria_name");
-                    nilai = new BigDecimal(r.getString("perbandingan_kriteria.nilai"));
+                        idPilihan = r.getInt("perbandingan_kriteria.pilihan_kriteria_seq");
+                        namaPilihan = r.getString("kriteria.kriteria_name");
+                        nilai = new BigDecimal(r.getString("perbandingan_kriteria.nilai"));
 
+                    }
+
+                    vector.addElement(idPilihan);
+                    vector.addElement(namaPilihan);
+                    vector.addElement(nilai);
+
+                    tabelKej.addRow(vector);
                 }
-
-                vector.addElement(idPilihan);
-                vector.addElement(namaPilihan);
-                vector.addElement(nilai);
-
-                tabelKej.addRow(vector);
+                view.jTable4.setModel(tabelKej);
             }
-            view.jTable4.setModel(tabelKej);
-
         } catch (Exception e) {
         } finally {
-//            view.jTable4.getColumnModel().getColumn(1).setMinWidth(0);
-//            view.jTable4.getColumnModel().getColumn(1).setMaxWidth(0);
-//            view.jTable4.getColumnModel().getColumn(3).setMinWidth(0);
-//            view.jTable4.getColumnModel().getColumn(3).setMaxWidth(0);
-//            view.jTable4.getColumnModel().getColumn(5).setMinWidth(0);
-//            view.jTable4.getColumnModel().getColumn(5).setMaxWidth(0);
+            view.jTable4.getColumnModel().getColumn(1).setMinWidth(0);
+            view.jTable4.getColumnModel().getColumn(1).setMaxWidth(0);
+            view.jTable4.getColumnModel().getColumn(3).setMinWidth(0);
+            view.jTable4.getColumnModel().getColumn(3).setMaxWidth(0);
+            view.jTable4.getColumnModel().getColumn(5).setMinWidth(0);
+            view.jTable4.getColumnModel().getColumn(5).setMaxWidth(0);
             buatKolomSesuai(view.jTable4);
         }
     }
@@ -1216,12 +958,12 @@ public class control_kriteria {
         view.jLabel8.setText(view.jTable4.getValueAt(row, 3) + "");
 
         if (view.jTable4.getValueAt(row, 2).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
-
-            view.jSlider1.setValue(Integer.parseInt(value(String.valueOf(view.jTable4.getValueAt(row, 7).toString()))));
+            
+            view.jSlider1.setValue(8-Integer.parseInt(view.jTable4.getValueAt(row, 7).toString())+1);
 
         } else if (view.jTable4.getValueAt(row, 4).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
 
-            view.jSlider1.setValue(Integer.parseInt(value(String.valueOf(view.jTable4.getValueAt(row, 7).toString()))));
+            view.jSlider1.setValue(8+Integer.parseInt(view.jTable4.getValueAt(row, 7).toString())-1);
 
         } else {
 
@@ -1410,6 +1152,14 @@ public class control_kriteria {
 
             String idTerpilih = null;
 
+            if (view.jSlider1.getValue() < 8) {
+                idTerpilih = view.jLabel7.getText();
+            } else if (view.jSlider1.getValue() > 8){
+                idTerpilih = view.jLabel8.getText();
+            } else {
+                idTerpilih = "0";
+            }
+
             if (view.jComboBox1.getSelectedItem().equals("-PILIH-") || view.jComboBox2.getSelectedItem().equals("-PILIH-")) {
                 JOptionPane.showMessageDialog(view, "Pilih kriteria dulu", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else if (view.jComboBox1.getSelectedItem().equals(view.jComboBox2.getSelectedItem())) {
@@ -1446,15 +1196,15 @@ public class control_kriteria {
 
                     if (idPilihan1 == 0) {
 
-                        String sql = "insert into perbandingan_kriteria set \n"
-                                + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                                + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
-                                + "pilihan_kriteria_seq = null,"
-                                + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+                        String sql = "update perbandingan_kriteria \n"
+                                + "set pilihan_kriteria_seq= '" + idTerpilih + "', \n"
+                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                                + "where kriteria2_seq= '" + view.jLabel7.getText() + "'\n"
+                                + "AND kriteria1_seq= '" + view.jLabel8.getText() + "'";
 
-                        PreparedStatement p221 = c.prepareStatement(sql);
-                        p221.executeUpdate();
-                        p221.close();
+                        PreparedStatement p22 = c.prepareStatement(sql);
+                        p22.executeUpdate();
+                        p22.close();
 
                         JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
                         getDataGlobal(view);
@@ -1462,9 +1212,7 @@ public class control_kriteria {
                     } else {
 
                         String sql = "update perbandingan_kriteria \n"
-                                + "set pilihan_kriteria_seq= null, \n"
-                                + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                                + "kriteria2_seq = '" + view.jLabel8.getText() + "',\n"
+                                + "set pilihan_kriteria_seq= '" + idTerpilih + "', \n"
                                 + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
                                 + "where kriteria2_seq= '" + view.jLabel7.getText() + "'\n"
                                 + "AND kriteria1_seq= '" + view.jLabel8.getText() + "'";
@@ -1481,9 +1229,7 @@ public class control_kriteria {
                 } else {
 
                     String sql = "update perbandingan_kriteria \n"
-                            + "set pilihan_kriteria_seq=null, \n"
-                            + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                            + "kriteria2_seq = '" + view.jLabel8.getText() + "',\n"
+                            + "set pilihan_kriteria_seq='" + idTerpilih + "', \n"
                             + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
                             + "where kriteria1_seq= '" + view.jLabel7.getText() + "'\n"
                             + "AND kriteria2_seq= '" + view.jLabel8.getText() + "'";
@@ -1498,65 +1244,74 @@ public class control_kriteria {
                 }
 
             } else {
-                if (view.jSlider1.getValue() < 8) {
-                    idTerpilih = view.jLabel7.getText();
-                } else {
-                    idTerpilih = view.jLabel8.getText();
-                }
-            }
 
-            String sqls = "SELECT COUNT(*) AS jumlah FROM perbandingan_kriteria \n"
-                    + "WHERE perbandingan_kriteria.kriteria1_seq = '" + view.jLabel7.getText() + "' \n"
-                    + "AND perbandingan_kriteria.kriteria2_seq = '" + view.jLabel8.getText() + "'";
+                String sqls = "SELECT COUNT(*) AS jumlah FROM perbandingan_kriteria \n"
+                        + "WHERE perbandingan_kriteria.kriteria1_seq = '" + view.jLabel7.getText() + "' \n"
+                        + "AND perbandingan_kriteria.kriteria2_seq = '" + view.jLabel8.getText() + "'";
 
-            Statement st = c.createStatement();
-            ResultSet r = st.executeQuery(sqls);
+                Statement st = c.createStatement();
+                ResultSet r = st.executeQuery(sqls);
 
-            int idPilihan = 0;
+                int idPilihan = 0;
 
-            while (r.next()) {
-                idPilihan = r.getInt("jumlah");
-            }
-
-            if (idPilihan == 0) {
-
-                String sqls1 = "SELECT COUNT(*) AS jumlah FROM perbandingan_kriteria \n"
-                        + "WHERE perbandingan_kriteria.kriteria2_seq = '" + view.jLabel7.getText() + "' \n"
-                        + "AND perbandingan_kriteria.kriteria1_seq = '" + view.jLabel8.getText() + "'";
-
-                Statement st1 = c.createStatement();
-                ResultSet r1 = st1.executeQuery(sqls1);
-
-                int idPilihan1 = 0;
-
-                while (r1.next()) {
-                    idPilihan1 = r1.getInt("jumlah");
+                while (r.next()) {
+                    idPilihan = r.getInt("jumlah");
                 }
 
-                if (idPilihan1 == 0) {
+                if (idPilihan == 0) {
 
-                    String sql = "insert into perbandingan_kriteria set \n"
-                            + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                            + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
-                            + "pilihan_kriteria_seq = '" + idTerpilih + "',"
-                            + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+                    String sqls1 = "SELECT COUNT(*) AS jumlah FROM perbandingan_kriteria \n"
+                            + "WHERE perbandingan_kriteria.kriteria2_seq = '" + view.jLabel7.getText() + "' \n"
+                            + "AND perbandingan_kriteria.kriteria1_seq = '" + view.jLabel8.getText() + "'";
 
-                    PreparedStatement p221 = c.prepareStatement(sql);
-                    p221.executeUpdate();
-                    p221.close();
+                    Statement st1 = c.createStatement();
+                    ResultSet r1 = st1.executeQuery(sqls1);
 
-                    JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                    getDataGlobal(view);
+                    int idPilihan1 = 0;
+
+                    while (r1.next()) {
+                        idPilihan1 = r1.getInt("jumlah");
+                    }
+
+                    if (idPilihan1 == 0) {
+
+                        String sql = "insert into perbandingan_kriteria set \n"
+                                + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
+                                + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
+                                + "pilihan_kriteria_seq = '" + idTerpilih + "',"
+                                + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                        PreparedStatement p221 = c.prepareStatement(sql);
+                        p221.executeUpdate();
+                        p221.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataGlobal(view);
+
+                    } else {
+
+                        String sql = "update perbandingan_kriteria \n"
+                                + "set pilihan_kriteria_seq='" + idTerpilih + "', \n"
+                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                                + "where kriteria2_seq= '" + view.jLabel7.getText() + "'\n"
+                                + "AND kriteria1_seq= '" + view.jLabel8.getText() + "'";
+
+                        PreparedStatement p22 = c.prepareStatement(sql);
+                        p22.executeUpdate();
+                        p22.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataGlobal(view);
+
+                    }
 
                 } else {
 
                     String sql = "update perbandingan_kriteria \n"
                             + "set pilihan_kriteria_seq='" + idTerpilih + "', \n"
-                            + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                            + "kriteria2_seq = '" + view.jLabel8.getText() + "',\n"
                             + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
-                            + "where kriteria2_seq= '" + view.jLabel7.getText() + "'\n"
-                            + "AND kriteria1_seq= '" + view.jLabel8.getText() + "'";
+                            + "where kriteria1_seq= '" + view.jLabel7.getText() + "'\n"
+                            + "AND kriteria2_seq= '" + view.jLabel8.getText() + "'";
 
                     PreparedStatement p22 = c.prepareStatement(sql);
                     p22.executeUpdate();
@@ -1566,26 +1321,7 @@ public class control_kriteria {
                     getDataGlobal(view);
 
                 }
-
-            } else {
-
-                String sql = "update perbandingan_kriteria \n"
-                        + "set pilihan_kriteria_seq='" + idTerpilih + "', \n"
-                        + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                        + "kriteria2_seq = '" + view.jLabel8.getText() + "',\n"
-                        + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
-                        + "where kriteria1_seq= '" + view.jLabel7.getText() + "'\n"
-                        + "AND kriteria2_seq= '" + view.jLabel8.getText() + "'";
-
-                PreparedStatement p22 = c.prepareStatement(sql);
-                p22.executeUpdate();
-                p22.close();
-
-                JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                getDataGlobal(view);
-
             }
-
         } catch (SQLException e) {
         }
     }

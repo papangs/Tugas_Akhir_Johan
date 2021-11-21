@@ -23,6 +23,7 @@ import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -43,13 +44,11 @@ import javax.swing.table.TableColumnModel;
 public class control_alternatif {
 
     Connection c = dbconnect.getKoneksi();
-//    ResultSet r;
-//    Statement s;
+    
     int jum11 = 0;
 
     public void resetData(alternatif view) {
         view.jTextField2.setText("");
-        view.jTextField3.setText("");
         view.jButton2.setText("Save");
         view.jLabel11.setVisible(false);
         view.jLabel13.setVisible(false);
@@ -225,60 +224,6 @@ public class control_alternatif {
             getData(view);
             getDataSubkriteria(view);
             getDataAlternatifSubkriteria(view);
-        }
-    }
-
-    public void searchData(alternatif view) {
-        String search = String.valueOf(view.jTextField3.getText());
-        try {
-            int no = 1;
-            String query = "SELECT\n"
-                    + "alternatif.seq, \n"
-                    + "alternatif.alternatif_name, \n"
-                    + "subkriteria.seq, \n"
-                    + "subkriteria.subkriteria_name, \n"
-                    + "kriteria.seq, \n"
-                    + "kriteria.kriteria_name\n"
-                    + "FROM\n"
-                    + "alternatif\n"
-                    + "INNER JOIN\n"
-                    + "subkriteria\n"
-                    + "ON \n"
-                    + "alternatif.subkriteria_seq = subkriteria.seq\n"
-                    + "INNER JOIN\n"
-                    + "kriteria\n"
-                    + "ON \n"
-                    + "subkriteria.kriteria_seq = kriteria.seq\n"
-                    + "where alternatif.alternatif_name like '%" + search + "%' "
-                    + "OR subkriteria.subkriteria_name like '%" + search + "%'"
-                    + "OR kriteria.kriteria_name like '%" + search + "%'";
-
-            Statement statement = (Statement) c.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            if (rs.next()) {
-                DefaultTableModel tableModel = (DefaultTableModel) view.jTable1.getModel();
-                int i = 0;
-                while (i < view.jTable1.getRowCount()) {
-                    tableModel.removeRow(i);
-                }
-                rs.beforeFirst();
-
-                int j = 1;
-                while (rs.next()) {
-                    Vector vector = new Vector();
-                    vector.addElement(j++);
-                    vector.addElement(rs.getString("alternatif.seq"));
-                    vector.addElement(rs.getString("alternatif.alternatif_name"));
-                    vector.addElement(rs.getString("subkriteria.seq"));
-                    vector.addElement(rs.getString("subkriteria.subkriteria_name"));
-                    vector.addElement(rs.getString("kriteria.seq"));
-                    vector.addElement(rs.getString("kriteria.kriteria_name"));
-
-                    tableModel.addRow(vector);
-                }
-            }
-        } catch (SQLException e) {
         }
     }
 
@@ -572,10 +517,14 @@ public class control_alternatif {
         view.jButton6.setVisible(false);
         view.jButton8.setVisible(false);
         view.jButton9.setVisible(false);
+        view.panelGlass2.setVisible(false);
         getDataSubkriteira(view);
         getDataAlternatif(view);
         Matrix(view);
+        label(view);
         getPerbandinganAlternatif(view);
+        comboAlternatif(view);
+        comboAlternatif1(view);
     }
 
     public void getDataRefresh(alternatif view) {
@@ -586,6 +535,9 @@ public class control_alternatif {
         view.jLabel8.setText("");
         view.jLabel14.setText("");
         view.jTextField5.setText("");
+        comboAlternatif(view);
+        comboAlternatif1(view);
+        label(view);
     }
 
     private DefaultTableModel model;
@@ -945,9 +897,9 @@ public class control_alternatif {
             DefaultTableModel tabelKej = new DefaultTableModel();
             tabelKej.addColumn("No");
             tabelKej.addColumn("Seq 1");
-            tabelKej.addColumn("Nama Alternatif 1");
+            tabelKej.addColumn("Nama Alternatif");
             tabelKej.addColumn("Seq 2");
-            tabelKej.addColumn("Nama Alternatif 2");
+            tabelKej.addColumn("Nama Alternatif");
             tabelKej.addColumn("Seq Pilihan");
             tabelKej.addColumn("Alternatif Pilihan");
             tabelKej.addColumn("Nilai");
@@ -1039,6 +991,8 @@ public class control_alternatif {
         getDataAlternatif(view);
         Matrix(view);
         getPerbandinganAlternatif(view);
+        comboAlternatif(view);
+        comboAlternatif1(view);
     }
 
     public void openForm(alternatif view) {
@@ -1057,6 +1011,30 @@ public class control_alternatif {
             view.buttonGroup1.clearSelection();
         }
         view.panelGlass2.setVisible(true);
+    }
+
+    public void openForm1(alternatif view) {
+        int row = view.jTable4.getSelectedRow();
+        view.jLabel7.setText(view.jTable4.getValueAt(row, 1) + "");
+        view.jLabel8.setText(view.jTable4.getValueAt(row, 3) + "");
+
+        if (view.jTable4.getValueAt(row, 2).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
+
+            view.jSlider1.setValue(8 - Integer.parseInt(view.jTable4.getValueAt(row, 7).toString()) + 1);
+
+        } else if (view.jTable4.getValueAt(row, 4).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
+
+            view.jSlider1.setValue(8 + Integer.parseInt(view.jTable4.getValueAt(row, 7).toString()) - 1);
+
+        } else {
+
+            view.jSlider1.setValue(8);
+
+        }
+
+        view.jComboBox2.setSelectedItem(view.jTable4.getValueAt(row, 2) + "");
+        view.jComboBox1.setSelectedItem(view.jTable4.getValueAt(row, 4) + "");
+
     }
 
     public void saveProccessMatrix(alternatif view) {
@@ -1149,7 +1127,7 @@ public class control_alternatif {
         } catch (SQLException e) {
         }
     }
-    
+
     public void saveProccessMatrixAll(alternatif view) {
 
         try {
@@ -1408,6 +1386,479 @@ public class control_alternatif {
 
             }
 
+        } catch (SQLException e) {
+        }
+    }
+
+    //====================================================== REVISI PEMBIMBING ===================================================
+    public Hashtable label(alternatif view) {
+
+        view.jSlider1.setMajorTickSpacing(1);
+        view.jSlider1.setMinorTickSpacing(0);
+        view.jSlider1.setPaintTicks(true);
+        view.jSlider1.setPaintLabels(true);
+        view.jSlider1.setSnapToTicks(true);
+        view.jSlider1.setMaximum(16);
+
+        Hashtable labels = new Hashtable();
+
+        labels.put(0, setLabel("9"));
+        labels.put(1, setLabel("8"));
+        labels.put(2, setLabel("7"));
+        labels.put(3, setLabel("6"));
+        labels.put(4, setLabel("5"));
+        labels.put(5, setLabel("4"));
+        labels.put(6, setLabel("3"));
+        labels.put(7, setLabel("2"));
+        labels.put(8, setLabel("1"));
+        labels.put(9, setLabel("2"));
+        labels.put(10, setLabel("3"));
+        labels.put(11, setLabel("4"));
+        labels.put(12, setLabel("5"));
+        labels.put(13, setLabel("6"));
+        labels.put(14, setLabel("7"));
+        labels.put(15, setLabel("8"));
+        labels.put(16, setLabel("9"));
+
+        view.jSlider1.setLabelTable(labels);
+        view.jSlider1.setValue(8);
+
+        return labels;
+
+    }
+
+    public String value(String nilai) {
+
+        String data = "";
+
+        if (nilai.equals("0")) {
+            data = "9";
+        } else if (nilai.equals("1")) {
+            data = "8";
+        } else if (nilai.equals("2")) {
+            data = "7";
+        } else if (nilai.equals("3")) {
+            data = "6";
+        } else if (nilai.equals("4")) {
+            data = "5";
+        } else if (nilai.equals("5")) {
+            data = "4";
+        } else if (nilai.equals("6")) {
+            data = "3";
+        } else if (nilai.equals("7")) {
+            data = "2";
+        } else if (nilai.equals("8")) {
+            data = "1";
+        } else if (nilai.equals("9")) {
+            data = "2";
+        } else if (nilai.equals("10")) {
+            data = "3";
+        } else if (nilai.equals("11")) {
+            data = "4";
+        } else if (nilai.equals("12")) {
+            data = "5";
+        } else if (nilai.equals("13")) {
+            data = "6";
+        } else if (nilai.equals("14")) {
+            data = "7";
+        } else if (nilai.equals("15")) {
+            data = "8";
+        } else if (nilai.equals("16")) {
+            data = "9";
+        }
+
+        return data;
+    }
+
+    public JLabel setLabel(String x) {
+        JLabel labels = new JLabel();
+
+        labels = new JLabel(x);
+        labels.setFont(new java.awt.Font("Tahoma", 1, 17));
+        labels.setForeground(Color.RED);
+
+        return labels;
+    }
+
+    public void comboAlternatif(alternatif view) {
+        String sql = "SELECT\n"
+                + "alternatif_subkriteria.seq, \n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name, \n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.seq, \n"
+                + "kriteria.kriteria_name\n"
+                + "FROM\n"
+                + "alternatif_subkriteria\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "alternatif_subkriteria.alternatif_seq = alternatif.seq\n"
+                + "INNER JOIN\n"
+                + "subkriteria\n"
+                + "ON \n"
+                + "alternatif_subkriteria.subkriteria_seq = subkriteria.seq\n"
+                + "INNER JOIN\n"
+                + "kriteria\n"
+                + "ON \n"
+                + "subkriteria.kriteria_seq = kriteria.seq\n"
+                + "WHERE\n"
+                + "subkriteria.seq = '" + view.jLabel5.getText() + "' AND kriteria.seq = '" + view.jLabel3.getText() + "'";
+
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(sql);
+
+            for (int i = view.jComboBox2.getItemCount() - 1; i >= 1; i--) {
+                view.jComboBox2.removeItemAt(i);
+            }
+
+            while (r.next()) {
+                view.jComboBox2.addItem(r.getString("alternatif.alternatif_name"));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public void AlternatifCode(alternatif view) {
+        String sub = (String) view.jComboBox2.getSelectedItem();
+        String query = "SELECT\n"
+                + "alternatif_subkriteria.seq, \n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name, \n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.seq, \n"
+                + "kriteria.kriteria_name\n"
+                + "FROM\n"
+                + "alternatif_subkriteria\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "alternatif_subkriteria.alternatif_seq = alternatif.seq\n"
+                + "INNER JOIN\n"
+                + "subkriteria\n"
+                + "ON \n"
+                + "alternatif_subkriteria.subkriteria_seq = subkriteria.seq\n"
+                + "INNER JOIN\n"
+                + "kriteria\n"
+                + "ON \n"
+                + "subkriteria.kriteria_seq = kriteria.seq where alternatif.alternatif_name = '" + sub + "'";
+        String id = "";
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(query);
+            while (r.next()) {
+                id = r.getString("alternatif.seq");
+            }
+            view.jLabel7.setText(id + "");
+        } catch (Exception e) {
+        }
+    }
+
+    public void comboAlternatif1(alternatif view) {
+        String sql = "SELECT\n"
+                + "alternatif_subkriteria.seq, \n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name, \n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.seq, \n"
+                + "kriteria.kriteria_name\n"
+                + "FROM\n"
+                + "alternatif_subkriteria\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "alternatif_subkriteria.alternatif_seq = alternatif.seq\n"
+                + "INNER JOIN\n"
+                + "subkriteria\n"
+                + "ON \n"
+                + "alternatif_subkriteria.subkriteria_seq = subkriteria.seq\n"
+                + "INNER JOIN\n"
+                + "kriteria\n"
+                + "ON \n"
+                + "subkriteria.kriteria_seq = kriteria.seq\n"
+                + "WHERE\n"
+                + "subkriteria.seq = '" + view.jLabel5.getText() + "' AND kriteria.seq = '" + view.jLabel3.getText() + "'";
+
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(sql);
+
+            for (int i = view.jComboBox1.getItemCount() - 1; i >= 1; i--) {
+                view.jComboBox1.removeItemAt(i);
+            }
+
+            while (r.next()) {
+                view.jComboBox1.addItem(r.getString("alternatif.alternatif_name"));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public void AlternatifCode1(alternatif view) {
+        String sub = (String) view.jComboBox1.getSelectedItem();
+        String query = "SELECT\n"
+                + "alternatif_subkriteria.seq, \n"
+                + "alternatif.seq, \n"
+                + "alternatif.alternatif_name, \n"
+                + "subkriteria.seq, \n"
+                + "subkriteria.subkriteria_name, \n"
+                + "kriteria.seq, \n"
+                + "kriteria.kriteria_name\n"
+                + "FROM\n"
+                + "alternatif_subkriteria\n"
+                + "INNER JOIN\n"
+                + "alternatif\n"
+                + "ON \n"
+                + "alternatif_subkriteria.alternatif_seq = alternatif.seq\n"
+                + "INNER JOIN\n"
+                + "subkriteria\n"
+                + "ON \n"
+                + "alternatif_subkriteria.subkriteria_seq = subkriteria.seq\n"
+                + "INNER JOIN\n"
+                + "kriteria\n"
+                + "ON \n"
+                + "subkriteria.kriteria_seq = kriteria.seq where alternatif.alternatif_name = '" + sub + "'";
+        String id = "";
+        try {
+            Statement st = c.createStatement();
+            ResultSet r = st.executeQuery(query);
+            while (r.next()) {
+                id = r.getString("alternatif.seq");
+            }
+            view.jLabel8.setText(id + "");
+        } catch (Exception e) {
+        }
+    }
+
+    public void saveProccessMatrix1(alternatif view) {
+
+        try {
+
+            String idTerpilih = null;
+            if (view.jSlider1.getValue() < 8) {
+                idTerpilih = view.jLabel7.getText();
+            } else if (view.jSlider1.getValue() > 8) {
+                idTerpilih = view.jLabel8.getText();
+            } else {
+                idTerpilih = "0";
+            }
+
+            if (view.jComboBox1.getSelectedItem().equals("-PILIH-") || view.jComboBox2.getSelectedItem().equals("-PILIH-")) {
+                JOptionPane.showMessageDialog(view, "Pilih alternatif dulu", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (view.jComboBox1.getSelectedItem().equals(view.jComboBox2.getSelectedItem())) {
+                JOptionPane.showMessageDialog(view, "Alternatifnya sama pasti nilainya 1,\njadi tidak di simpan tidak masalah", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (view.jSlider1.getValue() == 8) {
+
+                String sqls = "SELECT COUNT(*) AS Jumlah\n"
+                        + "FROM perbandingan_alternatif\n"
+                        + "WHERE perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                        + "AND perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                        + "AND perbandingan_alternatif.alternatif1_seq = '" + view.jLabel7.getText() + "'\n"
+                        + "AND perbandingan_alternatif.alternatif2_seq ='" + view.jLabel8.getText() + "'";
+
+                Statement st = c.createStatement();
+                ResultSet r = st.executeQuery(sqls);
+
+                int idPilihan = 0;
+
+                while (r.next()) {
+                    idPilihan = r.getInt("Jumlah");
+                }
+
+                if (idPilihan == 0) {
+
+                    String sql = "SELECT COUNT(*) AS Jumlah\n"
+                            + "FROM perbandingan_alternatif\n"
+                            + "WHERE perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                            + "AND perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+
+                    Statement st1 = c.createStatement();
+                    ResultSet r1 = st1.executeQuery(sql);
+
+                    int idPilihan1 = 0;
+
+                    while (r1.next()) {
+                        idPilihan1 = r1.getInt("Jumlah");
+                    }
+
+                    if (idPilihan1 == 0) {
+
+                        String sql3 = "update perbandingan_alternatif \n"
+                                + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+                                + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+                                + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                                + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                                + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+
+                        PreparedStatement p22 = c.prepareStatement(sql3);
+                        p22.executeUpdate();
+                        p22.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataRefresh(view);
+                        getDataAlternatif(view);
+                        Matrix(view);
+                        getPerbandinganAlternatif(view);
+
+                    } else {
+
+                        String sql3 = "update perbandingan_alternatif \n"
+                                + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+                                + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+                                + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                                + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                                + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+
+                        PreparedStatement p22 = c.prepareStatement(sql3);
+                        p22.executeUpdate();
+                        p22.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataRefresh(view);
+                        getDataAlternatif(view);
+                        Matrix(view);
+                        getPerbandinganAlternatif(view);
+
+                    }
+
+                } else {
+
+                    String sql = "update perbandingan_alternatif \n"
+                            + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+                            + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+                            + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+                            + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                            + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                            + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif1_seq = '" + view.jLabel7.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif2_seq ='" + view.jLabel8.getText() + "'";
+
+                    PreparedStatement p22 = c.prepareStatement(sql);
+                    p22.executeUpdate();
+                    p22.close();
+
+                    JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                    getDataRefresh(view);
+                    getDataAlternatif(view);
+                    Matrix(view);
+                    getPerbandinganAlternatif(view);
+                }
+
+            } else {
+
+                String sqls = "SELECT COUNT(*) AS Jumlah\n"
+                        + "FROM perbandingan_alternatif\n"
+                        + "WHERE perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                        + "AND perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                        + "AND perbandingan_alternatif.alternatif1_seq = '" + view.jLabel7.getText() + "'\n"
+                        + "AND perbandingan_alternatif.alternatif2_seq ='" + view.jLabel8.getText() + "'";
+
+                Statement st = c.createStatement();
+                ResultSet r = st.executeQuery(sqls);
+
+                int idPilihan = 0;
+
+                while (r.next()) {
+                    idPilihan = r.getInt("Jumlah");
+                }
+
+                if (idPilihan == 0) {
+
+                    String sqls1 = "SELECT COUNT(*) AS Jumlah\n"
+                            + "FROM perbandingan_alternatif\n"
+                            + "WHERE perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                            + "AND perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+
+                    Statement st1 = c.createStatement();
+                    ResultSet r1 = st1.executeQuery(sqls1);
+
+                    int idPilihan2 = 0;
+
+                    while (r1.next()) {
+                        idPilihan2 = r1.getInt("Jumlah");
+                    }
+                    
+                    if (idPilihan2 == 0) {
+
+                        String sql = "insert into perbandingan_alternatif set \n"
+                                + "alternatif1_seq ='" + view.jLabel7.getText() + "',\n"
+                                + "alternatif2_seq = '" + view.jLabel8.getText() + "',\n"
+                                + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
+                                + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
+                                + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
+                                + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                        PreparedStatement p221 = c.prepareStatement(sql);
+                        p221.executeUpdate();
+                        p221.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataRefresh(view);
+                        getDataAlternatif(view);
+                        Matrix(view);
+                        getPerbandinganAlternatif(view);
+
+                    } else {
+
+                        String sql = "update perbandingan_alternatif \n"
+                                + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+                                + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+                                + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                                + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                                + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+                                + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+
+                        PreparedStatement p22 = c.prepareStatement(sql);
+                        p22.executeUpdate();
+                        p22.close();
+
+                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        getDataRefresh(view);
+                        getDataAlternatif(view);
+                        Matrix(view);
+                        getPerbandinganAlternatif(view);
+
+                    }
+
+                } else {
+
+                    String sql = "update perbandingan_alternatif \n"
+                            + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+                            + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+                            + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+                            + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+                            + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+                            + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif1_seq = '" + view.jLabel7.getText() + "'\n"
+                            + "AND perbandingan_alternatif.alternatif2_seq ='" + view.jLabel8.getText() + "'";
+
+                    PreparedStatement p22 = c.prepareStatement(sql);
+                    p22.executeUpdate();
+                    p22.close();
+
+                    JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                    getDataRefresh(view);
+                    getDataAlternatif(view);
+                    Matrix(view);
+                    getPerbandinganAlternatif(view);
+                }
+            }
         } catch (SQLException e) {
         }
     }

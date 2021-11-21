@@ -448,8 +448,8 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(s);
                 s.show();
                 s.setTitle("Subkriteria");
-                controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
+                controlsubkriteria.getDataGlobal(s);
                 if (jLabel1.getText().equals("Admin")) {
                     s.jTabbedPane1.setSelectedIndex(0);
                     s.jButton13.setVisible(true);
@@ -465,8 +465,8 @@ public class main extends javax.swing.JFrame {
             try {
                 s.show();
                 s.setTitle("Subkriteria");
-                controlsubkriteria.getDataGlobal(s);
                 controlsubkriteria.getData(s);
+                controlsubkriteria.getDataGlobal(s);
                 if (jLabel1.getText().equals("Admin")) {
                     s.jTabbedPane1.setSelectedIndex(0);
                     s.jButton13.setVisible(true);
@@ -488,6 +488,7 @@ public class main extends javax.swing.JFrame {
                 jDesktopPanetransparan1.add(a);
                 a.show();
                 a.setTitle("Alternatif");
+                controlalternatif.label(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
                 if (jLabel1.getText().equals("Admin")) {
@@ -506,6 +507,7 @@ public class main extends javax.swing.JFrame {
             try {
                 a.show();
                 a.setTitle("Alternatif");
+                controlalternatif.label(a);
                 controlalternatif.getDataSubkriteria(a);
                 controlalternatif.getDataAlternatifSubkriteria(a);
                 if (jLabel1.getText().equals("Admin")) {

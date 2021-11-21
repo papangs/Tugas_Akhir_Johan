@@ -12,15 +12,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -41,20 +35,20 @@ public class kriteria extends javax.swing.JInternalFrame {
         panelGlass3.setVisible(false);
         panelGlass4.setVisible(false);
         
-//        final boolean showTabsHeader = false;
-//        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
-//            @Override
-//            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
-//                if (showTabsHeader) {
-//                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
-//                } else {
-//                    return 0;
-//                }
-//            }
-//
-//            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
-//            }
-//        });
+        final boolean showTabsHeader = false;
+        jTabbedPane1.setUI(new javax.swing.plaf.metal.MetalTabbedPaneUI() {
+            @Override
+            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+                if (showTabsHeader) {
+                    return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
+                } else {
+                    return 0;
+                }
+            }
+
+            protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {
+            }
+        });
 
     }
 
@@ -520,10 +514,10 @@ public class kriteria extends javax.swing.JInternalFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Kriteria 1 : ");
+        jLabel2.setText("Kriteria : ");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText(" : Kriteria 2");
+        jLabel3.setText(" : Kriteria");
 
         jDesktopPaneGambarChild2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneGambarChild2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
