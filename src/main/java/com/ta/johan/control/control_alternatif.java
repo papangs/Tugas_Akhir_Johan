@@ -966,12 +966,12 @@ public class control_alternatif {
 
         } catch (Exception e) {
         } finally {
-            view.jTable4.getColumnModel().getColumn(1).setMinWidth(0);
-            view.jTable4.getColumnModel().getColumn(1).setMaxWidth(0);
-            view.jTable4.getColumnModel().getColumn(3).setMinWidth(0);
-            view.jTable4.getColumnModel().getColumn(3).setMaxWidth(0);
-            view.jTable4.getColumnModel().getColumn(5).setMinWidth(0);
-            view.jTable4.getColumnModel().getColumn(5).setMaxWidth(0);
+//            view.jTable4.getColumnModel().getColumn(1).setMinWidth(0);
+//            view.jTable4.getColumnModel().getColumn(1).setMaxWidth(0);
+//            view.jTable4.getColumnModel().getColumn(3).setMinWidth(0);
+//            view.jTable4.getColumnModel().getColumn(3).setMaxWidth(0);
+//            view.jTable4.getColumnModel().getColumn(5).setMinWidth(0);
+//            view.jTable4.getColumnModel().getColumn(5).setMaxWidth(0);
             buatKolomSesuai(view.jTable4);
         }
     }
