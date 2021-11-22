@@ -958,12 +958,12 @@ public class control_kriteria {
         view.jLabel8.setText(view.jTable4.getValueAt(row, 3) + "");
 
         if (view.jTable4.getValueAt(row, 2).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
-            
-            view.jSlider1.setValue(8-Integer.parseInt(view.jTable4.getValueAt(row, 7).toString())+1);
+
+            view.jSlider1.setValue(8 - Integer.parseInt(view.jTable4.getValueAt(row, 7).toString()) + 1);
 
         } else if (view.jTable4.getValueAt(row, 4).toString().equals(view.jTable4.getValueAt(row, 6).toString())) {
 
-            view.jSlider1.setValue(8+Integer.parseInt(view.jTable4.getValueAt(row, 7).toString())-1);
+            view.jSlider1.setValue(8 + Integer.parseInt(view.jTable4.getValueAt(row, 7).toString()) - 1);
 
         } else {
 
@@ -1154,7 +1154,7 @@ public class control_kriteria {
 
             if (view.jSlider1.getValue() < 8) {
                 idTerpilih = view.jLabel7.getText();
-            } else if (view.jSlider1.getValue() > 8){
+            } else if (view.jSlider1.getValue() > 8) {
                 idTerpilih = view.jLabel8.getText();
             } else {
                 idTerpilih = "0";
@@ -1196,18 +1196,37 @@ public class control_kriteria {
 
                     if (idPilihan1 == 0) {
 
-                        String sql = "update perbandingan_kriteria \n"
-                                + "set pilihan_kriteria_seq= '" + idTerpilih + "', \n"
-                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
-                                + "where kriteria2_seq= '" + view.jLabel7.getText() + "'\n"
-                                + "AND kriteria1_seq= '" + view.jLabel8.getText() + "'";
+                        if (list1(view).equals("1")) {
 
-                        PreparedStatement p22 = c.prepareStatement(sql);
-                        p22.executeUpdate();
-                        p22.close();
+                            String sql = "insert into perbandingan_kriteria set \n"
+                                    + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
+                                    + "pilihan_kriteria_seq = '" + idTerpilih + "',"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
 
-                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        getDataGlobal(view);
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataGlobal(view);
+
+                        } else {
+
+                            String sql = "insert into perbandingan_kriteria set \n"
+                                    + "kriteria2_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "kriteria1_seq = '" + view.jLabel8.getText() + "',"
+                                    + "pilihan_kriteria_seq = '" + idTerpilih + "',"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataGlobal(view);
+
+                        }
 
                     } else {
 
@@ -1275,19 +1294,38 @@ public class control_kriteria {
 
                     if (idPilihan1 == 0) {
 
-                        String sql = "insert into perbandingan_kriteria set \n"
-                                + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
-                                + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
-                                + "pilihan_kriteria_seq = '" + idTerpilih + "',"
-                                + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+                        if (list1(view).equals("1")) {
 
-                        PreparedStatement p221 = c.prepareStatement(sql);
-                        p221.executeUpdate();
-                        p221.close();
+                            String sql = "insert into perbandingan_kriteria set \n"
+                                    + "kriteria1_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "kriteria2_seq = '" + view.jLabel8.getText() + "',"
+                                    + "pilihan_kriteria_seq = '" + idTerpilih + "',"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
 
-                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        getDataGlobal(view);
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
 
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataGlobal(view);
+
+                        } else {
+
+                            String sql = "insert into perbandingan_kriteria set \n"
+                                    + "kriteria2_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "kriteria1_seq = '" + view.jLabel8.getText() + "',"
+                                    + "pilihan_kriteria_seq = '" + idTerpilih + "',"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataGlobal(view);
+
+                        }
+                        
                     } else {
 
                         String sql = "update perbandingan_kriteria \n"
@@ -1324,5 +1362,41 @@ public class control_kriteria {
             }
         } catch (SQLException e) {
         }
+    }
+
+    public String list1(kriteria view) {
+
+        String hasil = "";
+
+        int row = view.jTable4.getRowCount();
+
+        List<HashMap<String, Object>> list1 = new ArrayList<>();
+
+        for (int i = 0; i < row; i++) {
+
+            String seq1 = view.jTable4.getValueAt(i, 1).toString();
+            String seq2 = view.jTable4.getValueAt(i, 3).toString();
+
+            HashMap<String, Object> has = new HashMap<String, Object>();
+
+            has.put("seq1", seq1);
+            has.put("seq2", seq2);
+
+            list1.add(has);
+
+        }
+
+        for (HashMap<String, Object> string : list1) {
+
+            if (view.jLabel7.getText().equals(string.get("seq1")) && view.jLabel8.getText().equals(string.get("seq2"))) {
+                hasil = "1";
+                return hasil;
+            } else {
+                hasil = "0";
+                return hasil;
+            }
+        }
+
+        return hasil;
     }
 }

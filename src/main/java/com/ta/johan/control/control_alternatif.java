@@ -44,7 +44,7 @@ import javax.swing.table.TableColumnModel;
 public class control_alternatif {
 
     Connection c = dbconnect.getKoneksi();
-    
+
     int jum11 = 0;
 
     public void resetData(alternatif view) {
@@ -1689,25 +1689,67 @@ public class control_alternatif {
 
                     if (idPilihan1 == 0) {
 
-                        String sql3 = "update perbandingan_alternatif \n"
-                                + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
-                                + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
-                                + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
-                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
-                                + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
-                                + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
-                                + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
-                                + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+                        if (list1(view).equals("1")) {
 
-                        PreparedStatement p22 = c.prepareStatement(sql3);
-                        p22.executeUpdate();
-                        p22.close();
+                            String sql1 = "insert into perbandingan_alternatif set \n"
+                                    + "alternatif1_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "alternatif2_seq = '" + view.jLabel8.getText() + "',\n"
+                                    + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
+                                    + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
+                                    + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
 
-                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        getDataRefresh(view);
-                        getDataAlternatif(view);
-                        Matrix(view);
-                        getPerbandinganAlternatif(view);
+                            PreparedStatement p221 = c.prepareStatement(sql1);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataRefresh(view);
+                            getDataAlternatif(view);
+                            Matrix(view);
+                            getPerbandinganAlternatif(view);
+
+                        } else {
+
+                            String sql1 = "insert into perbandingan_alternatif set \n"
+                                    + "alternatif2_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "alternatif1_seq = '" + view.jLabel8.getText() + "',\n"
+                                    + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
+                                    + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
+                                    + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                            PreparedStatement p221 = c.prepareStatement(sql1);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataRefresh(view);
+                            getDataAlternatif(view);
+                            Matrix(view);
+                            getPerbandinganAlternatif(view);
+
+                        }
+                        
+//                        String sql3 = "update perbandingan_alternatif \n"
+//                                + "set pilihan_alternatif_seq='" + idTerpilih + "', \n"
+//                                + "kriteria_seq='" + view.jLabel3.getText() + "',\n"
+//                                + "subkriteria_seq='" + view.jLabel5.getText() + "',\n"
+//                                + "nilai='" + value(String.valueOf(view.jSlider1.getValue())) + "'\n"
+//                                + "WHERE perbandingan_alternatif.kriteria_seq = '" + view.jLabel3.getText() + "'\n"
+//                                + "AND perbandingan_alternatif.subkriteria_seq = '" + view.jLabel5.getText() + "'\n"
+//                                + "AND perbandingan_alternatif.alternatif2_seq = '" + view.jLabel7.getText() + "'\n"
+//                                + "AND perbandingan_alternatif.alternatif1_seq ='" + view.jLabel8.getText() + "'";
+//
+//                        PreparedStatement p22 = c.prepareStatement(sql3);
+//                        p22.executeUpdate();
+//                        p22.close();
+//
+//                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+//                        getDataRefresh(view);
+//                        getDataAlternatif(view);
+//                        Matrix(view);
+//                        getPerbandinganAlternatif(view);
 
                     } else {
 
@@ -1791,26 +1833,50 @@ public class control_alternatif {
                     while (r1.next()) {
                         idPilihan2 = r1.getInt("Jumlah");
                     }
-                    
+
                     if (idPilihan2 == 0) {
 
-                        String sql = "insert into perbandingan_alternatif set \n"
-                                + "alternatif1_seq ='" + view.jLabel7.getText() + "',\n"
-                                + "alternatif2_seq = '" + view.jLabel8.getText() + "',\n"
-                                + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
-                                + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
-                                + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
-                                + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+                        if (list1(view).equals("1")) {
 
-                        PreparedStatement p221 = c.prepareStatement(sql);
-                        p221.executeUpdate();
-                        p221.close();
+                            String sql = "insert into perbandingan_alternatif set \n"
+                                    + "alternatif1_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "alternatif2_seq = '" + view.jLabel8.getText() + "',\n"
+                                    + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
+                                    + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
+                                    + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
 
-                        JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        getDataRefresh(view);
-                        getDataAlternatif(view);
-                        Matrix(view);
-                        getPerbandinganAlternatif(view);
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataRefresh(view);
+                            getDataAlternatif(view);
+                            Matrix(view);
+                            getPerbandinganAlternatif(view);
+
+                        } else {
+
+                            String sql = "insert into perbandingan_alternatif set \n"
+                                    + "alternatif2_seq ='" + view.jLabel7.getText() + "',\n"
+                                    + "alternatif1_seq = '" + view.jLabel8.getText() + "',\n"
+                                    + "kriteria_seq = '" + view.jLabel3.getText() + "',\n"
+                                    + "subkriteria_seq = '" + view.jLabel5.getText() + "',\n"
+                                    + "pilihan_alternatif_seq = '" + idTerpilih + "',\n"
+                                    + "nilai ='" + value(String.valueOf(view.jSlider1.getValue())) + "'";
+
+                            PreparedStatement p221 = c.prepareStatement(sql);
+                            p221.executeUpdate();
+                            p221.close();
+
+                            JOptionPane.showMessageDialog(view, "Data successfully save", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            getDataRefresh(view);
+                            getDataAlternatif(view);
+                            Matrix(view);
+                            getPerbandinganAlternatif(view);
+
+                        }
 
                     } else {
 
@@ -1861,5 +1927,41 @@ public class control_alternatif {
             }
         } catch (SQLException e) {
         }
+    }
+    
+    public String list1(alternatif view) {
+
+        String hasil = "";
+
+        int row = view.jTable4.getRowCount();
+
+        List<HashMap<String, Object>> list1 = new ArrayList<>();
+
+        for (int i = 0; i < row; i++) {
+
+            String seq1 = view.jTable4.getValueAt(i, 1).toString();
+            String seq2 = view.jTable4.getValueAt(i, 3).toString();
+
+            HashMap<String, Object> has = new HashMap<String, Object>();
+
+            has.put("seq1", seq1);
+            has.put("seq2", seq2);
+
+            list1.add(has);
+
+        }
+
+        for (HashMap<String, Object> string : list1) {
+
+            if (view.jLabel7.getText().equals(string.get("seq1")) && view.jLabel8.getText().equals(string.get("seq2"))) {
+                hasil = "1";
+                return hasil;
+            } else {
+                hasil = "0";
+                return hasil;
+            }
+        }
+
+        return hasil;
     }
 }
