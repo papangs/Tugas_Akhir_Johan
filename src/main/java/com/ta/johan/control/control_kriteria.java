@@ -1325,7 +1325,7 @@ public class control_kriteria {
                             getDataGlobal(view);
 
                         }
-                        
+
                     } else {
 
                         String sql = "update perbandingan_kriteria \n"
@@ -1388,11 +1388,14 @@ public class control_kriteria {
 
         for (HashMap<String, Object> string : list1) {
 
+//            JOptionPane.showMessageDialog(headerTable, string.get("seq1") + " - "+string.get("seq2"));
             if (view.jLabel7.getText().equals(string.get("seq1")) && view.jLabel8.getText().equals(string.get("seq2"))) {
                 hasil = "1";
+//                JOptionPane.showMessageDialog(headerTable, hasil);
                 return hasil;
-            } else {
+            } else if (view.jLabel7.getText().equals(string.get("seq2")) && view.jLabel8.getText().equals(string.get("seq1"))){
                 hasil = "0";
+//                JOptionPane.showMessageDialog(headerTable, hasil);
                 return hasil;
             }
         }

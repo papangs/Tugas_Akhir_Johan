@@ -1956,7 +1956,7 @@ public class control_alternatif {
             if (view.jLabel7.getText().equals(string.get("seq1")) && view.jLabel8.getText().equals(string.get("seq2"))) {
                 hasil = "1";
                 return hasil;
-            } else {
+            } else if (view.jLabel7.getText().equals(string.get("seq2")) && view.jLabel8.getText().equals(string.get("seq1"))){
                 hasil = "0";
                 return hasil;
             }
